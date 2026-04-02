@@ -18,19 +18,52 @@
     <h1>RSVP</h1>
 
     <form>
-      <label>Name:</label><br />
-      <input type="text" /><br /><br />
-
-      <label>Will you attend?</label><br />
-      <select>
-        <option>Yes</option>
-        <option>No</option>
-      </select><br /><br />
-
-      <label>Dietary requirements:</label><br />
-      <input type="text" /><br /><br />
-
-      <button type="submit">Submit</button>
-    </form>
+      <form>
+        <label>Full name:</label><br />
+        <input type="text" name="fullName" /><br /><br />
+      
+        <label>Email or phone:</label><br />
+        <input type="text" name="contact" /><br /><br />
+      
+        <label>Will you attend the wedding weekend?</label><br />
+        <select name="weekendAttendance">
+          <option>Yes</option>
+          <option>No</option>
+        </select><br /><br />
+      
+        <label>Would you like to join the golf tournament on Friday morning?</label><br />
+        <select name="golfAttendance">
+          <option>No</option>
+          <option>Yes</option>
+        </select><br /><br />
+      
+        <label>Golf licence number:</label><br />
+        <input type="text" name="golfLicence" /><br /><br />
+      
+        <label>Do you need a bus to the ceremony on Saturday?</label><br />
+        <select name="saturdayBus">
+          <option>No bus needed</option>
+          <option>Yes - from Parador El Saler</option>
+          <option>Yes - from central Valencia</option>
+        </select><br /><br />
+      
+        <label>Will you attend the Sunday pool party?</label><br />
+        <select name="poolPartyAttendance">
+          <option>No</option>
+          <option>Yes</option>
+        </select><br /><br />
+      
+        <label>Do you need bus transport for the Sunday pool party?</label><br />
+        <select name="poolPartyBus">
+          <option>No</option>
+          <option>Yes</option>
+        </select><br /><br />
+      
+        <label>Dietary requirements:</label><br />
+        <input type="text" name="dietaryRequirements" /><br /><br />
+      
+        <button type="submit">Submit</button>
+      </form>
+    
   </body>
 </html>

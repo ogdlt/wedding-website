@@ -2,68 +2,86 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RSVP</title>
     <link rel="stylesheet" href="/styles/main.css" />
   </head>
 
   <body>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="event-details.html">Event Details</a>
-      <a href="travel-stay.html">Travel & Stay</a>
-      <a href="rsvp.html">RSVP</a>
-      <a href="faq.html">FAQ</a>
-    </nav>
+    <header class="site-header">
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="event-details.html">Event Details</a>
+        <a href="travel-stay.html">Travel & Stay</a>
+        <a href="rsvp.html">RSVP</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+    </header>
 
-    <h1>RSVP</h1>
+    <main>
+      <section class="hero" style="padding-bottom: 40px;">
+        <p class="section-label">Wedding Weekend</p>
+        <h1>RSVP</h1>
+        <p>
+          Please let us know your plans for the weekend, including attendance,
+          transport and any relevant details.
+        </p>
+      </section>
 
-    <form>
-      <form>
-        <label>Full name:</label><br />
-        <input type="text" name="fullName" /><br /><br />
-      
-        <label>Email or phone:</label><br />
-        <input type="text" name="contact" /><br /><br />
-      
-        <label>Will you attend the wedding weekend?</label><br />
-        <select name="weekendAttendance">
-          <option>Yes</option>
-          <option>No</option>
-        </select><br /><br />
-      
-        <label>Would you like to join the golf tournament on Friday morning?</label><br />
-        <select name="golfAttendance">
-          <option>No</option>
-          <option>Yes</option>
-        </select><br /><br />
-      
-        <label>Golf licence number:</label><br />
-        <input type="text" name="golfLicence" /><br /><br />
-      
-        <label>Do you need a bus to the ceremony on Saturday?</label><br />
-        <select name="saturdayBus">
-          <option>No bus needed</option>
-          <option>Yes - from Parador El Saler</option>
-          <option>Yes - from central Valencia</option>
-        </select><br /><br />
-      
-        <label>Will you attend the Sunday pool party?</label><br />
-        <select name="poolPartyAttendance">
-          <option>No</option>
-          <option>Yes</option>
-        </select><br /><br />
-      
-        <label>Do you need bus transport for the Sunday pool party?</label><br />
-        <select name="poolPartyBus">
-          <option>No</option>
-          <option>Yes</option>
-        </select><br /><br />
-      
-        <label>Dietary requirements:</label><br />
-        <input type="text" name="dietaryRequirements" /><br /><br />
-      
-        <button type="submit">Submit</button>
-      </form>
-    
+      <section>
+        <h2>Your Response</h2>
+
+        <form>
+          <label for="fullName">Full name</label>
+          <input type="text" id="fullName" name="fullName" />
+
+          <label for="contact">Email or phone</label>
+          <input type="text" id="contact" name="contact" />
+
+          <label for="weekendAttendance">Will you attend the wedding weekend?</label>
+          <select id="weekendAttendance" name="weekendAttendance">
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+
+          <label for="golfAttendance">Would you like to join the golf tournament on Friday morning?</label>
+          <select id="golfAttendance" name="golfAttendance">
+            <option>No</option>
+            <option>Yes</option>
+          </select>
+
+          <label for="golfLicence">Golf licence number</label>
+          <input type="text" id="golfLicence" name="golfLicence" />
+
+          <label for="saturdayBus">Do you need a bus to the ceremony on Saturday?</label>
+          <select id="saturdayBus" name="saturdayBus">
+            <option>No bus needed</option>
+            <option>Yes - from Parador El Saler</option>
+            <option>Yes - from central Valencia</option>
+          </select>
+
+          <label for="poolPartyAttendance">Will you attend the Sunday pool party?</label>
+          <select id="poolPartyAttendance" name="poolPartyAttendance">
+            <option>No</option>
+            <option>Yes</option>
+          </select>
+
+          <label for="poolPartyBus">Do you need bus transport for the Sunday pool party?</label>
+          <select id="poolPartyBus" name="poolPartyBus">
+            <option>No</option>
+            <option>Yes</option>
+          </select>
+
+          <label for="dietaryRequirements">Dietary requirements</label>
+          <input
+            type="text"
+            id="dietaryRequirements"
+            name="dietaryRequirements"
+          />
+
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </main>
   </body>
 </html>

@@ -327,11 +327,19 @@ img {
 
 .hero-image img {
   width: 100%;
-  max-width: 520px;
+  max-width: 700px;
   height: auto;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 28px;
   display: block;
 }
 .hero {
   text-align: center;
+}
+.hero p {
+  margin-top: 10px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }

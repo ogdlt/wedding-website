@@ -46,12 +46,33 @@ main {
 }
 
 .hero {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 110px 24px 90px;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 0 90px;
   text-align: center;
+  
 }
 
+.hero-image {
+  position: relative;
+  width: 100%;
+  margin: 0;
+}
+.hero-overlay {
+position: absolute;
+top: 18%;
+left: 50%;
+transform: translateX(-50%);
+width: 100%;
+padding: 0 24px;
+text-align: center;
+z-index: 2;
+}
+.hero-overlay .eyebrow {
+  margin: 0 0 16px;
+  color: #ffffff;
+} 
 .eyebrow,
 .section-label,
 .card-day {
@@ -68,6 +89,8 @@ main {
   font-weight: 400;
   line-height: 0.95;
   letter-spacing: -0.03em;
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.22);
 }
 
 .hero-date,
@@ -78,11 +101,12 @@ main {
 }
 
 .hero-actions {
-  margin-top: 40px;
+  margin-top: 32px;
   display: flex;
   justify-content: center;
   gap: 16px;
   flex-wrap: wrap;
+  padding: 0 24px;
 }
 
 .button-primary,
@@ -231,9 +255,7 @@ th {
 }
 
 section {
-  max-width: 950px;
   margin: 60px auto;
-  text-align: left;
   padding: 0 24px;
 }
 
@@ -303,9 +325,7 @@ img {
     grid-template-columns: 1fr;
   }
 
-  .hero {
-    padding-top: 80px;
-  }
+  
 
   .planning-card {
     padding: 36px 24px;
@@ -315,30 +335,18 @@ img {
     font-size: 30px;
   }
 }
-.hero-image {
-  display: flex;
-  justify-content: center;
-  margin: 40px 0;
-}
+
 
 .hero-image img {
   width: 100%;
-  max-width: 420px;
+  max-width: none;
   height: auto;
   display: block;
-  border-radius: 24px;
-  padding: 10px;
-  background: #ffffff;
-  border: 1px solid rgba(47, 42, 38, 0.12);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
 }
 
-.hero {
-  text-align: center;
-}
-.hero p {
-  margin-top: 10px;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-}
+

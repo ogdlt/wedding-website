@@ -61,7 +61,7 @@ main {
 }
 .hero-overlay {
 position: absolute;
-top: 18%;
+top: 10%;
 left: 50%;
 transform: translateX(-50%);
 width: 100%;
@@ -71,7 +71,7 @@ z-index: 2;
 }
 .hero-overlay .eyebrow {
   margin: 0 0 16px;
-  color: #ffffff;
+  color: #2f2a26;
 } 
 .eyebrow,
 .section-label,
@@ -89,8 +89,9 @@ z-index: 2;
   font-weight: 400;
   line-height: 0.95;
   letter-spacing: -0.03em;
-  color: #ffffff;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.22);
+  color: #2f2a26;
+  ;
+  text-shadow:none;
 }
 
 .hero-date,
@@ -339,8 +340,9 @@ img {
 
 .hero-image img {
   width: 100%;
-  max-width: none;
-  height: auto;
+  height: 78vh;
+  object-fit: cover;
+  object-position: top center;
   display: block;
   border-radius: 0;
   padding: 0;

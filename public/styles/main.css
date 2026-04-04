@@ -340,9 +340,7 @@ img {
 
 .hero-image img {
   width: 100%;
-  height: min(72vh, 760px);
-  object-fit: cover;
-  object-position: 50% 8%;
+  height: auto;
   display: block;
   border-radius: 0;
   padding: 0;
@@ -350,18 +348,6 @@ img {
   border: none;
   box-shadow: none;
 }
-@media (max-width: 1440px) {
-  .hero-image img {
-    height: 62vh;
-    object-position: 50% 6%;
-  }
-}
 
-@media (max-width: 1200px) {
-  .hero-image img {
-    height: 56vh;
-    object-position: 50% 5%;
-  }
-}
 
 

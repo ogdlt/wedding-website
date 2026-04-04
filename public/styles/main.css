@@ -15,7 +15,11 @@ a {
 }
 
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   padding: 28px 24px 0;
+  background-color: #ffffff;
 }
 
 .main-nav {
@@ -27,6 +31,7 @@ a {
   justify-content: center;
   flex-wrap: wrap;
   gap: 26px;
+  background-color: #ffffff;
 }
 
 .main-nav a {
@@ -349,5 +354,7 @@ img {
   box-shadow: none;
 }
 
-
+.overview-section h2 {
+  text-align: center;
+}
 

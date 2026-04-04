@@ -362,9 +362,10 @@ img {
   text-align: center;
   width: 100%;
 }
-section .planning-card h2 {
-  text-align: center !important;
+.planning-section {
+  text-align: center;
 }
+
 .planning-section h2 {
   text-align: center !important;
   width: 100%;

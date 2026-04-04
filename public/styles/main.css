@@ -365,7 +365,8 @@ img {
   width: 100%;
 }
 
-.planning-section > h2,
-.planning-section > .section-label {
+.overview-section > .section-label,
+.overview-section > h2 {
   text-align: center;
+  width: 100%;
 }

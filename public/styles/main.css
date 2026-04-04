@@ -358,3 +358,7 @@ img {
   text-align: center;
 }
 
+.overview-section h2 {
+  text-align: center;
+  width: 100%;
+}

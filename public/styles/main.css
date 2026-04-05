@@ -75,9 +75,10 @@ main {
   z-index: 2;
 }
 .hero-overlay .eyebrow {
-  margin: 0 0 16px;
-  color: #2f2a26;
-} 
+  margin: 0 0 12px;
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.28);
+}
 .eyebrow,
 .section-label,
 .card-day {
@@ -90,22 +91,27 @@ main {
 
 .hero h1 {
   margin: 0;
-  font-size: clamp(42px, 6vw, 72px);
+  font-size: clamp(34px, 4.8vw, 58px);
   font-weight: 400;
-  line-height: 0.95;
-  letter-spacing: -0.03em;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
   color: #ffffff;
   text-shadow: 0 2px 12px rgba(0,0,0,0.28);
-  ;
-  text-shadow:none;
 }
 
 .hero-date,
 .hero-location {
-  margin: 16px 0 0;
-  font-size: 20px;
+  margin: 10px 0 0;
+  font-size: 24px;
   color: #ffffff;
   text-shadow: 0 2px 12px rgba(0,0,0,0.28);
+}
+.hero-date {
+  margin-top: 14px;
+}
+
+.hero-location {
+  margin-top: 6px;
 }
 
 .hero-actions {

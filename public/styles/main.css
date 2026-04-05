@@ -377,3 +377,6 @@ img {
 .overview-heading h2 {
   margin: 0 0 12px;
 }
+.event-details-title {
+  color: #000;
+}

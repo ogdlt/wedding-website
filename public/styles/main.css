@@ -364,27 +364,24 @@ img {
   border: none;
   box-shadow: none;
 }
-.overview-section {
+
+.overview-heading {
+  max-width: 760px;
+  margin: 0 auto 24px;
   text-align: center;
 }
 
-.overview-heading {
-  width: 100%;
-  margin: 0 auto 24px;
+.overview-heading .section-label,
+.overview-heading h2 {
+  text-align: center;
 }
 
 .overview-heading h2 {
-  display: table;
-  margin: 0 auto 12px;
-  text-align: center;
-}
-
-.overview-heading .section-label {
-  display: table;
-  margin: 0 auto;
-  text-align: center;
+  margin: 0 0 12px;
 }
 
 .overview-grid {
+  max-width: 1100px;
+  margin: 40px auto 0;
   text-align: left;
 }

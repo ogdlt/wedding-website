@@ -387,3 +387,12 @@ img {
 main section h2 {
   text-align: center;
 }
+.event-page section h2,
+.event-page section p,
+.event-page section a {
+  text-align: center;
+}
+
+.event-page section a {
+  display: block;
+}

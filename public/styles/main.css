@@ -383,3 +383,7 @@ img {
 .hero .event-details-title {
   color: #000 !important;
 }
+
+main section h2 {
+  text-align: center;
+}

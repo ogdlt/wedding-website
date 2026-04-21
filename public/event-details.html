@@ -1,114 +1,603 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Event Details</title>
-    <link rel="stylesheet" href="/styles/main.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Details — Olimpia & Shayann</title>
+  <link rel="stylesheet" href="/styles/main.css" />
+  <style>
+    :root {
+      --dark: #2f2a26;
+      --mid: #5a534d;
+      --muted: #8a7f75;
+      --soft-bg: #f8f8f8;
+      --warm-tan: #eee4d9;
+      --border: rgba(47, 42, 38, 0.12);
+      --border-soft: rgba(47, 42, 38, 0.08);
+      --border-strong: rgba(47, 42, 38, 0.2);
+    }
 
-  <body>
-    <header class="site-header">
-      <nav class="main-nav">
-        <a href="index.html">Home</a>
-        <a href="event-details.html">Event Details</a>
-        <a href="travel-stay.html">Travel & Stay</a>
-        <a href="rsvp.html">RSVP</a>
-        <a href="faq.html">FAQ</a>
-      </nav>
-    </header>
+    /* ── override main.css defaults for this page ── */
+    main section h2 { text-align: left; }
+    main section { margin: 0; padding: 0; }
 
-    <main>
-        <section class="hero" style="padding-top: 60px; padding-bottom: 40px;">
-            <h1 style="color: black; text-shadow: none;">Event Details</h1>
-            <p style="color: black;">A quick overview of the weekend, followed by full details below.</p>
-          </section>
+    /* HERO */
+    .ev-hero {
+      text-align: center;
+      padding: 80px 24px 90px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .ev-hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -100px;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(238, 228, 217, 0.55) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .ev-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(238, 228, 217, 0.45) 0%, transparent 70%);
+      pointer-events: none;
+    }
 
-          <section>
-            <h2>Weekend Overview</h2>
-          
-            <table class="weekend-table">
-              <tr>
-                <th>Day</th>
-                <th>Plan</th>
-                <th>Details</th>
-              </tr>
-              <tr>
-                <td>Friday</td>
-                <td>Golf Tournament & Welcome Cocktail</td>
-                <td>Optional golf in the morning, followed by a welcome cocktail at Parador El Saler in the evening.</td>
-              </tr>
-              <tr>
-                <td>Saturday</td>
-                <td>Ceremony & Celebration</td>
-                <td>Buses at 16:30 from El Saler and central Valencia.</td>
-              </tr>
-              <tr>
-                <td>Sunday</td>
-                <td>Beach & Pool Party</td>
-                <td>Relaxed gathering at Parador El Saler. RSVP required.</td>
-              </tr>
-            </table>
-          </section>
-      <section>
-        <div class="intro-text">
-          <h2>Friday — Day activities and Evening Cocktail</h2>
-          <p>
-            Daytime: Enjoy your day with optional activities like joining a golf tournament with other family &amp; friends
-            (RSVP required), bike tours around l'Albufera, going to the beach or by the pool...
-          </p>
-          <p>
-            Evening: Welcome cocktail at 19:00 at Parador El Saler.
-          </p>
-          <a
-            href="https://mobi.parador.es/en/paradores/parador-de-el-saler"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Parador El Saler
-          </a>
-          <p>More details on timing will be shared soon.</p>
+    .ev-eyebrow {
+      margin: 0 0 18px;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .ev-hero h1 {
+      margin: 0 0 52px;
+      font-size: clamp(38px, 5.2vw, 62px);
+      font-weight: 400;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--dark);
+    }
+
+    /* countdown */
+    .ev-countdown {
+      display: inline-flex;
+      margin: 0 0 44px;
+    }
+    .ev-cu {
+      text-align: center;
+      padding: 0 26px;
+      border-right: 1px solid var(--border);
+    }
+    .ev-cu:last-child { border-right: none; }
+
+    .ev-cu-n {
+      display: block;
+      font-size: clamp(36px, 4.6vw, 56px);
+      font-weight: 400;
+      line-height: 1;
+      color: var(--dark);
+      min-width: 1.8ch;
+      letter-spacing: -0.01em;
+    }
+    .ev-cu-l {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    /* ornament */
+    .ev-ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      color: var(--border-strong);
+    }
+    .ev-ornament-line {
+      width: 60px; height: 1px;
+      background: currentColor;
+    }
+    .ev-ornament svg {
+      width: 14px; height: 14px;
+      fill: currentColor;
+    }
+
+    /* AT A GLANCE */
+    .ev-glance {
+      padding: 80px 24px 90px;
+      text-align: center;
+    }
+    .ev-glance-label {
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 48px;
+    }
+    .ev-timeline {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      max-width: 860px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .ev-timeline::before {
+      content: '';
+      position: absolute;
+      top: 22px;
+      left: calc(16.66% + 22px);
+      right: calc(16.66% + 22px);
+      height: 1px;
+      background: var(--border);
+    }
+    .ev-tl-day {
+      flex: 1;
+      text-align: center;
+      padding: 0 14px;
+    }
+    .ev-tl-dot {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid var(--border-strong);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .ev-tl-dot svg {
+      width: 18px; height: 18px;
+      stroke: var(--dark);
+      fill: none;
+      stroke-width: 1.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .ev-tl-day-label {
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 10px;
+    }
+    .ev-tl-day-title {
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--dark);
+      margin: 0 0 10px;
+    }
+    .ev-tl-day-desc {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--mid);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* DAY / STEP SECTIONS */
+    .ev-day {
+      padding: 100px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .ev-day--bg { background: var(--soft-bg); }
+    .ev-day--flip .ev-day-inner { direction: rtl; }
+    .ev-day--flip .ev-day-inner > * { direction: ltr; }
+
+    .ev-day-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    /* visual: icon + ghost number variant */
+    .ev-day-visual {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .ev-day-num {
+      font-size: clamp(100px, 14vw, 170px);
+      font-weight: 400;
+      line-height: 0.85;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--border);
+      user-select: none;
+      margin-bottom: -8px;
+      letter-spacing: -0.02em;
+    }
+    .ev-day-icon {
+      width: 76px; height: 76px;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid var(--border-strong);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ev-day-icon svg {
+      width: 32px; height: 32px;
+      stroke: var(--dark);
+      fill: none;
+      stroke-width: 1.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* visual: image variant */
+    .ev-day-visual--image { width: 100%; align-items: stretch; }
+    .ev-day-visual--image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+    }
+
+    /* content side */
+    .ev-day-label {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 18px;
+    }
+    .ev-day-content h2 {
+      font-size: clamp(34px, 4vw, 54px);
+      font-weight: 400;
+      line-height: 1.05;
+      color: var(--dark);
+      margin: 0 0 24px;
+      text-align: left;
+    }
+    .ev-day-content p {
+      font-size: 18px;
+      color: var(--mid);
+      line-height: 1.6;
+      margin: 0 0 14px;
+    }
+
+    /* info card */
+    .ev-info {
+      margin-top: 34px;
+      padding: 4px 0 4px 22px;
+      border-left: 2px solid var(--dark);
+    }
+    .ev-info-row {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      padding: 12px 0;
+      font-size: 15px;
+    }
+    .ev-info-row:not(:last-child) {
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .ev-info-k {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      min-width: 90px;
+      flex-shrink: 0;
+    }
+    .ev-info-v {
+      color: var(--dark);
+      line-height: 1.5;
+    }
+
+    /* cta link */
+    .ev-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 28px;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dark);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border-strong);
+      padding-bottom: 4px;
+      transition: border-color 0.2s;
+    }
+    .ev-link:hover { border-color: var(--dark); }
+
+    /* SCROLL REVEAL */
+    .r {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .r.on { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.22s; }
+    .d3 { transition-delay: 0.36s; }
+    .d4 { transition-delay: 0.52s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 820px) {
+      .ev-day-inner {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .ev-day--flip .ev-day-inner { direction: ltr; }
+      .ev-day { padding: 72px 24px; }
+      .ev-timeline { flex-direction: column; align-items: center; gap: 0; }
+      .ev-timeline::before { display: none; }
+      .ev-tl-day {
+        width: 100%;
+        max-width: 340px;
+        padding: 24px 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .ev-tl-day:last-child { border-bottom: none; }
+      .ev-cu { padding: 0 16px; }
+      .ev-day-num { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="event-details.html">Event Details</a>
+      <a href="travel-stay.html">Travel & Stay</a>
+      <a href="rsvp.html">RSVP</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="ev-hero">
+      <p class="ev-eyebrow">10 July 2027 &nbsp;·&nbsp; Valencia, Spain</p>
+      <h1>The Weekend</h1>
+
+      <div class="ev-countdown" id="countdown">
+        <div class="ev-cu"><span class="ev-cu-n" id="cd-d">—</span><span class="ev-cu-l">Days</span></div>
+        <div class="ev-cu"><span class="ev-cu-n" id="cd-h">—</span><span class="ev-cu-l">Hours</span></div>
+        <div class="ev-cu"><span class="ev-cu-n" id="cd-m">—</span><span class="ev-cu-l">Minutes</span></div>
+        <div class="ev-cu"><span class="ev-cu-n" id="cd-s">—</span><span class="ev-cu-l">Seconds</span></div>
+      </div>
+
+      <div class="ev-ornament">
+        <span class="ev-ornament-line"></span>
+        <svg viewBox="0 0 16 16"><path d="M8 1C8 1 5 4.5 5 7C5 8.66 6.34 10 8 10C9.66 10 11 8.66 11 7C11 4.5 8 1 8 1Z"/><line x1="8" y1="10" x2="8" y2="15" stroke="currentColor" stroke-width="1.2"/><line x1="5.5" y1="13" x2="10.5" y2="13" stroke="currentColor" stroke-width="1.2"/></svg>
+        <span class="ev-ornament-line"></span>
+      </div>
+    </section>
+
+    <!-- AT A GLANCE -->
+    <section class="ev-glance">
+      <p class="ev-glance-label r">Weekend at a glance</p>
+      <div class="ev-timeline">
+
+        <div class="ev-tl-day r d1">
+          <div class="ev-tl-dot">
+            <svg viewBox="0 0 24 24">
+              <line x1="7" y1="3" x2="7" y2="21"/>
+              <polyline points="7,3 19,8 7,13"/>
+              <ellipse cx="7" cy="20" rx="3" ry="1.5"/>
+            </svg>
+          </div>
+          <p class="ev-tl-day-label">Friday &middot; 9 July</p>
+          <p class="ev-tl-day-title">Golf, Activities & Cocktail</p>
+          <p class="ev-tl-day-desc">Optional golf and resort activities during the day, followed by a welcome cocktail at Parador El Saler</p>
         </div>
-      
-        <img
-          src="/images/El_Saler.jpg"
-          alt="El Saler"
-          style="width: 100%; max-width: 700px; height: auto; display: block; margin: 20px auto 0; border-radius: 12px;"
-        />
-      </section>
-      
 
+        <div class="ev-tl-day r d2">
+          <div class="ev-tl-dot">
+            <svg viewBox="0 0 24 24">
+              <circle cx="8.5" cy="13" r="5"/>
+              <circle cx="15.5" cy="13" r="5"/>
+            </svg>
+          </div>
+          <p class="ev-tl-day-label">Saturday &middot; 10 July</p>
+          <p class="ev-tl-day-title">Ceremony & Celebration</p>
+          <p class="ev-tl-day-desc">Ceremony at 19:30h at Masía Xamandreu. Return buses at 01:00, 03:00 & 04:45</p>
+        </div>
 
-      <section>
-        <div class="intro-text">
-          <h2>Saturday — Ceremony & Celebration</h2>
-          <p>The ceremony will take place at a finca in Valencia (exact location to be confirmed).</p>
-      
-          <p>Buses will depart at <strong>16:30</strong> from:</p>
-          <ul>
-            <li>Parador El Saler</li>
-            <li>Central Valencia</li>
-          </ul>
-      
-          <p>
-            Return buses will leave the venue at <strong>01:00</strong> and <strong>03:00</strong>.
-          </p>
+        <div class="ev-tl-day r d3">
+          <div class="ev-tl-dot">
+            <svg viewBox="0 0 24 24">
+              <path d="M9 3 L15 3 L14 13 L10 13 Z"/>
+              <line x1="12" y1="13" x2="12" y2="20"/>
+              <line x1="9" y1="20" x2="15" y2="20"/>
+            </svg>
+          </div>
+          <p class="ev-tl-day-label">Sunday &middot; 11 July</p>
+          <p class="ev-tl-day-title">Farewell Lunch</p>
+          <p class="ev-tl-day-desc">Optional farewell lunch at Parador El Saler to close the weekend</p>
         </div>
-      </section>
-      
-      <section>
-        <div class="intro-text">
-          <h2>Sunday — Beach & Pool Party</h2>
-          <p>
-            We would love to see you for a relaxed pool party at Parador El Saler to close the weekend.
-          </p>
-          <p>
-            Please let us know in the RSVP form whether you will attend and whether you need bus transport.
-          </p>
+
+      </div>
+    </section>
+
+    <!-- STEP 01 · FRIDAY · GOLF & RESORT ACTIVITIES -->
+    <section class="ev-day">
+      <div class="ev-day-inner">
+
+        <div class="ev-day-visual ev-day-visual--image r">
+          <img src="/images/El_Parador_Acuarela.png" alt="Parador El Saler" />
         </div>
-      </section>
-    </main>
-  </body>
+
+        <div class="ev-day-content">
+          <span class="ev-day-label r">Friday &middot; 9 July &middot; Optional</span>
+          <h2 class="r d1">Golf Tournament & Resort Activities</h2>
+          <p class="r d2">The day is yours to enjoy. Sign up for the optional golf tournament alongside family and friends, or take Parador El Saler at your own pace — time by the pool, on the beach, or out on the water with a guided boat tour.</p>
+          <div class="ev-info r d3">
+            <div class="ev-info-row">
+              <span class="ev-info-k">Golf</span>
+              <span class="ev-info-v">Optional tournament — sign-up and golf licence required</span>
+            </div>
+            <div class="ev-info-row">
+              <span class="ev-info-k">Resort</span>
+              <span class="ev-info-v">Beach, pool & boat tours at Parador El Saler</span>
+            </div>
+          </div>
+          <a href="rsvp.html" class="ev-link r d4">RSVP for the tournament &rarr;</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- STEP 02 · FRIDAY · WELCOME COCKTAIL -->
+    <section class="ev-day ev-day--bg">
+      <div class="ev-day-inner">
+
+        <div class="ev-day-visual ev-day-visual--image r">
+          <img src="/images/El_Parador_Acuarela.png" alt="Parador El Saler" />
+        </div>
+
+        <div class="ev-day-content">
+          <span class="ev-day-label r">Friday &middot; 9 July &middot; 19:00</span>
+          <h2 class="r d1">Welcome Cocktail</h2>
+          <p class="r d2">For guests travelling from abroad — and anyone already on-site — we'll gather at Parador El Saler for a welcome cocktail. A relaxed way to kick off the weekend together.</p>
+          <div class="ev-info r d3">
+            <div class="ev-info-row">
+              <span class="ev-info-k">Time</span>
+              <span class="ev-info-v">19:00</span>
+            </div>
+            <div class="ev-info-row">
+              <span class="ev-info-k">Where</span>
+              <span class="ev-info-v">Parador El Saler</span>
+            </div>
+            <div class="ev-info-row">
+              <span class="ev-info-k">Note</span>
+              <span class="ev-info-v">Open to everyone who has arrived — come as you are</span>
+            </div>
+          </div>
+          <a href="https://mobi.parador.es/en/paradores/parador-de-el-saler" target="_blank" rel="noopener noreferrer" class="ev-link r d4">Parador El Saler &rarr;</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- STEP 03 · SATURDAY · CEREMONY & CELEBRATION -->
+    <section class="ev-day ev-day--flip">
+      <div class="ev-day-inner">
+
+        <div class="ev-day-visual ev-day-visual--image r">
+          <img src="/images/Masia_Xamandreu_Acuarela.png" alt="Masía Xamandreu" />
+        </div>
+
+        <div class="ev-day-content">
+          <span class="ev-day-label r">Saturday &middot; 10 July &middot; 19:30</span>
+          <h2 class="r d1">Ceremony & Celebration</h2>
+          <p class="r d2">The main event. The ceremony takes place at Masía Xamandreu in Valencia at 19:30, followed by dinner, music and dancing late into the night — all at the same venue.</p>
+          <div class="ev-info r d3">
+            <div class="ev-info-row">
+              <span class="ev-info-k">Ceremony</span>
+              <span class="ev-info-v">19:30 &middot; Masía Xamandreu, Valencia</span>
+            </div>
+            <div class="ev-info-row">
+              <span class="ev-info-k">Bus there</span>
+              <span class="ev-info-v">From Parador El Saler & a second stop in Valencia (times to be confirmed)</span>
+            </div>
+            <div class="ev-info-row">
+              <span class="ev-info-k">Bus back</span>
+              <span class="ev-info-v">01:00 &middot; 03:00 &middot; 04:45</span>
+            </div>
+          </div>
+          <a href="rsvp.html" class="ev-link r d4">Reserve your bus seat &rarr;</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- STEP 04 · SUNDAY · FAREWELL LUNCH -->
+    <section class="ev-day ev-day--bg">
+      <div class="ev-day-inner">
+
+        <div class="ev-day-visual r">
+          <span class="ev-day-num">04</span>
+          <div class="ev-day-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M9 3 L15 3 L14 13 L10 13 Z"/>
+              <line x1="12" y1="13" x2="12" y2="20"/>
+              <line x1="9" y1="20" x2="15" y2="20"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="ev-day-content">
+          <span class="ev-day-label r">Sunday &middot; 11 July &middot; Optional</span>
+          <h2 class="r d1">Farewell Lunch</h2>
+          <p class="r d2">For those staying on, we'll plan an optional farewell lunch at Parador El Saler — a gentle way to close the weekend together. Anyone wanting another round of golf or use of the hotel facilities can book those directly with the hotel.</p>
+          <div class="ev-info r d3">
+            <div class="ev-info-row">
+              <span class="ev-info-k">Where</span>
+              <span class="ev-info-v">Parador El Saler</span>
+            </div>
+            <div class="ev-info-row">
+              <span class="ev-info-k">Note</span>
+              <span class="ev-info-v">Optional — for those staying longer</span>
+            </div>
+            <div class="ev-info-row">
+              <span class="ev-info-k">Golf & facilities</span>
+              <span class="ev-info-v">Book directly with Parador El Saler</span>
+            </div>
+          </div>
+          <a href="rsvp.html" class="ev-link r d4">RSVP for the lunch &rarr;</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    (function() {
+      var target = new Date('2027-07-10T19:30:00');
+      function pad(n) { return String(n).padStart(2, '0'); }
+      function tick() {
+        var diff = target - new Date();
+        if (diff <= 0) {
+          document.getElementById('countdown').innerHTML =
+            '<p style="font-size:28px;color:#2f2a26;margin:0">Today is the day!</p>';
+          return;
+        }
+        document.getElementById('cd-d').textContent = pad(Math.floor(diff / 86400000));
+        document.getElementById('cd-h').textContent = pad(Math.floor(diff % 86400000 / 3600000));
+        document.getElementById('cd-m').textContent = pad(Math.floor(diff % 3600000 / 60000));
+        document.getElementById('cd-s').textContent = pad(Math.floor(diff % 60000 / 1000));
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+
+    (function() {
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('on');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.r').forEach(function(el) { obs.observe(el); });
+    })();
+  </script>
+</body>
 </html>
-<body class="event-page">
-    

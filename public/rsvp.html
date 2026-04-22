@@ -1,87 +1,582 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RSVP</title>
-    <link rel="stylesheet" href="/styles/main.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RSVP — Olimpia & Shayann</title>
+  <link rel="stylesheet" href="/styles/main.css" />
+  <style>
+    :root {
+      --dark: #2f2a26;
+      --mid: #5a534d;
+      --muted: #8a7f75;
+      --soft-bg: #f8f8f8;
+      --warm-tan: #eee4d9;
+      --border: rgba(47, 42, 38, 0.12);
+      --border-soft: rgba(47, 42, 38, 0.08);
+      --border-strong: rgba(47, 42, 38, 0.2);
+      --success: #3a6a47;
+      --error: #9a3a3a;
+    }
 
-  <body>
-    <header class="site-header">
-      <nav class="main-nav">
-        <a href="index.html">Home</a>
-        <a href="event-details.html">Event Details</a>
-        <a href="travel-stay.html">Travel & Stay</a>
-        <a href="rsvp.html">RSVP</a>
-        <a href="faq.html">FAQ</a>
-      </nav>
-    </header>
+    /* overrides like event-details */
+    main section h2 { text-align: left; }
+    main section { margin: 0; padding: 0; }
 
-    <main>
-      <section class="hero" style="padding-bottom: 40px;">
-        <p class="section-label">Wedding Weekend</p>
-        <h1>RSVP</h1>
-        <p>
-          Please let us know your plans for the weekend, including attendance,
-          transport and any relevant details.
-        </p>
-      </section>
+    /* HERO */
+    .ev-hero {
+      text-align: center;
+      padding: 52px 24px 56px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .ev-hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -100px;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(238, 228, 217, 0.55) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .ev-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(238, 228, 217, 0.45) 0%, transparent 70%);
+      pointer-events: none;
+    }
 
-      <section>
-        <h2>Your Response</h2>
+    .ev-eyebrow {
+      margin: 0 0 12px;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
 
-        <form>
-          <label for="fullName">Full name</label>
-          <input type="text" id="fullName" name="fullName" />
+    .ev-hero h1 {
+      margin: 0 0 18px;
+      font-size: clamp(34px, 4.6vw, 54px);
+      font-weight: 400;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--dark);
+    }
 
-          <label for="contact">Email or phone</label>
-          <input type="text" id="contact" name="contact" />
+    .ev-hero-lead {
+      max-width: 620px;
+      margin: 0 auto 28px;
+      font-size: 17px;
+      color: var(--mid);
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
 
-          <label for="weekendAttendance">Will you attend the wedding weekend?</label>
-          <select id="weekendAttendance" name="weekendAttendance">
-            <option>Yes</option>
-            <option>No</option>
-          </select>
+    .ev-ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      color: var(--border-strong);
+    }
+    .ev-ornament-line {
+      width: 60px; height: 1px;
+      background: currentColor;
+    }
+    .ev-ornament svg {
+      width: 14px; height: 14px;
+      fill: currentColor;
+    }
 
-          <label for="golfAttendance">Would you like to join the golf tournament on Friday morning?</label>
-          <select id="golfAttendance" name="golfAttendance">
-            <option>No</option>
-            <option>Yes</option>
-          </select>
+    /* FORM WRAPPER — reuses the ev-day feel */
+    .rsvp-wrapper {
+      padding: 80px 24px 100px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .rsvp-wrapper.bg-soft {
+      max-width: none;
+      background: var(--soft-bg);
+    }
+    .rsvp-wrapper-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
 
-          <label for="golfLicence">Golf licence number</label>
-          <input type="text" id="golfLicence" name="golfLicence" />
+    /* FORM GROUPS styled like ev-info but for inputs */
+    .rsvp-group {
+      margin-bottom: 40px;
+    }
 
-          <label for="saturdayBus">Do you need a bus to the ceremony on Saturday?</label>
-          <select id="saturdayBus" name="saturdayBus">
-            <option>No bus needed</option>
-            <option>Yes - from Parador El Saler</option>
-            <option>Yes - from central Valencia</option>
-          </select>
+    .rsvp-group-label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 12px;
+    }
 
-          <label for="poolPartyAttendance">Will you attend the Sunday pool party?</label>
-          <select id="poolPartyAttendance" name="poolPartyAttendance">
-            <option>No</option>
-            <option>Yes</option>
-          </select>
+    .rsvp-group h2 {
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--dark);
+      margin: 0 0 12px;
+      text-align: left;
+    }
 
-          <label for="poolPartyBus">Do you need bus transport for the Sunday pool party?</label>
-          <select id="poolPartyBus" name="poolPartyBus">
-            <option>No</option>
-            <option>Yes</option>
-          </select>
+    .rsvp-group-desc {
+      font-size: 15px;
+      color: var(--mid);
+      line-height: 1.55;
+      margin: 0 0 18px;
+    }
 
-          <label for="dietaryRequirements">Dietary requirements</label>
-          <input
-            type="text"
-            id="dietaryRequirements"
-            name="dietaryRequirements"
-          />
+    /* Inputs / selects */
+    .rsvp-field {
+      margin-bottom: 22px;
+    }
+    .rsvp-field-label {
+      display: block;
+      font-size: 14px;
+      color: var(--dark);
+      margin: 0 0 8px;
+      font-weight: 400;
+    }
+    .rsvp-field input[type="text"],
+    .rsvp-field input[type="email"],
+    .rsvp-field input[type="tel"],
+    .rsvp-field textarea,
+    .rsvp-field select {
+      width: 100%;
+      padding: 13px 16px;
+      font-size: 16px;
+      font-family: inherit;
+      color: var(--dark);
+      background: #fff;
+      border: 1px solid var(--border-strong);
+      border-radius: 10px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .rsvp-field input:focus,
+    .rsvp-field textarea:focus,
+    .rsvp-field select:focus {
+      outline: none;
+      border-color: var(--dark);
+      box-shadow: 0 0 0 3px rgba(47, 42, 38, 0.08);
+    }
+    .rsvp-field textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
 
-          <button type="submit">Submit</button>
-        </form>
-      </section>
-    </main>
-  </body>
+    /* Radio pill group — Yes / No toggles */
+    .rsvp-pills {
+      display: inline-flex;
+      background: #fff;
+      border: 1px solid var(--border-strong);
+      border-radius: 999px;
+      padding: 4px;
+      gap: 2px;
+    }
+    .rsvp-pill {
+      position: relative;
+    }
+    .rsvp-pill input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .rsvp-pill-label {
+      display: inline-block;
+      padding: 8px 22px;
+      font-size: 14px;
+      letter-spacing: 0.06em;
+      color: var(--mid);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .rsvp-pill input:checked + .rsvp-pill-label {
+      background: var(--dark);
+      color: #f7f3ee;
+    }
+    .rsvp-pill input:focus-visible + .rsvp-pill-label {
+      box-shadow: 0 0 0 3px rgba(47, 42, 38, 0.12);
+    }
+
+    /* Conditional panel — shows golf licence when "Yes" */
+    .rsvp-conditional {
+      display: none;
+      margin-top: 16px;
+      padding-left: 16px;
+      border-left: 2px solid var(--dark);
+    }
+    .rsvp-conditional.on {
+      display: block;
+      animation: fadeSlide 0.3s ease both;
+    }
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(-4px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Section divider between plan cards */
+    .rsvp-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 40px 0;
+    }
+
+    /* Submit area */
+    .rsvp-submit-wrap {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .rsvp-submit {
+      display: inline-block;
+      padding: 16px 40px;
+      background: var(--dark);
+      color: #f7f3ee;
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s;
+    }
+    .rsvp-submit:hover { background: #1f1a17; }
+    .rsvp-submit:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    /* Status message */
+    .rsvp-status {
+      display: none;
+      margin-top: 24px;
+      padding: 18px 22px;
+      border-radius: 12px;
+      font-size: 15px;
+      text-align: center;
+      line-height: 1.55;
+    }
+    .rsvp-status.on { display: block; }
+    .rsvp-status.success {
+      background: rgba(58, 106, 71, 0.08);
+      color: var(--success);
+      border: 1px solid rgba(58, 106, 71, 0.25);
+    }
+    .rsvp-status.error {
+      background: rgba(154, 58, 58, 0.08);
+      color: var(--error);
+      border: 1px solid rgba(154, 58, 58, 0.25);
+    }
+
+    /* SCROLL REVEAL */
+    .r {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .r.on { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.22s; }
+    .d3 { transition-delay: 0.36s; }
+    .d4 { transition-delay: 0.52s; }
+
+    @media (max-width: 640px) {
+      .rsvp-wrapper { padding: 56px 20px 80px; }
+      .rsvp-pills { display: flex; width: 100%; }
+      .rsvp-pill { flex: 1; text-align: center; }
+      .rsvp-pill-label { display: block; padding: 10px 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="event-details.html">Event Details</a>
+      <a href="travel-stay.html">Travel & Stay</a>
+      <a href="rsvp.html">RSVP</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="ev-hero">
+      <p class="ev-eyebrow">RSVP &nbsp;·&nbsp; Kindly reply by 1 May 2027</p>
+      <h1>Your RSVP</h1>
+      <p class="ev-hero-lead">Please let us know which moments you'll join us for over the weekend. We can't wait to celebrate with you.</p>
+
+      <div class="ev-ornament">
+        <span class="ev-ornament-line"></span>
+        <svg viewBox="0 0 16 16"><path d="M8 1C8 1 5 4.5 5 7C5 8.66 6.34 10 8 10C9.66 10 11 8.66 11 7C11 4.5 8 1 8 1Z"/><line x1="8" y1="10" x2="8" y2="15" stroke="currentColor" stroke-width="1.2"/><line x1="5.5" y1="13" x2="10.5" y2="13" stroke="currentColor" stroke-width="1.2"/></svg>
+        <span class="ev-ornament-line"></span>
+      </div>
+    </section>
+
+    <!-- FORM -->
+    <section class="rsvp-wrapper">
+      <form id="rsvpForm" novalidate>
+
+        <!-- ABOUT YOU -->
+        <div class="rsvp-group r">
+          <span class="rsvp-group-label">About you</span>
+          <h2>Your details</h2>
+          <p class="rsvp-group-desc">Please submit one RSVP per guest. If you're responding for a partner or +1, just fill it in a second time.</p>
+
+          <div class="rsvp-field">
+            <label class="rsvp-field-label" for="fullName">Full name</label>
+            <input type="text" id="fullName" name="fullName" required />
+          </div>
+
+          <div class="rsvp-field">
+            <label class="rsvp-field-label" for="contact">Email or phone</label>
+            <input type="text" id="contact" name="contact" required />
+          </div>
+        </div>
+
+        <div class="rsvp-divider"></div>
+
+        <!-- WEEKEND OVERALL -->
+        <div class="rsvp-group r d1">
+          <span class="rsvp-group-label">The weekend</span>
+          <h2>Will you join us in Valencia?</h2>
+          <p class="rsvp-group-desc">We'd love to know if you can make the trip. You can tell us about each specific plan below.</p>
+
+          <div class="rsvp-pills" role="group" aria-label="Attending weekend">
+            <div class="rsvp-pill">
+              <input type="radio" id="weekYes" name="attendingWeekend" value="Yes" required />
+              <label class="rsvp-pill-label" for="weekYes">Yes, I'll be there</label>
+            </div>
+            <div class="rsvp-pill">
+              <input type="radio" id="weekNo" name="attendingWeekend" value="No" />
+              <label class="rsvp-pill-label" for="weekNo">Sadly can't make it</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="rsvp-divider"></div>
+
+        <!-- FRIDAY COCKTAIL -->
+        <div class="rsvp-group r d1">
+          <span class="rsvp-group-label">Friday &middot; 9 July &middot; 19:00</span>
+          <h2>Welcome cocktail</h2>
+          <p class="rsvp-group-desc">Relaxed evening gathering at Parador El Saler.</p>
+
+          <div class="rsvp-pills" role="group" aria-label="Friday cocktail">
+            <div class="rsvp-pill">
+              <input type="radio" id="cocktailYes" name="fridayCocktail" value="Yes" />
+              <label class="rsvp-pill-label" for="cocktailYes">Yes</label>
+            </div>
+            <div class="rsvp-pill">
+              <input type="radio" id="cocktailNo" name="fridayCocktail" value="No" />
+              <label class="rsvp-pill-label" for="cocktailNo">No</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="rsvp-divider"></div>
+
+        <!-- FRIDAY GOLF -->
+        <div class="rsvp-group r d1">
+          <span class="rsvp-group-label">Friday &middot; 9 July &middot; Morning</span>
+          <h2>Golf tournament</h2>
+          <p class="rsvp-group-desc">Optional tournament at Parador El Saler. A golf licence is required to participate.</p>
+
+          <div class="rsvp-pills" role="group" aria-label="Friday golf">
+            <div class="rsvp-pill">
+              <input type="radio" id="golfYes" name="fridayGolf" value="Yes" />
+              <label class="rsvp-pill-label" for="golfYes">Yes</label>
+            </div>
+            <div class="rsvp-pill">
+              <input type="radio" id="golfNo" name="fridayGolf" value="No" />
+              <label class="rsvp-pill-label" for="golfNo">No</label>
+            </div>
+          </div>
+
+          <div class="rsvp-conditional" id="golfLicenceWrap">
+            <div class="rsvp-field" style="margin-bottom: 0;">
+              <label class="rsvp-field-label" for="golfLicence">Golf licence number</label>
+              <input type="text" id="golfLicence" name="golfLicence" />
+            </div>
+          </div>
+        </div>
+
+        <div class="rsvp-divider"></div>
+
+        <!-- SATURDAY CEREMONY -->
+        <div class="rsvp-group r d1">
+          <span class="rsvp-group-label">Saturday &middot; 10 July &middot; 19:30</span>
+          <h2>Ceremony & celebration</h2>
+          <p class="rsvp-group-desc">The main event at Masía Xamandreu — ceremony, dinner, music and dancing.</p>
+
+          <div class="rsvp-pills" role="group" aria-label="Saturday ceremony">
+            <div class="rsvp-pill">
+              <input type="radio" id="ceremonyYes" name="saturdayCeremony" value="Yes" />
+              <label class="rsvp-pill-label" for="ceremonyYes">Yes</label>
+            </div>
+            <div class="rsvp-pill">
+              <input type="radio" id="ceremonyNo" name="saturdayCeremony" value="No" />
+              <label class="rsvp-pill-label" for="ceremonyNo">No</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="rsvp-divider"></div>
+
+        <!-- SUNDAY FAREWELL LUNCH -->
+        <div class="rsvp-group r d1">
+          <span class="rsvp-group-label">Sunday &middot; 11 July &middot; Optional</span>
+          <h2>Farewell lunch</h2>
+          <p class="rsvp-group-desc">A gentle wind-down at Parador El Saler for anyone still in town.</p>
+
+          <div class="rsvp-pills" role="group" aria-label="Sunday lunch">
+            <div class="rsvp-pill">
+              <input type="radio" id="lunchYes" name="sundayLunch" value="Yes" />
+              <label class="rsvp-pill-label" for="lunchYes">Yes</label>
+            </div>
+            <div class="rsvp-pill">
+              <input type="radio" id="lunchNo" name="sundayLunch" value="No" />
+              <label class="rsvp-pill-label" for="lunchNo">No</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="rsvp-divider"></div>
+
+        <!-- EXTRAS -->
+        <div class="rsvp-group r d1">
+          <span class="rsvp-group-label">A few extras</span>
+          <h2>Anything we should know?</h2>
+
+          <div class="rsvp-field">
+            <label class="rsvp-field-label" for="dietary">Dietary requirements or allergies</label>
+            <input type="text" id="dietary" name="dietary" placeholder="E.g. vegetarian, nut allergy" />
+          </div>
+
+          <div class="rsvp-field">
+            <label class="rsvp-field-label" for="notes">Anything else you'd like to share</label>
+            <textarea id="notes" name="notes" rows="3" placeholder="Optional"></textarea>
+          </div>
+        </div>
+
+        <!-- SUBMIT -->
+        <div class="rsvp-submit-wrap">
+          <button type="submit" class="rsvp-submit" id="rsvpSubmit">Send RSVP</button>
+          <div class="rsvp-status" id="rsvpStatus" role="status" aria-live="polite"></div>
+        </div>
+
+      </form>
+    </section>
+
+  </main>
+
+  <script>
+    // ========= CONFIG =========
+    var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxtNodpvZAmfkoh5X47pNmLS4HVyxwRTWRUZcNjHqi5QTOPYXCXaqI69cIqYxMKbidjOg/exec';
+    // ==========================
+
+    // Conditional: show golf licence if golf = Yes
+    (function() {
+      var wrap = document.getElementById('golfLicenceWrap');
+      var golfYes = document.getElementById('golfYes');
+      var golfNo = document.getElementById('golfNo');
+      function update() {
+        if (golfYes.checked) wrap.classList.add('on');
+        else wrap.classList.remove('on');
+      }
+      golfYes.addEventListener('change', update);
+      golfNo.addEventListener('change', update);
+    })();
+
+    // Scroll reveal
+    (function() {
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('on');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.r').forEach(function(el) { obs.observe(el); });
+    })();
+
+    // Form submit — send to Google Apps Script
+    (function() {
+      var form = document.getElementById('rsvpForm');
+      var btn = document.getElementById('rsvpSubmit');
+      var status = document.getElementById('rsvpStatus');
+
+      function showStatus(type, message) {
+        status.className = 'rsvp-status on ' + type;
+        status.textContent = message;
+      }
+
+      form.addEventListener('submit', function(ev) {
+        ev.preventDefault();
+
+        // Basic validation
+        var fullName = form.fullName.value.trim();
+        var contact = form.contact.value.trim();
+        var attending = form.attendingWeekend.value;
+        if (!fullName || !contact || !attending) {
+          showStatus('error', 'Please fill in your name, contact and let us know whether you can make it.');
+          return;
+        }
+
+        // Build payload
+        var data = {
+          fullName: fullName,
+          contact: contact,
+          attendingWeekend: attending,
+          fridayCocktail: (form.fridayCocktail.value || ''),
+          fridayGolf: (form.fridayGolf.value || ''),
+          golfLicence: form.golfLicence.value.trim(),
+          saturdayCeremony: (form.saturdayCeremony.value || ''),
+          sundayLunch: (form.sundayLunch.value || ''),
+          dietary: form.dietary.value.trim(),
+          notes: form.notes.value.trim()
+        };
+
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+        showStatus('', '');
+        status.className = 'rsvp-status';
+
+        fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors', // Apps Script CORS workaround — we can't read the response, but the row is written
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(data)
+        })
+        .then(function() {
+          showStatus('success', 'Thank you — your RSVP has been received. We can\'t wait to celebrate with you!');
+          btn.textContent = 'RSVP sent ✓';
+          form.reset();
+          document.getElementById('golfLicenceWrap').classList.remove('on');
+        })
+        .catch(function(err) {
+          showStatus('error', 'Sorry, something went wrong sending your RSVP. Please try again, or email us directly.');
+          btn.disabled = false;
+          btn.textContent = 'Send RSVP';
+        });
+      });
+    })();
+  </script>
+</body>
 </html>

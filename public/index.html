@@ -19,13 +19,18 @@
     </header>
 
     <main>
-      <section class="hero">
+      <section class="hero hero-fullscreen">
         <div class="hero-image hero-animate">
           <img src="/images/Home_page.jpeg" alt="Olimpia and Shayann" />
-          <div class="hero-overlay">
-            <p class="eyebrow">5 june 2027, Valencia, Spain</p>
+          <div class="hero-overlay hero-overlay-left">
             <h1>Olimpia &amp; Shayann</h1>
+            <p class="hero-date-line">10th July 2027</p>
+            <p class="hero-location-line">Valencia, Spain</p>
           </div>
+          <a class="scroll-indicator" href="#intro" aria-label="Scroll down">
+            <span class="scroll-indicator-label">Scroll</span>
+            <span class="scroll-indicator-arrow"></span>
+          </a>
         </div>
 
         <div class="hero-actions">
@@ -34,9 +39,8 @@
         </div>
       </section>
 
-      <section class="intro-section">
+      <section id="intro" class="intro-section">
         <div class="intro-text">
-          <p class="section-label">A weekend to celebrate</p>
           <h2>We can&rsquo;t wait to celebrate with you in Valencia</h2>
           <p>
             We are so excited to gather with our favourite people for a full weekend of
@@ -57,5 +61,30 @@
         </p>
       </section>
     </main>
+
+    <script>
+      // Auto-scroll suave hacia la sección de introducción unos segundos después de cargar.
+      // Se cancela si el usuario hace scroll manualmente o prefiere menos movimiento.
+      (function () {
+        var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReduced) return;
+
+        var cancelled = false;
+        var onUserScroll = function () { cancelled = true; };
+
+        window.addEventListener('wheel', onUserScroll, { passive: true, once: true });
+        window.addEventListener('touchmove', onUserScroll, { passive: true, once: true });
+        window.addEventListener('keydown', onUserScroll, { once: true });
+
+        window.addEventListener('load', function () {
+          setTimeout(function () {
+            if (cancelled) return;
+            if (window.scrollY > 10) return; // el usuario ya se movió
+            var target = document.getElementById('intro');
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 3800);
+        });
+      })();
+    </script>
   </body>
 </html>

@@ -63,7 +63,7 @@
     </main>
 
     <script>
-      // Auto-scroll suave hacia la sección de introducción unos segundos después de cargar.
+      // Auto-scroll lento y suave hacia la sección de introducción, 2,5 segundos después de cargar.
       // Se cancela si el usuario hace scroll manualmente o prefiere menos movimiento.
       (function () {
         var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -76,13 +76,37 @@
         window.addEventListener('touchmove', onUserScroll, { passive: true, once: true });
         window.addEventListener('keydown', onUserScroll, { once: true });
 
+        function easeInOutQuad(t) {
+          return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+        }
+
+        function smoothScrollTo(targetY, duration) {
+          var startY = window.scrollY || window.pageYOffset;
+          var distance = targetY - startY;
+          var startTime = null;
+
+          function step(currentTime) {
+            if (cancelled) return; // el usuario interrumpió
+            if (!startTime) startTime = currentTime;
+            var elapsed = currentTime - startTime;
+            var progress = Math.min(elapsed / duration, 1);
+            window.scrollTo(0, startY + distance * easeInOutQuad(progress));
+            if (elapsed < duration) {
+              window.requestAnimationFrame(step);
+            }
+          }
+          window.requestAnimationFrame(step);
+        }
+
         window.addEventListener('load', function () {
           setTimeout(function () {
             if (cancelled) return;
-            if (window.scrollY > 10) return; // el usuario ya se movió
+            if ((window.scrollY || window.pageYOffset) > 10) return; // el usuario ya se movió
             var target = document.getElementById('intro');
-            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }, 3800);
+            if (!target) return;
+            var targetY = target.getBoundingClientRect().top + (window.scrollY || window.pageYOffset);
+            smoothScrollTo(targetY, 1800); // duración en ms — sube el número para ir aún más lento
+          }, 2500);
         });
       })();
     </script>

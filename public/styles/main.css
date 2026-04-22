@@ -63,9 +63,9 @@ main {
   text-align: center;
 }
 
-/* Hero a pantalla completa en la home */
 .hero-fullscreen {
   padding-bottom: 0;
+  margin: 0;
 }
 
 .hero-fullscreen .hero-image {
@@ -87,7 +87,6 @@ main {
   border-radius: 0;
 }
 
-/* Overlay a la izquierda */
 .hero-overlay {
   position: absolute;
   bottom: 7%;
@@ -194,7 +193,6 @@ main {
   animation: actionsRise 1s ease-out 1s both;
 }
 
-/* Indicador de "scroll down" */
 .scroll-indicator {
   position: absolute;
   left: 50%;
@@ -410,11 +408,6 @@ section {
   padding: 0 24px;
 }
 
-/* La home hero no necesita este margin */
-.hero-fullscreen {
-  margin: 0;
-}
-
 section h2 {
   margin-bottom: 14px;
   font-size: 38px;
@@ -426,6 +419,7 @@ ul {
   padding-left: 20px;
 }
 
+/* ---------- Formularios ---------- */
 form {
   max-width: 720px;
   margin: 40px auto 0;
@@ -447,4 +441,211 @@ input,
 select,
 button,
 textarea {
-  wi
+  width: 100%;
+  padding: 14px 16px;
+  margin-top: 6px;
+  margin-bottom: 18px;
+  font-size: 16px;
+  font-family: inherit;
+  border-radius: 14px;
+  border: 1px solid rgba(47, 42, 38, 0.14);
+  background-color: #fffdfb;
+  color: #2f2a26;
+}
+
+button {
+  background-color: #2f2a26;
+  color: #f7f3ee;
+  cursor: pointer;
+  width: auto;
+  padding: 14px 24px;
+}
+
+button:hover {
+  background-color: #1f1a17;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ---------- Contact stripe ---------- */
+.contact-stripe {
+  margin: 0;
+  padding: 56px 24px 72px;
+  text-align: center;
+  background: #ececec;
+  border-top: 1px solid rgba(47, 42, 38, 0.08);
+}
+
+.contact-stripe .contact-lead {
+  margin: 0 0 18px;
+  font-size: 20px;
+  color: #2f2a26;
+  text-align: center;
+}
+
+.contact-stripe .contact-details {
+  margin: 0 auto;
+  max-width: 900px;
+  font-size: 16px;
+  color: #4d4640;
+  line-height: 1.9;
+  text-align: center;
+}
+
+.contact-stripe .contact-details a {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(47, 42, 38, 0.25);
+  padding-bottom: 2px;
+  color: inherit;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.contact-stripe .contact-details a:hover {
+  color: #1f1a17;
+  border-bottom-color: #1f1a17;
+}
+
+.contact-stripe .contact-divider {
+  margin: 0 14px;
+  color: #9a9a9a;
+}
+
+.contact-stripe .contact-item {
+  white-space: nowrap;
+}
+
+/* ---------- Responsive general ---------- */
+@media (max-width: 900px) {
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .planning-card {
+    padding: 36px 24px;
+  }
+
+  section h2 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-fullscreen .hero-image {
+    height: 88vh;
+    min-height: 520px;
+  }
+
+  .hero-overlay-left {
+    left: 7%;
+    right: 7%;
+    max-width: none;
+  }
+
+  .hero h1 {
+    font-size: clamp(38px, 11vw, 60px);
+  }
+
+  .hero-date-line {
+    letter-spacing: 0.14em;
+  }
+
+  .contact-stripe {
+    padding: 44px 20px 56px;
+  }
+
+  .contact-stripe .contact-divider {
+    display: block;
+    margin: 4px 0;
+  }
+
+  .contact-stripe .contact-item {
+    display: inline-block;
+  }
+}
+
+/* ---------- Estilos específicos de otras páginas ---------- */
+.overview-heading {
+  margin-bottom: 24px;
+}
+
+.overview-heading .section-label,
+.overview-heading h2 {
+  text-align: center;
+}
+
+.overview-heading h2 {
+  margin: 0 0 12px;
+}
+
+.event-details-title {
+  color: #000;
+}
+
+.hero .event-details-title {
+  color: #000 !important;
+}
+
+main section h2 {
+  text-align: center;
+}
+
+.event-page section h2,
+.event-page section p,
+.event-page section a {
+  text-align: center;
+}
+
+.event-page section a {
+  display: block;
+}
+
+.weekend-table {
+  width: 100%;
+  max-width: 900px;
+  margin: 30px auto 0;
+  border-collapse: collapse;
+  background-color: #fff;
+  color: #111;
+  font-size: 0.98rem;
+}
+
+.weekend-table th,
+.weekend-table td {
+  padding: 18px 20px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.weekend-table th {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  color: #444;
+}
+
+.weekend-table tr:first-child th {
+  border-top: 1px solid #111;
+}
+
+.weekend-table tr:last-child td {
+  border-bottom: 1px solid #111;
+}
+
+.weekend-table td:first-child {
+  width: 18%;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.weekend-table td:nth-child(2) {
+  width: 30%;
+}
+
+.weekend-table td:nth-child(3) {
+  width: 52%;
+}

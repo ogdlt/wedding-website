@@ -19,14 +19,54 @@
       --error: #9a3a3a;
     }
 
-    /* overrides like event-details */
     main section h2 { text-align: left; }
     main section { margin: 0; padding: 0; }
 
-    /* HERO */
+    /* ───────── HERO IMAGE with bottom gradient ───────── */
+    .ev-hero-image {
+      position: relative;
+      width: 100%;
+      height: 62vh;
+      min-height: 420px;
+      overflow: hidden;
+      margin: 0;
+    }
+    .ev-hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .ev-hero-gradient {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 45%;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.35) 55%,
+        rgba(0, 0, 0, 0.7) 100%
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes evHeroFadeIn { from {opacity:0;} to {opacity:1;} }
+    @keyframes evHeroZoom { from {transform:scale(1.08);} to {transform:scale(1);} }
+    .ev-hero-image { animation: evHeroFadeIn 1.2s ease-out both; }
+    .ev-hero-image img { animation: evHeroZoom 9s ease-out both; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ev-hero-image,
+      .ev-hero-image img { animation: none; }
+    }
+
+    /* ───────── HERO TITLE ───────── */
     .ev-hero {
       text-align: center;
-      padding: 52px 24px 56px;
+      padding: 64px 24px 56px;
       background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
       position: relative;
       overflow: hidden;
@@ -51,28 +91,22 @@
     }
 
     .ev-eyebrow {
-      margin: 0 0 12px;
+      margin: 0 0 14px;
       font-size: 12px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--muted);
+      position: relative;
+      z-index: 1;
     }
 
     .ev-hero h1 {
-      margin: 0 0 18px;
+      margin: 0 0 22px;
       font-size: clamp(34px, 4.6vw, 54px);
       font-weight: 400;
       line-height: 1.0;
       letter-spacing: -0.02em;
       color: var(--dark);
-    }
-
-    .ev-hero-lead {
-      max-width: 620px;
-      margin: 0 auto 28px;
-      font-size: 17px;
-      color: var(--mid);
-      line-height: 1.6;
       position: relative;
       z-index: 1;
     }
@@ -83,32 +117,19 @@
       justify-content: center;
       gap: 14px;
       color: var(--border-strong);
+      position: relative;
+      z-index: 1;
     }
-    .ev-ornament-line {
-      width: 60px; height: 1px;
-      background: currentColor;
-    }
-    .ev-ornament svg {
-      width: 14px; height: 14px;
-      fill: currentColor;
-    }
+    .ev-ornament-line { width: 60px; height: 1px; background: currentColor; }
+    .ev-ornament svg { width: 14px; height: 14px; fill: currentColor; }
 
-    /* FORM WRAPPER — reuses the ev-day feel */
+    /* ───────── FORM WRAPPER ───────── */
     .rsvp-wrapper {
       padding: 80px 24px 100px;
       max-width: 720px;
       margin: 0 auto;
     }
-    .rsvp-wrapper.bg-soft {
-      max-width: none;
-      background: var(--soft-bg);
-    }
-    .rsvp-wrapper-inner {
-      max-width: 720px;
-      margin: 0 auto;
-    }
 
-    /* FORM GROUPS styled like ev-info but for inputs */
     .rsvp-group {
       margin-bottom: 40px;
     }
@@ -139,15 +160,12 @@
     }
 
     /* Inputs / selects */
-    .rsvp-field {
-      margin-bottom: 22px;
-    }
+    .rsvp-field { margin-bottom: 22px; }
     .rsvp-field-label {
       display: block;
       font-size: 14px;
       color: var(--dark);
       margin: 0 0 8px;
-      font-weight: 400;
     }
     .rsvp-field input[type="text"],
     .rsvp-field input[type="email"],
@@ -176,13 +194,13 @@
       min-height: 80px;
     }
 
-    /* Radio pill group — Yes / No toggles */
+    /* ───────── Pills (Yes / No) — subtle dark border ───────── */
     .rsvp-pills {
       display: inline-flex;
-      background: #fff;
-      border: 1px solid var(--border-strong);
+      background: #ffffff;
+      border: 1.5px solid rgba(47, 42, 38, 0.5);
       border-radius: 999px;
-      padding: 4px;
+      padding: 5px;
       gap: 2px;
     }
     .rsvp-pill {
@@ -195,23 +213,26 @@
     }
     .rsvp-pill-label {
       display: inline-block;
-      padding: 8px 22px;
+      padding: 10px 26px;
       font-size: 14px;
       letter-spacing: 0.06em;
-      color: var(--mid);
+      color: var(--dark);
       border-radius: 999px;
       cursor: pointer;
       transition: background 0.2s, color 0.2s;
+    }
+    .rsvp-pill-label:hover {
+      background: rgba(47, 42, 38, 0.06);
     }
     .rsvp-pill input:checked + .rsvp-pill-label {
       background: var(--dark);
       color: #f7f3ee;
     }
     .rsvp-pill input:focus-visible + .rsvp-pill-label {
-      box-shadow: 0 0 0 3px rgba(47, 42, 38, 0.12);
+      box-shadow: 0 0 0 3px rgba(47, 42, 38, 0.18);
     }
 
-    /* Conditional panel — shows golf licence when "Yes" */
+    /* Conditional panel — golf licence */
     .rsvp-conditional {
       display: none;
       margin-top: 16px;
@@ -227,14 +248,12 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* Section divider between plan cards */
     .rsvp-divider {
       height: 1px;
       background: var(--border);
       margin: 40px 0;
     }
 
-    /* Submit area */
     .rsvp-submit-wrap {
       text-align: center;
       margin-top: 40px;
@@ -259,7 +278,6 @@
       cursor: not-allowed;
     }
 
-    /* Status message */
     .rsvp-status {
       display: none;
       margin-top: 24px;
@@ -281,7 +299,6 @@
       border: 1px solid rgba(154, 58, 58, 0.25);
     }
 
-    /* SCROLL REVEAL */
     .r {
       opacity: 0;
       transform: translateY(28px);
@@ -297,7 +314,11 @@
       .rsvp-wrapper { padding: 56px 20px 80px; }
       .rsvp-pills { display: flex; width: 100%; }
       .rsvp-pill { flex: 1; text-align: center; }
-      .rsvp-pill-label { display: block; padding: 10px 0; }
+      .rsvp-pill-label {
+        display: block;
+        padding: 12px 0;
+      }
+      .ev-hero-image { height: 52vh; min-height: 360px; }
     }
   </style>
 </head>
@@ -315,11 +336,16 @@
 
   <main>
 
-    <!-- HERO -->
+    <!-- HERO IMAGE with bottom gradient -->
+    <section class="ev-hero-image">
+      <img src="/images/RSVP_page.jpeg" alt="Olimpia and Shayann" />
+      <div class="ev-hero-gradient"></div>
+    </section>
+
+    <!-- TITLE -->
     <section class="ev-hero">
-      <p class="ev-eyebrow">RSVP &nbsp;·&nbsp; Kindly reply by 1 May 2027</p>
-      <h1>Your RSVP</h1>
-      <p class="ev-hero-lead">Please let us know which moments you'll join us for over the weekend. We can't wait to celebrate with you.</p>
+      <p class="ev-eyebrow">RSVP</p>
+      <h1>Please RSVP by 1st April 2027</h1>
 
       <div class="ev-ornament">
         <span class="ev-ornament-line"></span>
@@ -486,11 +512,8 @@
   </main>
 
   <script>
-    // ========= CONFIG =========
     var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxtNodpvZAmfkoh5X47pNmLS4HVyxwRTWRUZcNjHqi5QTOPYXCXaqI69cIqYxMKbidjOg/exec';
-    // ==========================
 
-    // Conditional: show golf licence if golf = Yes
     (function() {
       var wrap = document.getElementById('golfLicenceWrap');
       var golfYes = document.getElementById('golfYes');
@@ -503,7 +526,6 @@
       golfNo.addEventListener('change', update);
     })();
 
-    // Scroll reveal
     (function() {
       var obs = new IntersectionObserver(function(entries) {
         entries.forEach(function(e) {
@@ -516,7 +538,6 @@
       document.querySelectorAll('.r').forEach(function(el) { obs.observe(el); });
     })();
 
-    // Form submit — send to Google Apps Script
     (function() {
       var form = document.getElementById('rsvpForm');
       var btn = document.getElementById('rsvpSubmit');
@@ -530,7 +551,6 @@
       form.addEventListener('submit', function(ev) {
         ev.preventDefault();
 
-        // Basic validation
         var fullName = form.fullName.value.trim();
         var contact = form.contact.value.trim();
         var attending = form.attendingWeekend.value;
@@ -539,7 +559,6 @@
           return;
         }
 
-        // Build payload
         var data = {
           fullName: fullName,
           contact: contact,
@@ -560,7 +579,7 @@
 
         fetch(SCRIPT_URL, {
           method: 'POST',
-          mode: 'no-cors', // Apps Script CORS workaround — we can't read the response, but the row is written
+          mode: 'no-cors',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify(data)
         })

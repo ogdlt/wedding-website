@@ -1,60 +1,443 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FAQ</title>
-    <link rel="stylesheet" href="/styles/main.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — Olimpia & Shayann</title>
+  <link rel="stylesheet" href="/styles/main.css" />
+  <style>
+    :root {
+      --dark: #2f2a26;
+      --mid: #5a534d;
+      --muted: #8a7f75;
+      --soft-bg: #f8f8f8;
+      --warm-tan: #eee4d9;
+      --border: rgba(47, 42, 38, 0.12);
+      --border-soft: rgba(47, 42, 38, 0.08);
+      --border-strong: rgba(47, 42, 38, 0.2);
+    }
 
-  <body>
-    <header class="site-header">
-      <nav class="main-nav">
-        <a href="index.html">Home</a>
-        <a href="event-details.html">Event Details</a>
-        <a href="travel-stay.html">Travel & Stay</a>
-        <a href="rsvp.html">RSVP</a>
-        <a href="faq.html">FAQ</a>
-      </nav>
-    </header>
+    /* override main.css defaults for this page */
+    main section h2 { text-align: left; }
+    main section { margin: 0; padding: 0; }
 
-    <main>
-      <section class="hero" style="padding-bottom: 40px;">
-        <p class="section-label">Helpful information</p>
-        <h1>FAQ</h1>
-        <p>
-          A few practical details for the wedding weekend. We will keep this page
-          updated as plans are finalised.
-        </p>
-      </section>
+    /* HERO IMAGE */
+    .ev-hero-image {
+      position: relative;
+      width: 100%;
+      height: 62vh;
+      min-height: 420px;
+      overflow: hidden;
+      margin: 0;
+    }
+    .ev-hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .ev-hero-gradient {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 45%;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.35) 55%,
+        rgba(0, 0, 0, 0.7) 100%
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
 
-      <section>
-        <h2>Dress Code</h2>
-        <p>
-          Add your dress code details here.
-        </p>
-      </section>
+    @keyframes evHeroFadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes evHeroZoom { from { transform: scale(1.08); } to { transform: scale(1); } }
 
-      <section>
-        <h2>Children</h2>
-        <p>
-          Add your children policy here.
-        </p>
-      </section>
+    .ev-hero-image { animation: evHeroFadeIn 1.2s ease-out both; }
+    .ev-hero-image img { animation: evHeroZoom 9s ease-out both; }
 
-      <section>
-        <h2>Transport</h2>
-        <p>
-          Add your transport information here.
-        </p>
-      </section>
+    @media (prefers-reduced-motion: reduce) {
+      .ev-hero-image,
+      .ev-hero-image img { animation: none; }
+    }
 
-      <section>
-        <h2>Gifts</h2>
-        <p>
-          Add your gifts information here.
-        </p>
-      </section>
-    </main>
-  </body>
+    /* HERO TITLE */
+    .ev-hero {
+      text-align: center;
+      padding: 64px 24px 56px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .ev-hero::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -100px;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(238, 228, 217, 0.55) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .ev-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: -80px;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(238, 228, 217, 0.45) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .ev-eyebrow {
+      margin: 0 0 14px;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    .ev-hero h1 {
+      margin: 0 0 22px;
+      font-size: clamp(34px, 4.6vw, 54px);
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--dark);
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ev-hero-intro {
+      max-width: 620px;
+      margin: 22px auto 0;
+      font-size: 18px;
+      color: var(--mid);
+      line-height: 1.65;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ornament */
+    .ev-ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      color: var(--border-strong);
+      position: relative;
+      z-index: 1;
+    }
+    .ev-ornament-line {
+      width: 60px;
+      height: 1px;
+      background: currentColor;
+    }
+    .ev-ornament svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
+    /* FAQ STEPS */
+    .ts-step {
+      padding: 90px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .ts-step--bg {
+      background: var(--soft-bg);
+    }
+
+    .ts-step-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: left;
+      position: relative;
+    }
+
+    .ts-step-num {
+      position: absolute;
+      top: -28px;
+      right: -12px;
+      font-size: clamp(90px, 12vw, 150px);
+      font-weight: 400;
+      line-height: 0.85;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--border);
+      user-select: none;
+      letter-spacing: -0.02em;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .ts-step-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .ts-step-label {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 18px;
+    }
+
+    .ts-step-content h2 {
+      font-size: clamp(32px, 3.8vw, 48px);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--dark);
+      margin: 0 0 22px;
+      text-align: left;
+    }
+
+    .ts-step-content p {
+      font-size: 18px;
+      color: var(--mid);
+      line-height: 1.65;
+      margin: 0 0 16px;
+      max-width: 680px;
+    }
+
+    .ev-info {
+      margin-top: 34px;
+      padding: 4px 0 4px 22px;
+      border-left: 2px solid var(--dark);
+    }
+    .ev-info-row {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      padding: 12px 0;
+      font-size: 15px;
+    }
+    .ev-info-row:not(:last-child) {
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .ev-info-k {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      min-width: 100px;
+      flex-shrink: 0;
+    }
+    .ev-info-v {
+      color: var(--dark);
+      line-height: 1.5;
+    }
+
+    /* FINAL CTA */
+    .ev-cta {
+      padding: 90px 24px 110px;
+      text-align: center;
+      background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+    }
+    .ev-cta h2 {
+      font-size: clamp(28px, 3.4vw, 40px);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--dark);
+      margin: 0 0 18px;
+      text-align: center;
+    }
+    .ev-cta p {
+      font-size: 17px;
+      color: var(--mid);
+      max-width: 560px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+    .ev-cta-button {
+      display: inline-block;
+      padding: 16px 40px;
+      background: var(--dark);
+      color: #f7f3ee;
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .ev-cta-button:hover {
+      background: #1f1a17;
+    }
+
+    /* SCROLL REVEAL */
+    .r {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .r.on {
+      opacity: 1;
+      transform: none;
+    }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.22s; }
+    .d3 { transition-delay: 0.36s; }
+    .d4 { transition-delay: 0.52s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 820px) {
+      .ts-step { padding: 64px 24px; }
+      .ts-step-num { font-size: clamp(70px, 22vw, 110px); top: -12px; right: -4px; }
+      .ev-hero-image { height: 52vh; min-height: 360px; }
+      .ev-info-row { flex-direction: column; gap: 6px; }
+      .ev-info-k { min-width: 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="event-details.html">Event Details</a>
+      <a href="travel-stay.html">Travel & Stay</a>
+      <a href="rsvp.html">RSVP</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO IMAGE -->
+    <section class="ev-hero-image">
+      <img src="/images/Travel_page.jpeg" alt="Wedding weekend details" />
+      <div class="ev-hero-gradient"></div>
+    </section>
+
+    <!-- TITLE -->
+    <section class="ev-hero">
+      <p class="ev-eyebrow">Helpful information</p>
+      <h1>Frequently asked questions</h1>
+
+      <div class="ev-ornament">
+        <span class="ev-ornament-line"></span>
+        <svg viewBox="0 0 16 16">
+          <path d="M8 1C8 1 5 4.5 5 7C5 8.66 6.34 10 8 10C9.66 10 11 8.66 11 7C11 4.5 8 1 8 1Z"/>
+          <line x1="8" y1="10" x2="8" y2="15" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="5.5" y1="13" x2="10.5" y2="13" stroke="currentColor" stroke-width="1.2"/>
+        </svg>
+        <span class="ev-ornament-line"></span>
+      </div>
+
+      <p class="ev-hero-intro">
+        A few practical details for the wedding weekend. We’ll keep this page updated as plans are finalised.
+      </p>
+    </section>
+
+    <!-- STEP 01 · DRESS CODE -->
+    <section class="ts-step">
+      <div class="ts-step-inner">
+        <span class="ts-step-num">01</span>
+        <div class="ts-step-content">
+          <span class="ts-step-label r">What to wear</span>
+          <h2 class="r d1">Dress code</h2>
+          
+          <div class="ev-info r d3">
+            <div class="ev-info-row">
+              <span class="ev-info-k">Friday</span>
+              <span class="ev-info-v">Cocktail attire — elegant but relaxed. Think summer evening style: linen or lightweight suits, shirts and jackets, cocktail dresses, midi dresses, or tailored sets. As we’ll be in El Saler in July, breathable fabrics for an outdoor setting are recommended</span>
+            </div>
+            <div class="ev-info-row">
+              <span class="ev-info-k">Saturday</span>
+              <span class="ev-info-v">Formal attire. We invite men to wear a suit and tie, and women to choose a midi dress or similarly elegant formalwear. We kindly ask guests not to wear white or similar colors.</span>
+            </div>
+            <div class="ev-info-row">
+              <span class="ev-info-k">Note</span>
+              <span class="ev-info-v">There will be no need for heel protections for women, as the venues are flat and the ground is covered evenly.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 02 · CHILDREN -->
+    <section class="ts-step ts-step--bg">
+      <div class="ts-step-inner">
+        <span class="ts-step-num">02</span>
+        <div class="ts-step-content">
+          <span class="ts-step-label r">Family details</span>
+          <h2 class="r d1">Children</h2>
+          <p class="r d2">
+            Add your children policy here. You can mention whether children are invited to all events, only some events, or whether the celebration will be adults only.
+          </p>
+          <div class="ev-info r d3">
+            <div class="ev-info-row">
+              <span class="ev-info-k">Policy</span>
+              <span class="ev-info-v">Add your children policy here</span>
+            </div>
+            <div class="ev-info-row">
+              <span class="ev-info-k">If needed</span>
+              <span class="ev-info-v">Add any babysitting or childcare information here</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 03 · GIFTS -->
+    <section class="ts-step">
+      <div class="ts-step-inner">
+        <span class="ts-step-num">03</span>
+        <div class="ts-step-content">
+          <span class="ts-step-label r">Celebrating with us</span>
+          <h2 class="r d1">Gifts</h2>
+          <p class="r d2">
+            Add your gifts information here. This could be a simple note saying that your guests’ presence is the best gift, or include details if you plan to share a registry or contribution option.
+          </p>
+          <div class="ev-info r d3">
+            <div class="ev-info-row">
+              <span class="ev-info-k">Message</span>
+              <span class="ev-info-v">Add your gifts message here</span>
+            </div>
+            <div class="ev-info-row">
+              <span class="ev-info-k">Registry</span>
+              <span class="ev-info-v">Add registry or contribution details here, if applicable</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="ev-cta">
+      <h2 class="r">Ready to reply?</h2>
+      <p class="r d1">Once you’ve had a look through the details, please let us know if you’ll be joining us.</p>
+      <a href="rsvp.html" class="ev-cta-button r d2">Go to RSVP</a>
+    </section>
+
+  </main>
+
+  <script>
+    (function() {
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('on');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.r').forEach(function(el) {
+        obs.observe(el);
+      });
+    })();
+  </script>
+</body>
 </html>

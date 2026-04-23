@@ -21,7 +21,7 @@
     main section h2 { text-align: left; }
     main section { margin: 0; padding: 0; }
 
-    /* ───────── HERO IMAGE (clean, no overlay) ───────── */
+    /* ───────── HERO IMAGE (with bottom gradient, same as home) ───────── */
     .ev-hero-image {
       position: relative;
       width: 100%;
@@ -35,6 +35,21 @@
       height: 100%;
       object-fit: cover;
       display: block;
+    }
+    .ev-hero-gradient {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 45%;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.35) 55%,
+        rgba(0, 0, 0, 0.7) 100%
+      );
+      pointer-events: none;
+      z-index: 1;
     }
 
     /* Entry animation */
@@ -405,15 +420,16 @@
 
   <main>
 
-    <!-- HERO IMAGE (clean, no overlay) -->
+    <!-- HERO IMAGE with bottom gradient -->
     <section class="ev-hero-image">
       <img src="/images/Events_page.JPG" alt="Olimpia and Shayann" />
+      <div class="ev-hero-gradient"></div>
     </section>
 
     <!-- TITLE + COUNTDOWN -->
     <section class="ev-hero">
-      <p class="ev-eyebrow">10 July 2027 &middot; Valencia, Spain</p>
-      <h1>Event Details</h1>
+      <p class="ev-eyebrow">9, 10 and 11 July 2027 &middot; Valencia, Spain</p>
+      <h1>Agenda for the weekend</h1>
       <p class="ev-hero-subtitle">Our wedding weekend, moment by moment</p>
 
       <div class="ev-countdown" id="countdown">

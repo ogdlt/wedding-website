@@ -854,3 +854,25 @@ main section h2 {
     padding: 44px 20px 32px;
   }
 }
+
+.intro-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.intro-actions .button-primary,
+.intro-actions .button-secondary {
+  background: linear-gradient(135deg, #2f2f2f, #55504a);
+  color: #ffffff;
+  border: 1px solid rgba(47, 47, 47, 0.35);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.14);
+}
+
+.intro-actions .button-primary:hover,
+.intro-actions .button-secondary:hover {
+  background: linear-gradient(135deg, #1f1f1f, #47413c);
+  color: #ffffff;
+}

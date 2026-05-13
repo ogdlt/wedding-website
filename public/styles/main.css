@@ -876,3 +876,16 @@ main section h2 {
   background: linear-gradient(135deg, #1f1f1f, #47413c);
   color: #ffffff;
 }
+/* Reduce spacing on homepage intro after removing subtitle */
+.intro-section {
+  padding-top: 45px;
+  padding-bottom: 45px;
+}
+
+.intro-text h2 {
+  margin-bottom: 22px;
+}
+
+.intro-actions {
+  margin-top: 22px;
+}

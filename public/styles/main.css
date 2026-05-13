@@ -878,8 +878,8 @@ main section h2 {
 }
 /* Reduce spacing on homepage intro after removing subtitle */
 .intro-section {
-  padding-top: 45px;
-  padding-bottom: 45px;
+  padding-top: 35px;
+  padding-bottom: 35px;
 }
 
 .intro-text h2 {

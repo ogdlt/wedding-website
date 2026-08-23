@@ -941,10 +941,26 @@ main section h2 {
 }
 
 .mobile-nav-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
   color: #2f2a26;
   font-size: 22px;
   line-height: 1;
   text-decoration: none;
+}
+
+.site-header-names {
+  white-space: nowrap;
+}
+
+.site-header-date {
+  padding-left: 16px;
+  border-left: 1px solid rgba(47, 42, 38, 0.18);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  color: #756d66;
 }
 
 .nav-toggle {
@@ -956,13 +972,15 @@ main section h2 {
   align-items: center;
   justify-content: center;
   border: 0;
-  border-radius: 0;
+  border-radius: 12px;
   background: transparent;
   color: #2f2a26;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .nav-toggle:hover {
   background: rgba(47, 42, 38, 0.05);
+  box-shadow: 0 5px 14px rgba(47, 42, 38, 0.11);
 }
 
 .nav-toggle:focus-visible {
@@ -1021,12 +1039,13 @@ main section h2 {
   width: min(360px, calc(100% - 64px));
   max-width: none;
   margin: 0;
-  padding: 10px 20px 18px;
+  padding: 14px 16px 18px;
   flex-direction: column;
   align-items: stretch;
   flex-wrap: nowrap;
-  gap: 0;
+  gap: 6px;
   border-bottom: 1px solid rgba(47, 42, 38, 0.12);
+  border-radius: 0 0 20px 20px;
   box-shadow: 0 14px 24px rgba(47, 42, 38, 0.1);
 }
 
@@ -1041,11 +1060,21 @@ main section h2 {
 .main-nav a {
   padding: 12px 16px;
   text-align: center;
+  border-radius: 14px;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible {
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 8px 20px rgba(47, 42, 38, 0.1);
+  transform: translateY(-1px);
 }
 
 .main-nav a[aria-current="page"] {
   color: #1f1a17;
   background: rgba(238, 228, 217, 0.55);
+  box-shadow: 0 7px 18px rgba(47, 42, 38, 0.1), 0 1px 4px rgba(47, 42, 38, 0.08);
 }
 
 @media (max-width: 700px) {
@@ -1059,6 +1088,15 @@ main section h2 {
 
   .mobile-nav-home {
     font-size: 18px;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 4px;
+  }
+
+  .site-header-date {
+    padding-left: 0;
+    border-left: 0;
+    font-size: 10px;
   }
 
   .main-nav {
@@ -1069,7 +1107,9 @@ main section h2 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .nav-toggle-icon span {
+  .nav-toggle-icon span,
+  .nav-toggle,
+  .main-nav a {
     transition: none;
   }
 }

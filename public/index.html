@@ -46,19 +46,13 @@
         <div class="hero-image hero-animate hero-carousel" data-home-carousel aria-label="Olimpia and Shayann photo gallery">
           <div class="hero-carousel-track" data-home-carousel-track>
             <div class="hero-carousel-slide" data-home-carousel-slide>
-              <img src="/images/Home5.jpg" alt="Olimpia and Shayann" fetchpriority="high" />
+              <img class="hero-carousel-image-raised" src="/images/Home5.jpg" alt="Olimpia and Shayann" fetchpriority="high" />
             </div>
             <div class="hero-carousel-slide" data-home-carousel-slide aria-hidden="true">
               <img src="/images/Home10.jpeg" alt="Olimpia and Shayann" loading="lazy" decoding="async" />
             </div>
             <div class="hero-carousel-slide" data-home-carousel-slide aria-hidden="true">
-              <img src="/images/Home8.jpg" alt="Olimpia and Shayann" loading="lazy" decoding="async" />
-            </div>
-            <div class="hero-carousel-slide" data-home-carousel-slide aria-hidden="true">
-              <img src="/images/Home7.jpg" alt="Olimpia and Shayann" loading="lazy" decoding="async" />
-            </div>
-            <div class="hero-carousel-slide" data-home-carousel-slide aria-hidden="true">
-              <img src="/images/Home6.jpg" alt="Olimpia and Shayann" loading="lazy" decoding="async" />
+              <img class="hero-carousel-image-lowered" src="/images/Home8.jpg" alt="Olimpia and Shayann" loading="lazy" decoding="async" />
             </div>
             <div class="hero-carousel-slide" data-home-carousel-slide aria-hidden="true">
               <img src="/images/Home_page.jpeg" alt="Olimpia and Shayann" loading="lazy" decoding="async" />
@@ -68,6 +62,24 @@
             </div>
           </div>
           <div class="hero-gradient"></div>
+          <button
+            class="hero-carousel-control hero-carousel-control-previous"
+            type="button"
+            data-home-carousel-previous
+            aria-label="Show previous photo"
+            hidden
+          >
+            <span aria-hidden="true">&#8592;</span>
+          </button>
+          <button
+            class="hero-carousel-control hero-carousel-control-next"
+            type="button"
+            data-home-carousel-next
+            aria-label="Show next photo"
+            hidden
+          >
+            <span aria-hidden="true">&#8594;</span>
+          </button>
         </div>
 
         <div class="hero-title-block">

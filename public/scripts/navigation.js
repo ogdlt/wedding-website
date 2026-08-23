@@ -43,16 +43,4 @@
     }
   });
 
-  var desktopQuery = window.matchMedia("(min-width: 701px)");
-  function closeMenuOnDesktop(event) {
-    if (event.matches) {
-      setMenuOpen(false, false);
-    }
-  }
-
-  if (desktopQuery.addEventListener) {
-    desktopQuery.addEventListener("change", closeMenuOnDesktop);
-  } else {
-    desktopQuery.addListener(closeMenuOnDesktop);
-  }
 })();

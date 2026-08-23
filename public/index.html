@@ -6,6 +6,7 @@
     <title>Our Wedding</title>
     <link rel="stylesheet" href="/styles/main.css" />
   <script src="/scripts/navigation.js" defer></script>
+  <script src="/scripts/home-carousel.js" defer></script>
   </head>
 
   <body>
@@ -41,8 +42,30 @@
 
     <main>
       <section class="hero hero-fullscreen">
-        <div class="hero-image hero-animate">
-          <img src="/images/Home_page.jpeg" alt="Olimpia and Shayann" />
+        <div class="hero-image hero-animate hero-carousel" data-home-carousel aria-label="Olimpia and Shayann photo gallery">
+          <div class="hero-carousel-track" data-home-carousel-track>
+            <div class="hero-carousel-slide" data-home-carousel-slide>
+              <img src="/images/Home5.jpg" alt="Olimpia and Shayann" fetchpriority="high" />
+            </div>
+            <div class="hero-carousel-slide" data-home-carousel-slide aria-hidden="true">
+              <img src="/images/Home10.jpeg" alt="Olimpia and Shayann" loading="lazy" decoding="async" />
+            </div>
+            <div class="hero-carousel-slide" data-home-carousel-slide aria-hidden="true">
+              <img src="/images/Home8.jpg" alt="Olimpia and Shayann" loading="lazy" decoding="async" />
+            </div>
+            <div class="hero-carousel-slide" data-home-carousel-slide aria-hidden="true">
+              <img src="/images/Home7.jpg" alt="Olimpia and Shayann" loading="lazy" decoding="async" />
+            </div>
+            <div class="hero-carousel-slide" data-home-carousel-slide aria-hidden="true">
+              <img src="/images/Home6.jpg" alt="Olimpia and Shayann" loading="lazy" decoding="async" />
+            </div>
+            <div class="hero-carousel-slide" data-home-carousel-slide aria-hidden="true">
+              <img src="/images/Home_page.jpeg" alt="Olimpia and Shayann" loading="lazy" decoding="async" />
+            </div>
+            <div class="hero-carousel-slide" data-home-carousel-slide aria-hidden="true">
+              <img src="/images/Home2.jpg" alt="Olimpia and Shayann" loading="lazy" decoding="async" />
+            </div>
+          </div>
           <div class="hero-gradient"></div>
         </div>
 

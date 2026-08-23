@@ -101,8 +101,76 @@ main {
   overflow: hidden;
 }
 
+.hero-carousel-control {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: flex;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  border-radius: 50%;
+  background-color: rgba(47, 42, 38, 0.24);
+  color: #ffffff;
+  font-size: 22px;
+  line-height: 1;
+  box-shadow: 0 4px 18px rgba(47, 42, 38, 0.16);
+  transform: translateY(-50%);
+  transition: background-color 180ms ease, box-shadow 180ms ease;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+
+.hero-carousel-control[hidden] {
+  display: none;
+}
+
+.hero-carousel-control:hover,
+.hero-carousel-control:focus-visible {
+  background-color: rgba(47, 42, 38, 0.46);
+  box-shadow: 0 6px 22px rgba(47, 42, 38, 0.22);
+}
+
+.hero-carousel-control:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+.hero-carousel-control-previous {
+  left: 24px;
+}
+
+.hero-carousel-control-next {
+  right: 24px;
+}
+
+@media (min-width: 701px) {
+  .hero-fullscreen .hero-carousel-slide img.hero-carousel-image-raised {
+    object-position: 50% 35%;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-carousel-control {
+    width: 42px;
+    height: 42px;
+  }
+
+  .hero-carousel-control-previous {
+    left: 14px;
+  }
+
+  .hero-carousel-control-next {
+    right: 14px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .hero-carousel-track {
+  .hero-carousel-track,
+  .hero-carousel-control {
     transition: none;
   }
 }

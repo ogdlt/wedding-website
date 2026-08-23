@@ -163,12 +163,12 @@
     }
 
     .av-scrolly-inner {
-      max-width: 1500px;
+      max-width: 1680px;
       margin: 0 auto;
-      padding: 0 18px;
+      padding: 0 clamp(20px, 3vw, 56px);
       display: grid;
-      grid-template-columns: minmax(620px, 1.35fr) minmax(300px, 0.65fr);
-      gap: 42px;
+      grid-template-columns: minmax(0, 1.52fr) minmax(270px, 0.65fr);
+      gap: clamp(28px, 4vw, 58px);
       align-items: start;
     }
 
@@ -184,7 +184,7 @@
 
     .av-map-wrap {
       position: relative;
-      width: min(78vw, 880px);
+      width: min(84vw, 1080px);
       height: 100%;
       aspect-ratio: 3 / 4;
       filter: drop-shadow(0 20px 40px rgba(47, 42, 38, 0.18));
@@ -249,7 +249,7 @@
       display: flex;
       flex-direction: column;
       gap: 66vh;
-      padding: 22vh 0;
+      padding: 22vh 0 60vh;
     }
 
     .av-step {
@@ -301,6 +301,145 @@
 
     .av-step.active .av-step-rule {
       transform: scaleX(1);
+    }
+
+    /* ───────── VALENCIA GUIDE ───────── */
+    .av-guide-section {
+      padding: 104px clamp(24px, 5vw, 76px);
+      background: #fff;
+    }
+
+    .av-guide-section--restaurants {
+      background: linear-gradient(180deg, #f8f5f1 0%, #fcfaf7 100%);
+    }
+
+    .av-guide-inner {
+      max-width: 1260px;
+      margin: 0 auto;
+    }
+
+    .av-guide-heading {
+      max-width: 720px;
+      margin: 0 0 48px;
+    }
+
+    .av-guide-eyebrow {
+      display: block;
+      margin-bottom: 14px;
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .av-guide-title {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(38px, 5.2vw, 62px);
+      font-weight: 500;
+      line-height: 1.02;
+      color: var(--dark);
+    }
+
+    .av-guide-intro {
+      max-width: 630px;
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .av-things-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .av-place-card {
+      padding: 28px 26px 30px;
+      border: 1px solid var(--border-soft);
+      border-radius: 18px;
+      background: var(--cream);
+      box-shadow: 0 14px 32px rgba(47, 42, 38, .045);
+    }
+
+    .av-place-number {
+      display: block;
+      margin-bottom: 17px;
+      font-size: 11px;
+      letter-spacing: .15em;
+      color: var(--muted);
+    }
+
+    .av-place-name {
+      margin: 0 0 10px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 27px;
+      line-height: 1.14;
+      font-weight: 500;
+      color: var(--dark);
+    }
+
+    .av-place-description {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .av-restaurant-category + .av-restaurant-category {
+      margin-top: 62px;
+    }
+
+    .av-restaurant-heading {
+      margin: 0 0 24px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 34px;
+      font-weight: 500;
+      color: var(--dark);
+    }
+
+    .av-restaurant-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .av-restaurant-grid--other {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .av-restaurant-card {
+      padding: 25px 23px;
+      border: 1px solid var(--border-soft);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, .76);
+      box-shadow: 0 12px 28px rgba(47, 42, 38, .055);
+    }
+
+    .av-restaurant-area {
+      margin: 0;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .av-restaurant-list {
+      margin: 20px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .av-restaurant-list li {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 23px;
+      line-height: 1.35;
+      color: var(--dark);
+    }
+
+    .av-restaurant-list li + li {
+      margin-top: 10px;
     }
 
     /* ───────── FINAL CTA ───────── */
@@ -425,7 +564,7 @@
         display: flex;
         flex-direction: column;
         gap: 42vh;
-        padding: 14vh 20px 22vh;
+        padding: 14vh 20px 60vh;
       }
 
       .av-step {
@@ -464,8 +603,34 @@
         margin-top: 18px;
       }
 
+      .av-guide-section {
+        padding: 76px 22px;
+      }
+
+      .av-guide-heading {
+        margin-bottom: 34px;
+      }
+
+      .av-things-grid,
+      .av-restaurant-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .av-place-card,
+      .av-restaurant-card {
+        padding: 23px 20px;
+      }
+
       .av-cta {
         padding: 70px 22px 90px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .av-things-grid,
+      .av-restaurant-grid,
+      .av-restaurant-grid--other {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -474,8 +639,9 @@
 <body>
   <header class="site-header">
     <div class="mobile-nav-bar">
-      <a class="mobile-nav-home" href="index.html" aria-label="Olimpia and Shayann — Home">
-        Olimpia &amp; Shayann
+      <a class="mobile-nav-home" href="index.html" aria-label="Olimpia and Shayann — 9 and 10 July 2027 — Home">
+        <span class="site-header-names">Olimpia &amp; Shayann</span>
+        <span class="site-header-date">9 &amp; 10 July 2027</span>
       </a>
       <button
         class="nav-toggle"
@@ -505,11 +671,9 @@
   <main>
     <!-- HERO / INTRO -->
     <section class="av-hero">
-      <p class="av-eyebrow">Valencia, Spain</p>
       <h1>About Valencia</h1>
       <p class="av-hero-subtitle">
-        A little tour of the places that make Valencia so special to us — from the city centre
-        to the sea, the huerta, and the landscapes where we will celebrate our wedding weekend.
+        Explore the places that mean the most to us
       </p>
 
       <div class="av-ornament">
@@ -618,6 +782,146 @@
             <span class="av-step-rule"></span>
           </article>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- THINGS TO DO -->
+    <section class="av-guide-section" aria-labelledby="things-to-do-title">
+      <div class="av-guide-inner">
+        <div class="av-guide-heading">
+          <span class="av-guide-eyebrow">Discover the city</span>
+          <h2 id="things-to-do-title" class="av-guide-title">Things to do</h2>
+          <p class="av-guide-intro">
+            A few of our favourite ways to explore Valencia, from its historic streets and markets
+            to the spectacular City of Arts and Sciences.
+          </p>
+        </div>
+
+        <div class="av-things-grid">
+          <article class="av-place-card">
+            <span class="av-place-number">01</span>
+            <h3 class="av-place-name">Plaza del Ayuntamiento</h3>
+            <p class="av-place-description">
+              Begin in the heart of Valencia at the City Hall square, framed by elegant architecture,
+              fountains and some of the city's most beautiful historic buildings.
+            </p>
+          </article>
+          <article class="av-place-card">
+            <span class="av-place-number">02</span>
+            <h3 class="av-place-name">Mercado Central</h3>
+            <p class="av-place-description">
+              Wander through the beautiful local market, with its fresh fish, Valencian produce,
+              colourful stalls and remarkable modernist architecture.
+            </p>
+          </article>
+          <article class="av-place-card">
+            <span class="av-place-number">03</span>
+            <h3 class="av-place-name">La Lonja de la Seda</h3>
+            <p class="av-place-description">
+              Step inside Valencia's historic Silk Exchange, a Gothic landmark just across from the
+              market and one of the city's most treasured buildings.
+            </p>
+          </article>
+          <article class="av-place-card">
+            <span class="av-place-number">04</span>
+            <h3 class="av-place-name">Cathedral &amp; El Miguelete</h3>
+            <p class="av-place-description">
+              Discover the cathedral and climb the Miguelete bell tower for sweeping views across
+              the old town's rooftops, church domes and plazas.
+            </p>
+          </article>
+          <article class="av-place-card">
+            <span class="av-place-number">05</span>
+            <h3 class="av-place-name">Plaza de la Virgen</h3>
+            <p class="av-place-description">
+              Pause in one of Valencia's prettiest old-town squares, surrounded by the cathedral,
+              the basilica and lively terraces for a coffee in the sun.
+            </p>
+          </article>
+          <article class="av-place-card">
+            <span class="av-place-number">06</span>
+            <h3 class="av-place-name">Oceanogràfic</h3>
+            <p class="av-place-description">
+              Visit the striking aquarium in the City of Arts and Sciences, then take a stroll
+              around the futuristic buildings and the nearby Turia Gardens.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESTAURANT RECOMMENDATIONS -->
+    <section class="av-guide-section av-guide-section--restaurants" aria-labelledby="restaurants-title">
+      <div class="av-guide-inner">
+        <div class="av-guide-heading">
+          <span class="av-guide-eyebrow">Where to eat</span>
+          <h2 id="restaurants-title" class="av-guide-title">Restaurant recommendations</h2>
+          <p class="av-guide-intro">
+            Some of our favourite places for authentic Valencian paella and a memorable meal
+            around the city.
+          </p>
+        </div>
+
+        <div class="av-restaurant-category">
+          <h3 class="av-restaurant-heading">Paella restaurants</h3>
+          <div class="av-restaurant-grid">
+            <article class="av-restaurant-card">
+              <h4 class="av-restaurant-area">By the beach</h4>
+              <ul class="av-restaurant-list">
+                <li>Casa Carmela</li>
+                <li>Panorama</li>
+                <li>La Pepica</li>
+                <li>La Alegría de la Huerta</li>
+              </ul>
+            </article>
+            <article class="av-restaurant-card">
+              <h4 class="av-restaurant-area">In the Albufera</h4>
+              <ul class="av-restaurant-list">
+                <li>L’Establiment</li>
+              </ul>
+            </article>
+            <article class="av-restaurant-card">
+              <h4 class="av-restaurant-area">In the city centre</h4>
+              <ul class="av-restaurant-list">
+                <li>Casa Ana</li>
+                <li>Palace Fesol</li>
+                <li>Pilsener</li>
+                <li>Bar Cremaet</li>
+              </ul>
+            </article>
+            <article class="av-restaurant-card">
+              <h4 class="av-restaurant-area">General</h4>
+              <ul class="av-restaurant-list">
+                <li>Llisa Negra</li>
+                <li>Ricard</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+
+        <div class="av-restaurant-category">
+          <h3 class="av-restaurant-heading">Other restaurants</h3>
+          <div class="av-restaurant-grid av-restaurant-grid--other">
+            <article class="av-restaurant-card">
+              <h4 class="av-restaurant-area">Malvarrosa area</h4>
+              <ul class="av-restaurant-list">
+                <li>Mercabanyal</li>
+                <li>La Más Bonita</li>
+                <li>Veles e Vents</li>
+              </ul>
+            </article>
+            <article class="av-restaurant-card">
+              <h4 class="av-restaurant-area">City centre &amp; nearby</h4>
+              <ul class="av-restaurant-list">
+                <li>Llebeig Alameda</li>
+                <li>Attic Alameda</li>
+                <li>Ultramarinos Pope</li>
+                <li>Ultramarinos Huerta</li>
+                <li>Sal Marina</li>
+              </ul>
+            </article>
+          </div>
         </div>
       </div>
     </section>

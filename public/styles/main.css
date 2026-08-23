@@ -151,6 +151,10 @@ main {
   .hero-fullscreen .hero-carousel-slide img.hero-carousel-image-raised {
     object-position: 50% 35%;
   }
+
+  .hero-fullscreen .hero-carousel-slide img.hero-carousel-image-lowered {
+    object-position: 50% 50%;
+  }
 }
 
 @media (max-width: 700px) {

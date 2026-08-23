@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Valencia — Olimpia & Shayann</title>
   <link rel="stylesheet" href="/styles/main.css" />
+  <script src="/scripts/navigation.js" defer></script>
 
   <style>
     :root {
@@ -472,12 +473,31 @@
 
 <body>
   <header class="site-header">
-    <nav class="main-nav">
+    <div class="mobile-nav-bar">
+      <a class="mobile-nav-home" href="index.html" aria-label="Olimpia and Shayann — Home">
+        Olimpia &amp; Shayann
+      </a>
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="main-navigation"
+        aria-label="Open navigation menu"
+      >
+        <span class="nav-toggle-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+    </div>
+
+    <nav id="main-navigation" class="main-nav" aria-label="Primary navigation">
       <a href="index.html">Home</a>
       <a href="event-details.html">Event Details</a>
       <a href="travel-stay.html">Travel & Stay</a>
       <a href="rsvp.html">RSVP</a>
-      <a href="about-valencia.html">About Valencia</a>
+      <a href="about-valencia.html" aria-current="page">About Valencia</a>
       <a href="faq.html">FAQ</a>
     </nav>
   </header>

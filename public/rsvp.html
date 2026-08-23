@@ -485,26 +485,6 @@
 
         <div class="rsvp-divider"></div>
 
-        <!-- SUNDAY FAREWELL LUNCH -->
-        <div class="rsvp-group r d1">
-          <span class="rsvp-group-label">Sunday &middot; 11 July &middot; Optional</span>
-          <h2>Farewell lunch</h2>
-          <p class="rsvp-group-desc">A gentle wind-down at Parador El Saler for anyone still in town.</p>
-
-          <div class="rsvp-pills" role="group" aria-label="Sunday lunch">
-            <div class="rsvp-pill">
-              <input type="radio" id="lunchYes" name="sundayLunch" value="Yes" />
-              <label class="rsvp-pill-label" for="lunchYes">Yes</label>
-            </div>
-            <div class="rsvp-pill">
-              <input type="radio" id="lunchNo" name="sundayLunch" value="No" />
-              <label class="rsvp-pill-label" for="lunchNo">No</label>
-            </div>
-          </div>
-        </div>
-
-        <div class="rsvp-divider"></div>
-
         <!-- EXTRAS -->
         <div class="rsvp-group r d1">
           <span class="rsvp-group-label">A few extras</span>
@@ -588,7 +568,6 @@
           fridayGolf: (form.fridayGolf.value || ''),
           golfLicence: form.golfLicence.value.trim(),
           saturdayCeremony: (form.saturdayCeremony.value || ''),
-          sundayLunch: (form.sundayLunch.value || ''),
           dietary: form.dietary.value.trim(),
           notes: form.notes.value.trim()
         };

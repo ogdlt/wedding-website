@@ -45,7 +45,7 @@
       "Optional golf and resort activities during the day, followed by a welcome cocktail at Parador El Saler": "Golf y actividades opcionales en el resort durante el día, seguidos de un cóctel de bienvenida en el Parador El Saler",
       "Saturday · 10 July": "Sábado · 10 de julio",
       "Ceremony & Celebration": "Ceremonia y celebración",
-      "Ceremony at 19:30h at Masía Xamandreu. Return buses at 01:00, 03:00 & 04:45": "Ceremonia a las 19:30 en Masía Xamandreu. Autobuses de regreso a la 01:00, 03:00 y 04:45",
+      "Ceremony at 19:30h at Masía Xamandreu. Return buses at 01:00, 03:00 & 05:30": "Ceremonia a las 19:30 en Masía Xamandreu. Autobuses de regreso a la 01:00, 03:00 y 05:30",
       "Golf at Parador El Saler": "Golf en el Parador El Saler",
       "Resort activities at Parador El Saler": "Actividades del resort en el Parador El Saler",
       "Friday & Saturday · 9–10 July · Daytime · Optional": "Viernes y sábado · 9–10 de julio · Durante el día · Opcional",
@@ -97,6 +97,10 @@
       "Discover the cathedral and climb the Miguelete bell tower for sweeping views across the old town's rooftops, church domes and plazas.": "Descubre la catedral y sube al campanario del Miguelete para disfrutar de vistas panorámicas de los tejados, cúpulas y plazas del casco antiguo.",
       "Pause in one of Valencia's prettiest old-town squares, surrounded by the cathedral, the basilica and lively terraces for a coffee in the sun.": "Haz una pausa en una de las plazas más bonitas del casco antiguo, rodeada por la catedral, la basílica y animadas terrazas donde tomar un café al sol.",
       "Visit the striking aquarium in the City of Arts and Sciences, then take a stroll around the futuristic buildings and the nearby Turia Gardens.": "Visita el espectacular acuario de la Ciudad de las Artes y las Ciencias y después pasea entre sus edificios futuristas y por los cercanos Jardines del Turia.",
+      "Malvarrosa Beach": "Playa de la Malvarrosa",
+      "Spend some time by the Mediterranean on Valencia's best-known urban beach, with its wide promenade, golden sand and plenty of places nearby for a drink or a meal.": "Disfruta del Mediterráneo en la playa urbana más conocida de Valencia, con su amplio paseo marítimo, arena dorada y muchos lugares cercanos donde tomar algo o comer.",
+      "Valencia Marina": "Marina de Valencia",
+      "Walk around the city's lively marina, where contemporary architecture, waterfront terraces and views of the boats come together beside the Mediterranean.": "Pasea por la animada Marina de Valencia, donde la arquitectura contemporánea, las terrazas junto al mar y las vistas de los barcos se encuentran frente al Mediterráneo.",
       "Where to eat": "Dónde comer",
       "Restaurant recommendations": "Restaurantes recomendados",
       "Some of our favourite places for authentic Valencian paella and a memorable meal around the city.": "Algunos de nuestros lugares favoritos para disfrutar de una auténtica paella valenciana y de una comida memorable por la ciudad.",
@@ -184,8 +188,7 @@
       "Valencia Airport (VLC) — international connections": "Aeropuerto de Valencia (VLC) — conexiones internacionales",
       "Train": "Tren",
       "Valencia Joaquín Sorolla — AVE high-speed rail": "Valencia Joaquín Sorolla — tren de alta velocidad AVE",
-      "Booked your trip?": "¿Ya habéis reservado el viaje?",
-      "Once your plans are set, let us know which moments you'll be joining us for.": "Cuando tengáis vuestros planes, decidnos en qué momentos nos acompañaréis."
+      "Ready to confirm?": "¿Listos para confirmar?"
     },
 
     fr: {
@@ -228,7 +231,7 @@
       "Optional golf and resort activities during the day, followed by a welcome cocktail at Parador El Saler": "Golf et activités facultatives au resort pendant la journée, suivis d’un cocktail de bienvenue au Parador El Saler",
       "Saturday · 10 July": "Samedi · 10 juillet",
       "Ceremony & Celebration": "Cérémonie et célébration",
-      "Ceremony at 19:30h at Masía Xamandreu. Return buses at 01:00, 03:00 & 04:45": "Cérémonie à 19 h 30 à la Masía Xamandreu. Bus retour à 1 h, 3 h et 4 h 45",
+      "Ceremony at 19:30h at Masía Xamandreu. Return buses at 01:00, 03:00 & 05:30": "Cérémonie à 19 h 30 à la Masía Xamandreu. Bus retour à 1 h, 3 h et 5 h 30",
       "Golf at Parador El Saler": "Golf au Parador El Saler",
       "Resort activities at Parador El Saler": "Activités du resort au Parador El Saler",
       "Friday & Saturday · 9–10 July · Daytime · Optional": "Vendredi et samedi · 9–10 juillet · En journée · Facultatif",
@@ -280,6 +283,10 @@
       "Discover the cathedral and climb the Miguelete bell tower for sweeping views across the old town's rooftops, church domes and plazas.": "Découvrez la cathédrale et montez au clocher du Miguelete pour profiter d’une vue panoramique sur les toits, les dômes et les places de la vieille ville.",
       "Pause in one of Valencia's prettiest old-town squares, surrounded by the cathedral, the basilica and lively terraces for a coffee in the sun.": "Faites une pause sur l’une des plus jolies places de la vieille ville, entourée de la cathédrale, de la basilique et de terrasses animées où prendre un café au soleil.",
       "Visit the striking aquarium in the City of Arts and Sciences, then take a stroll around the futuristic buildings and the nearby Turia Gardens.": "Visitez l’impressionnant aquarium de la Cité des arts et des sciences, puis promenez-vous entre les bâtiments futuristes et dans les jardins du Turia tout proches.",
+      "Malvarrosa Beach": "Plage de la Malvarrosa",
+      "Spend some time by the Mediterranean on Valencia's best-known urban beach, with its wide promenade, golden sand and plenty of places nearby for a drink or a meal.": "Profitez de la Méditerranée sur la plage urbaine la plus connue de Valence, avec sa vaste promenade, son sable doré et ses nombreuses adresses à proximité pour boire un verre ou manger.",
+      "Valencia Marina": "Marina de Valence",
+      "Walk around the city's lively marina, where contemporary architecture, waterfront terraces and views of the boats come together beside the Mediterranean.": "Promenez-vous dans la marina animée de Valence, où l’architecture contemporaine, les terrasses au bord de l’eau et la vue sur les bateaux se rencontrent face à la Méditerranée.",
       "Where to eat": "Où manger",
       "Restaurant recommendations": "Nos recommandations de restaurants",
       "Some of our favourite places for authentic Valencian paella and a memorable meal around the city.": "Quelques-unes de nos adresses préférées pour savourer une authentique paella valencienne et passer un excellent moment en ville.",
@@ -367,8 +374,7 @@
       "Valencia Airport (VLC) — international connections": "Aéroport de Valence (VLC) — liaisons internationales",
       "Train": "Train",
       "Valencia Joaquín Sorolla — AVE high-speed rail": "Valencia Joaquín Sorolla — train à grande vitesse AVE",
-      "Booked your trip?": "Votre voyage est réservé ?",
-      "Once your plans are set, let us know which moments you'll be joining us for.": "Une fois vos projets fixés, dites-nous à quels moments vous serez des nôtres."
+      "Ready to confirm?": "Prêts à confirmer ?"
     },
 
     fa: {
@@ -412,7 +418,7 @@
       "Optional golf and resort activities during the day, followed by a welcome cocktail at Parador El Saler": "گلف و فعالیت‌های اختیاری اقامتگاه در طول روز، سپس مهمانی خوشامدگویی در پارادور ال سالر",
       "Saturday · 10 July": "شنبه · ۱۰ ژوئیه",
       "Ceremony & Celebration": "مراسم و جشن",
-      "Ceremony at 19:30h at Masía Xamandreu. Return buses at 01:00, 03:00 & 04:45": "مراسم ساعت ۱۹:۳۰ در ماسیا خاماندرو. اتوبوس‌های برگشت ساعت ۰۱:۰۰، ۰۳:۰۰ و ۰۴:۴۵",
+      "Ceremony at 19:30h at Masía Xamandreu. Return buses at 01:00, 03:00 & 05:30": "مراسم ساعت ۱۹:۳۰ در ماسیا خاماندرو. اتوبوس‌های برگشت ساعت ۰۱:۰۰، ۰۳:۰۰ و ۰۵:۳۰",
       "Golf at Parador El Saler": "گلف در پارادور ال سالر",
       "Resort activities at Parador El Saler": "فعالیت‌های اقامتگاه در پارادور ال سالر",
       "Friday & Saturday · 9–10 July · Daytime · Optional": "جمعه و شنبه · ۹ تا ۱۰ ژوئیه · روز · اختیاری",
@@ -464,6 +470,10 @@
       "Discover the cathedral and climb the Miguelete bell tower for sweeping views across the old town's rooftops, church domes and plazas.": "کلیسای جامع را ببینید و از برج ناقوس میگِلته بالا بروید تا چشم‌انداز گسترده‌ای از بام‌ها، گنبدها و میدان‌های شهر قدیم داشته باشید.",
       "Pause in one of Valencia's prettiest old-town squares, surrounded by the cathedral, the basilica and lively terraces for a coffee in the sun.": "در یکی از زیباترین میدان‌های شهر قدیم، میان کلیسای جامع، باسیلیکا و کافه‌های پرجنب‌وجوش، برای نوشیدن قهوه زیر آفتاب توقف کنید.",
       "Visit the striking aquarium in the City of Arts and Sciences, then take a stroll around the futuristic buildings and the nearby Turia Gardens.": "از آکواریوم تماشایی شهر هنر و علوم دیدن کنید، سپس میان ساختمان‌های آینده‌نگر و باغ‌های نزدیک توریا قدم بزنید.",
+      "Malvarrosa Beach": "ساحل مالواروسا",
+      "Spend some time by the Mediterranean on Valencia's best-known urban beach, with its wide promenade, golden sand and plenty of places nearby for a drink or a meal.": "در شناخته‌شده‌ترین ساحل شهری والنسیا کنار مدیترانه وقت بگذرانید؛ با تفرجگاهی وسیع، شن‌های طلایی و مکان‌های فراوان در نزدیکی برای نوشیدنی یا غذا.",
+      "Valencia Marina": "مارینای والنسیا",
+      "Walk around the city's lively marina, where contemporary architecture, waterfront terraces and views of the boats come together beside the Mediterranean.": "در مارینای پرجنب‌وجوش والنسیا قدم بزنید؛ جایی که معماری معاصر، تراس‌های کنار آب و چشم‌انداز قایق‌ها در کنار مدیترانه به هم می‌رسند.",
       "Where to eat": "کجا غذا بخوریم",
       "Restaurant recommendations": "رستوران‌های پیشنهادی",
       "Some of our favourite places for authentic Valencian paella and a memorable meal around the city.": "چند مکان محبوب ما برای پائیای اصیل والنسیا و یک وعده به‌یادماندنی در شهر.",
@@ -551,8 +561,7 @@
       "Valencia Airport (VLC) — international connections": "فرودگاه والنسیا (VLC) — پروازهای بین‌المللی",
       "Train": "قطار",
       "Valencia Joaquín Sorolla — AVE high-speed rail": "والنسیا خواکین سورولا — قطار سریع‌السیر AVE",
-      "Booked your trip?": "سفر خود را رزرو کرده‌اید؟",
-      "Once your plans are set, let us know which moments you'll be joining us for.": "پس از قطعی‌شدن برنامه‌تان، بگویید در کدام بخش‌ها همراه ما خواهید بود."
+      "Ready to confirm?": "آماده تأیید هستید؟"
     }
   };
 

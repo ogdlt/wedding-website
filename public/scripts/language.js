@@ -7,7 +7,7 @@
   var translations = {
     es: {
       "Our Wedding": "Nuestra boda",
-      "Event Details — Olimpia & Shayann": "Detalles del evento — Olimpia & Shayann",
+      "Event Details — Olimpia & Shayann": "Programa — Olimpia & Shayann",
       "Travel & Stay — Olimpia & Shayann": "Viaje y alojamiento — Olimpia & Shayann",
       "RSVP — Olimpia & Shayann": "Confirmación de asistencia — Olimpia & Shayann",
       "About Valencia — Olimpia & Shayann": "Sobre Valencia — Olimpia & Shayann",
@@ -19,7 +19,7 @@
       "Primary navigation": "Navegación principal",
       "Language": "Idioma",
       "Home": "Inicio",
-      "Event Details": "Detalles del evento",
+      "Event Details": "Programa",
       "Travel & Stay": "Viaje y alojamiento",
       "RSVP": "Confirmar asistencia",
       "About Valencia": "Sobre Valencia",
@@ -29,13 +29,13 @@
       "Show previous photo": "Mostrar foto anterior",
       "Show next photo": "Mostrar foto siguiente",
       "9–11th July 2027 · Valencia, Spain": "9–11 de julio de 2027 · Valencia, España",
-      "We look forward to celebrating our union with you.": "Estamos deseando celebrar nuestra unión con vosotros.",
+      "We cannot wait to share this special day with our family and friends.": "Estamos deseando compartir este día tan especial con nuestra familia y amigos.",
       "On this website, you will find all the information about our wedding weekend and the RSVP questionnaire for you to complete.": "En esta web encontraréis toda la información sobre el fin de semana de nuestra boda y el formulario para confirmar vuestra asistencia.",
       "Confirm Your Attendance": "Confirma tu asistencia",
       "Explore the Weekend": "Descubre el fin de semana",
       "Reach out to us if you have any questions": "Contactad con nosotros si tenéis alguna pregunta",
       "9, 10 and 11 July 2027 · Valencia, Spain": "9, 10 y 11 de julio de 2027 · Valencia, España",
-      "Agenda for the weekend": "Programa del fin de semana",
+      "Agenda for the weekend": "Programa",
       "Days": "Días",
       "Hours": "Horas",
       "Minutes": "Minutos",
@@ -108,8 +108,8 @@
       "Malvarrosa area": "Zona de la Malvarrosa",
       "City centre & nearby": "Centro y alrededores",
       "Ready for the weekend?": "¿Listos para el fin de semana?",
-      "Find the full plan for Friday, Saturday and Sunday on the Event Details page.": "Consulta el programa completo del viernes, sábado y domingo en la página de detalles del evento.",
-      "See Event Details": "Ver detalles del evento",
+      "Find the full plan for Friday, Saturday and Sunday on the Event Details page.": "Consulta el programa completo del viernes, sábado y domingo en la página del programa.",
+      "See Event Details": "Ver programa",
       "Wedding weekend details": "Detalles del fin de semana de la boda",
       "Helpful information": "Información útil",
       "Frequently asked questions": "Preguntas frecuentes",
@@ -123,7 +123,7 @@
       "There will be no need for heel protections for women, as the venues are flat and the ground is covered evenly.": "No será necesario llevar protectores de tacón, ya que los espacios son llanos y el suelo está cubierto de manera uniforme.",
       "Family details": "Información para familias",
       "Children": "Niños",
-      "We welcome every member of our guests’ families, however little they may be. Please just bear in mind that Friday evening’s welcome cocktail will continue well into the evening.": "Damos la bienvenida a todos los miembros de las familias de nuestros invitados, por pequeños que sean. Solo os pedimos que tengáis en cuenta que el cóctel del viernes se prolongará hasta bien entrada la noche.",
+      "We welcome every member of our guests’ families, however little they may be. Please just bear in mind that Saturday’s wedding celebration will continue well into the night.": "Damos la bienvenida a todos los miembros de las familias de nuestros invitados, por pequeños que sean. Solo os pedimos que tengáis en cuenta que la celebración de la boda del sábado se prolongará hasta bien entrada la noche.",
       "For recommendations for local nannies or caregivers, please contact Olimpia.": "Para recomendaciones de niñeras o cuidadores locales, poneos en contacto con Olimpia.",
       "Celebrating with us": "Celebrar con nosotros",
       "Gifts": "Regalos",
@@ -212,7 +212,7 @@
       "Show previous photo": "Afficher la photo précédente",
       "Show next photo": "Afficher la photo suivante",
       "9–11th July 2027 · Valencia, Spain": "9–11 juillet 2027 · Valence, Espagne",
-      "We look forward to celebrating our union with you.": "Nous avons hâte de célébrer notre union avec vous.",
+      "We cannot wait to share this special day with our family and friends.": "Nous avons hâte de partager cette journée si spéciale avec notre famille et nos amis.",
       "On this website, you will find all the information about our wedding weekend and the RSVP questionnaire for you to complete.": "Vous trouverez sur ce site toutes les informations concernant le week-end de notre mariage ainsi que le formulaire de réponse à remplir.",
       "Confirm Your Attendance": "Confirmer votre présence",
       "Explore the Weekend": "Découvrir le week-end",
@@ -306,7 +306,7 @@
       "There will be no need for heel protections for women, as the venues are flat and the ground is covered evenly.": "Les protections de talons ne seront pas nécessaires, car les lieux sont plats et le sol est uniformément couvert.",
       "Family details": "Informations pour les familles",
       "Children": "Enfants",
-      "We welcome every member of our guests’ families, however little they may be. Please just bear in mind that Friday evening’s welcome cocktail will continue well into the evening.": "Nous accueillons avec plaisir tous les membres des familles de nos invités, même les plus petits. Gardez simplement à l’esprit que le cocktail de bienvenue du vendredi se prolongera jusque tard dans la soirée.",
+      "We welcome every member of our guests’ families, however little they may be. Please just bear in mind that Saturday’s wedding celebration will continue well into the night.": "Nous accueillons avec plaisir tous les membres des familles de nos invités, même les plus petits. Gardez simplement à l’esprit que la célébration du mariage le samedi se prolongera jusque tard dans la nuit.",
       "For recommendations for local nannies or caregivers, please contact Olimpia.": "Pour des recommandations de nounous ou de personnes de garde sur place, veuillez contacter Olimpia.",
       "Celebrating with us": "Célébrer avec nous",
       "Gifts": "Cadeaux",
@@ -396,7 +396,7 @@
       "Show previous photo": "نمایش عکس قبلی",
       "Show next photo": "نمایش عکس بعدی",
       "9–11th July 2027 · Valencia, Spain": "۹ تا ۱۱ ژوئیه ۲۰۲۷ · والنسیا، اسپانیا",
-      "We look forward to celebrating our union with you.": "بی‌صبرانه منتظریم پیوندمان را با شما جشن بگیریم.",
+      "We cannot wait to share this special day with our family and friends.": "بی‌صبرانه منتظریم این روز ویژه را با خانواده و دوستان‌مان شریک شویم.",
       "On this website, you will find all the information about our wedding weekend and the RSVP questionnaire for you to complete.": "در این وب‌سایت تمام اطلاعات مربوط به آخرهفته عروسی و فرم پاسخ دعوت را خواهید یافت.",
       "Confirm Your Attendance": "حضور خود را تأیید کنید",
       "Explore the Weekend": "برنامه آخرهفته را ببینید",
@@ -490,7 +490,7 @@
       "There will be no need for heel protections for women, as the venues are flat and the ground is covered evenly.": "نیازی به محافظ پاشنه نیست، زیرا محل‌ها هموارند و سطح زمین به‌طور یکنواخت پوشیده شده است.",
       "Family details": "اطلاعات خانواده‌ها",
       "Children": "کودکان",
-      "We welcome every member of our guests’ families, however little they may be. Please just bear in mind that Friday evening’s welcome cocktail will continue well into the evening.": "از همه اعضای خانواده مهمانان‌مان، حتی کوچک‌ترین آن‌ها، با آغوش باز استقبال می‌کنیم. فقط لطفاً در نظر داشته باشید که مهمانی خوشامدگویی جمعه تا پاسی از شب ادامه خواهد داشت.",
+      "We welcome every member of our guests’ families, however little they may be. Please just bear in mind that Saturday’s wedding celebration will continue well into the night.": "از همه اعضای خانواده مهمانان‌مان، حتی کوچک‌ترین آن‌ها، با آغوش باز استقبال می‌کنیم. فقط لطفاً در نظر داشته باشید که جشن عروسی روز شنبه تا پاسی از شب ادامه خواهد داشت.",
       "For recommendations for local nannies or caregivers, please contact Olimpia.": "برای معرفی پرستار کودک یا مراقب محلی، لطفاً با اولیمپیا تماس بگیرید.",
       "Celebrating with us": "جشن همراه ما",
       "Gifts": "هدایا",
@@ -560,7 +560,18 @@
   var originalAttributes = [];
   var originalTitle = document.title;
   var currentLanguage = "en";
-  var selector;
+  var languageButton;
+  var languageLabel;
+  var languageMenu;
+
+  function languageDisplay(language) {
+    return {
+      en: "EN",
+      es: "ES",
+      fr: "FR",
+      fa: "فارسی"
+    }[language] || "EN";
+  }
 
   function normalise(value) {
     return String(value || "").replace(/\s+/g, " ").trim();
@@ -599,15 +610,33 @@
     headerBar.insertBefore(actions, toggle);
     actions.appendChild(toggle);
 
-    var label = document.createElement("label");
-    label.className = "visually-hidden";
-    label.setAttribute("for", "site-language");
-    label.textContent = "Language";
+    var picker = document.createElement("div");
+    picker.className = "language-picker";
 
-    selector = document.createElement("select");
-    selector.id = "site-language";
-    selector.className = "language-select";
-    selector.setAttribute("aria-label", "Language");
+    languageButton = document.createElement("button");
+    languageButton.type = "button";
+    languageButton.className = "language-button";
+    languageButton.setAttribute("aria-label", "Language");
+    languageButton.setAttribute("aria-haspopup", "menu");
+    languageButton.setAttribute("aria-expanded", "false");
+    languageButton.setAttribute("aria-controls", "language-menu");
+
+    languageLabel = document.createElement("span");
+    languageLabel.className = "language-button-label";
+    languageLabel.textContent = "EN";
+
+    var chevron = document.createElement("span");
+    chevron.className = "language-button-chevron";
+    chevron.setAttribute("aria-hidden", "true");
+
+    languageButton.appendChild(languageLabel);
+    languageButton.appendChild(chevron);
+
+    languageMenu = document.createElement("div");
+    languageMenu.id = "language-menu";
+    languageMenu.className = "language-menu";
+    languageMenu.setAttribute("role", "menu");
+    languageMenu.hidden = true;
 
     [
       ["en", "EN"],
@@ -615,17 +644,46 @@
       ["fr", "FR"],
       ["fa", "فارسی"]
     ].forEach(function (optionData) {
-      var option = document.createElement("option");
-      option.value = optionData[0];
+      var option = document.createElement("button");
+      option.type = "button";
+      option.className = "language-option";
+      option.setAttribute("role", "menuitemradio");
+      option.setAttribute("data-language", optionData[0]);
+      option.setAttribute("aria-checked", optionData[0] === "en" ? "true" : "false");
       option.textContent = optionData[1];
-      selector.appendChild(option);
+      option.addEventListener("click", function () {
+        setLanguage(optionData[0], true);
+        closeLanguageMenu(true);
+      });
+      languageMenu.appendChild(option);
     });
 
-    var picker = document.createElement("div");
-    picker.className = "language-picker";
-    picker.appendChild(label);
-    picker.appendChild(selector);
+    languageButton.addEventListener("click", function () {
+      var willOpen = languageButton.getAttribute("aria-expanded") !== "true";
+      languageButton.setAttribute("aria-expanded", String(willOpen));
+      languageMenu.hidden = !willOpen;
+    });
+
+    document.addEventListener("click", function (event) {
+      if (!picker.contains(event.target)) closeLanguageMenu(false);
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && languageButton.getAttribute("aria-expanded") === "true") {
+        closeLanguageMenu(true);
+      }
+    });
+
+    picker.appendChild(languageButton);
+    picker.appendChild(languageMenu);
     actions.appendChild(picker);
+  }
+
+  function closeLanguageMenu(returnFocus) {
+    if (!languageButton || !languageMenu) return;
+    languageButton.setAttribute("aria-expanded", "false");
+    languageMenu.hidden = true;
+    if (returnFocus) languageButton.focus();
   }
 
   function captureOriginalContent() {
@@ -690,7 +748,13 @@
       );
     });
 
-    if (selector) selector.value = language;
+    if (languageLabel) languageLabel.textContent = languageDisplay(language);
+    document.querySelectorAll(".language-option").forEach(function (option) {
+      option.setAttribute(
+        "aria-checked",
+        String(option.getAttribute("data-language") === language)
+      );
+    });
     if (persist !== false) storeLanguage(language);
 
     document.dispatchEvent(
@@ -706,12 +770,6 @@
     setLanguage: function (language) { setLanguage(language, true); },
     t: function (source) { return translate(source, currentLanguage); }
   };
-
-  if (selector) {
-    selector.addEventListener("change", function () {
-      setLanguage(selector.value, true);
-    });
-  }
 
   setLanguage(getStoredLanguage(), false);
 })();

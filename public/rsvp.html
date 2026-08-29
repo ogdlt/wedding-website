@@ -6,6 +6,7 @@
   <title>RSVP — Olimpia & Shayann</title>
   <link rel="stylesheet" href="/styles/main.css" />
   <script src="/scripts/navigation.js" defer></script>
+  <script src="/scripts/language.js" defer></script>
   <style>
     :root {
       --dark: #2f2a26;
@@ -543,11 +544,29 @@
       var form = document.getElementById('rsvpForm');
       var btn = document.getElementById('rsvpSubmit');
       var status = document.getElementById('rsvpStatus');
+      var currentStatusSource = '';
+      var buttonState = 'idle';
 
-      function showStatus(type, message) {
-        status.className = 'rsvp-status on ' + type;
-        status.textContent = message;
+      function translate(source) {
+        return window.weddingI18n ? window.weddingI18n.t(source) : source;
       }
+
+      function buttonLabel() {
+        if (buttonState === 'sending') return translate('Sending...');
+        if (buttonState === 'sent') return translate('RSVP sent ✓');
+        return translate('Send RSVP');
+      }
+
+      function showStatus(type, source) {
+        currentStatusSource = source;
+        status.className = 'rsvp-status on ' + type;
+        status.textContent = source ? translate(source) : '';
+      }
+
+      document.addEventListener('wedding:languagechange', function() {
+        btn.textContent = buttonLabel();
+        if (currentStatusSource) status.textContent = translate(currentStatusSource);
+      });
 
       form.addEventListener('submit', function(ev) {
         ev.preventDefault();
@@ -573,7 +592,8 @@
         };
 
         btn.disabled = true;
-        btn.textContent = 'Sending...';
+        buttonState = 'sending';
+        btn.textContent = buttonLabel();
         showStatus('', '');
         status.className = 'rsvp-status';
 
@@ -585,14 +605,16 @@
         })
         .then(function() {
           showStatus('success', 'Thank you — your RSVP has been received. We can\'t wait to celebrate with you!');
-          btn.textContent = 'RSVP sent ✓';
+          buttonState = 'sent';
+          btn.textContent = buttonLabel();
           form.reset();
           document.getElementById('golfLicenceWrap').classList.remove('on');
         })
         .catch(function(err) {
           showStatus('error', 'Sorry, something went wrong sending your RSVP. Please try again, or email us directly.');
           btn.disabled = false;
-          btn.textContent = 'Send RSVP';
+          buttonState = 'idle';
+          btn.textContent = buttonLabel();
         });
       });
     })();

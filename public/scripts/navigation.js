@@ -8,12 +8,16 @@
 
   header.setAttribute("data-nav-ready", "");
 
+  function translate(source) {
+    return window.weddingI18n ? window.weddingI18n.t(source) : source;
+  }
+
   function setMenuOpen(isOpen, returnFocus) {
     nav.classList.toggle("is-open", isOpen);
     toggle.setAttribute("aria-expanded", String(isOpen));
     toggle.setAttribute(
       "aria-label",
-      isOpen ? "Close navigation menu" : "Open navigation menu"
+      translate(isOpen ? "Close navigation menu" : "Open navigation menu")
     );
 
     if (!isOpen && returnFocus) {
@@ -41,6 +45,14 @@
     if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
       setMenuOpen(false, true);
     }
+  });
+
+  document.addEventListener("wedding:languagechange", function () {
+    var isOpen = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute(
+      "aria-label",
+      translate(isOpen ? "Close navigation menu" : "Open navigation menu")
+    );
   });
 
 })();

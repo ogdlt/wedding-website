@@ -352,16 +352,33 @@
 
     .av-things-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
     }
 
     .av-place-card {
-      padding: 28px 26px 30px;
+      display: grid;
+      grid-template-columns: minmax(150px, 42%) minmax(0, 1fr);
+      align-items: center;
+      gap: 18px;
+      min-height: 220px;
+      padding: 18px;
       border: 1px solid var(--border-soft);
       border-radius: 18px;
       background: var(--cream);
       box-shadow: 0 14px 32px rgba(47, 42, 38, .045);
+      overflow: hidden;
+    }
+
+    .av-place-illustration {
+      width: 100%;
+      height: 180px;
+      display: block;
+      object-fit: contain;
+    }
+
+    .av-place-copy {
+      min-width: 0;
     }
 
     .av-place-number {
@@ -614,12 +631,22 @@
 
       .av-things-grid,
       .av-restaurant-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: 1fr;
       }
 
       .av-place-card,
       .av-restaurant-card {
         padding: 23px 20px;
+      }
+
+      .av-place-card {
+        grid-template-columns: minmax(140px, 38%) minmax(0, 1fr);
+        min-height: 190px;
+        padding: 15px;
+      }
+
+      .av-place-illustration {
+        height: 155px;
       }
 
       .av-cta {
@@ -632,6 +659,30 @@
       .av-restaurant-grid,
       .av-restaurant-grid--other {
         grid-template-columns: 1fr;
+      }
+
+      .av-place-card {
+        grid-template-columns: minmax(105px, 36%) minmax(0, 1fr);
+        gap: 12px;
+        min-height: 170px;
+        padding: 12px;
+      }
+
+      .av-place-illustration {
+        height: 135px;
+      }
+
+      .av-place-number {
+        margin-bottom: 10px;
+      }
+
+      .av-place-name {
+        font-size: 23px;
+      }
+
+      .av-place-description {
+        font-size: 13px;
+        line-height: 1.6;
       }
     }
   </style>
@@ -798,69 +849,93 @@
 
         <div class="av-things-grid">
           <article class="av-place-card">
-            <span class="av-place-number">01</span>
-            <h3 class="av-place-name">Plaza del Ayuntamiento</h3>
-            <p class="av-place-description">
-              Begin in the heart of Valencia at the City Hall square, framed by elegant architecture,
-              fountains and some of the city's most beautiful historic buildings.
-            </p>
+            <img class="av-place-illustration" src="/images/valencia-guide/plaza-ayuntamiento.webp" alt="" loading="lazy" decoding="async" />
+            <div class="av-place-copy">
+              <span class="av-place-number">01</span>
+              <h3 class="av-place-name">Plaza del Ayuntamiento</h3>
+              <p class="av-place-description">
+                Begin in the heart of Valencia at the City Hall square, framed by elegant architecture,
+                fountains and some of the city's most beautiful historic buildings.
+              </p>
+            </div>
           </article>
           <article class="av-place-card">
-            <span class="av-place-number">02</span>
-            <h3 class="av-place-name">Mercado Central</h3>
-            <p class="av-place-description">
-              Wander through the beautiful local market, with its fresh fish, Valencian produce,
-              colourful stalls and remarkable modernist architecture. While you are there, try a
-              fresh horchata with fartons, a classic Valencian treat.
-            </p>
+            <img class="av-place-illustration" src="/images/valencia-guide/mercado-central.webp" alt="" loading="lazy" decoding="async" />
+            <div class="av-place-copy">
+              <span class="av-place-number">02</span>
+              <h3 class="av-place-name">Mercado Central</h3>
+              <p class="av-place-description">
+                Wander through the beautiful local market, with its fresh fish, Valencian produce,
+                colourful stalls and remarkable modernist architecture. While you are there, try a
+                fresh horchata with fartons, a classic Valencian treat.
+              </p>
+            </div>
           </article>
           <article class="av-place-card">
-            <span class="av-place-number">03</span>
-            <h3 class="av-place-name">La Lonja de la Seda</h3>
-            <p class="av-place-description">
-              Step inside Valencia's historic Silk Exchange, a Gothic landmark just across from the
-              market and one of the city's most treasured buildings.
-            </p>
+            <img class="av-place-illustration" src="/images/valencia-guide/lonja-seda.webp" alt="" loading="lazy" decoding="async" />
+            <div class="av-place-copy">
+              <span class="av-place-number">03</span>
+              <h3 class="av-place-name">La Lonja de la Seda</h3>
+              <p class="av-place-description">
+                Step inside Valencia's historic Silk Exchange, a Gothic landmark just across from the
+                market and one of the city's most treasured buildings.
+              </p>
+            </div>
           </article>
           <article class="av-place-card">
-            <span class="av-place-number">04</span>
-            <h3 class="av-place-name">Cathedral &amp; El Miguelete</h3>
-            <p class="av-place-description">
-              Discover the cathedral and climb the Miguelete bell tower for sweeping views across
-              the old town's rooftops, church domes and plazas.
-            </p>
+            <img class="av-place-illustration" src="/images/valencia-guide/catedral-miguelete.webp" alt="" loading="lazy" decoding="async" />
+            <div class="av-place-copy">
+              <span class="av-place-number">04</span>
+              <h3 class="av-place-name">Cathedral &amp; El Miguelete</h3>
+              <p class="av-place-description">
+                Discover the cathedral and climb the Miguelete bell tower for sweeping views across
+                the old town's rooftops, church domes and plazas.
+              </p>
+            </div>
           </article>
           <article class="av-place-card">
-            <span class="av-place-number">05</span>
-            <h3 class="av-place-name">Plaza de la Virgen</h3>
-            <p class="av-place-description">
-              Pause in one of Valencia's prettiest old-town squares, surrounded by the cathedral,
-              the basilica and lively terraces for a coffee in the sun.
-            </p>
+            <img class="av-place-illustration" src="/images/valencia-guide/plaza-virgen.webp" alt="" loading="lazy" decoding="async" />
+            <div class="av-place-copy">
+              <span class="av-place-number">05</span>
+              <h3 class="av-place-name">Plaza de la Virgen</h3>
+              <p class="av-place-description">
+                Pause in one of Valencia's prettiest old-town squares, surrounded by the cathedral,
+                the basilica and lively terraces for a coffee in the sun.
+              </p>
+            </div>
           </article>
           <article class="av-place-card">
-            <span class="av-place-number">06</span>
-            <h3 class="av-place-name">Malvarrosa Beach</h3>
-            <p class="av-place-description">
-              Spend some time by the Mediterranean on Valencia's best-known urban beach, with its
-              wide promenade, golden sand and plenty of places nearby for a drink or a meal.
-            </p>
+            <img class="av-place-illustration" src="/images/valencia-guide/malvarrosa.webp" alt="" loading="lazy" decoding="async" />
+            <div class="av-place-copy">
+              <span class="av-place-number">06</span>
+              <h3 class="av-place-name">Malvarrosa Beach</h3>
+              <p class="av-place-description">
+                Spend some time by the Mediterranean on Valencia's best-known urban beach, with its
+                wide promenade, golden sand and plenty of places nearby for a drink or a meal.
+              </p>
+            </div>
           </article>
           <article class="av-place-card">
-            <span class="av-place-number">07</span>
-            <h3 class="av-place-name">Valencia Marina</h3>
-            <p class="av-place-description">
-              Walk around the city's lively marina, where contemporary architecture, waterfront
-              terraces and views of the boats come together beside the Mediterranean.
-            </p>
+            <img class="av-place-illustration" src="/images/valencia-guide/marina-valencia.webp" alt="" loading="lazy" decoding="async" />
+            <div class="av-place-copy">
+              <span class="av-place-number">07</span>
+              <h3 class="av-place-name">Valencia Marina</h3>
+              <p class="av-place-description">
+                Walk around the city's lively marina, where contemporary architecture, waterfront
+                terraces and views of the boats come together beside the Mediterranean.
+              </p>
+            </div>
           </article>
           <article class="av-place-card">
-            <span class="av-place-number">08</span>
-            <h3 class="av-place-name">City of Arts and Sciences</h3>
-            <p class="av-place-description">
-              Visit the striking aquarium in the City of Arts and Sciences, then take a stroll
-              around the futuristic buildings and the nearby Turia Gardens.
-            </p>
+            <img class="av-place-illustration" src="/images/valencia-guide/ciudad-artes-ciencias.webp" alt="" loading="lazy" decoding="async" />
+            <div class="av-place-copy">
+              <span class="av-place-number">08</span>
+              <h3 class="av-place-name">City of Arts and Sciences</h3>
+              <p class="av-place-description">
+                Visit the striking aquarium in the City of Arts and Sciences, then take a stroll
+                around the futuristic buildings and the nearby Turia Gardens.
+              </p>
+            </div>
           </article>
         </div>
       </div>

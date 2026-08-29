@@ -381,12 +381,36 @@
       min-width: 0;
     }
 
-    .av-place-number {
-      display: block;
-      margin-bottom: 17px;
+    .av-place-meta {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 14px;
+    }
+
+    .av-place-area-label {
       font-size: 11px;
-      letter-spacing: .15em;
+      line-height: 1.25;
+      letter-spacing: .08em;
+      text-transform: uppercase;
       color: var(--muted);
+    }
+
+    .av-place-map-pin {
+      width: 27px;
+      height: 27px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      background: rgba(201, 112, 74, .09);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1;
+      box-shadow: 0 3px 9px rgba(201, 112, 74, .12);
     }
 
     .av-place-name {
@@ -672,8 +696,13 @@
         height: 155px;
       }
 
-      .av-place-number {
+      .av-place-meta {
         margin-bottom: 10px;
+      }
+
+      .av-place-map-pin {
+        width: 25px;
+        height: 25px;
       }
 
       .av-place-name {
@@ -851,7 +880,7 @@
           <article class="av-place-card">
             <img class="av-place-illustration" src="/images/valencia-guide/plaza-ayuntamiento.webp" alt="" loading="lazy" decoding="async" />
             <div class="av-place-copy">
-              <span class="av-place-number">01</span>
+              <div class="av-place-meta"><span class="av-place-map-pin" aria-hidden="true">3</span><span class="av-place-area-label">Old Town &amp; City Center</span></div>
               <h3 class="av-place-name">Plaza del Ayuntamiento</h3>
               <p class="av-place-description">
                 Valencia's grand civic square, framed by the elegant City Hall and historic façades.
@@ -861,7 +890,7 @@
           <article class="av-place-card">
             <img class="av-place-illustration" src="/images/valencia-guide/mercado-central.webp" alt="" loading="lazy" decoding="async" />
             <div class="av-place-copy">
-              <span class="av-place-number">02</span>
+              <div class="av-place-meta"><span class="av-place-map-pin" aria-hidden="true">3</span><span class="av-place-area-label">Old Town &amp; City Center</span></div>
               <h3 class="av-place-name">Mercado Central</h3>
               <p class="av-place-description">
                 A modernist market filled with local produce, colourful stalls and Valencian flavours.
@@ -871,7 +900,7 @@
           <article class="av-place-card">
             <img class="av-place-illustration" src="/images/valencia-guide/lonja-seda.webp" alt="" loading="lazy" decoding="async" />
             <div class="av-place-copy">
-              <span class="av-place-number">03</span>
+              <div class="av-place-meta"><span class="av-place-map-pin" aria-hidden="true">3</span><span class="av-place-area-label">Old Town &amp; City Center</span></div>
               <h3 class="av-place-name">La Lonja de la Seda</h3>
               <p class="av-place-description">
                 A Gothic masterpiece and former silk exchange opposite the Mercado Central.
@@ -881,7 +910,7 @@
           <article class="av-place-card">
             <img class="av-place-illustration" src="/images/valencia-guide/catedral-miguelete.webp" alt="" loading="lazy" decoding="async" />
             <div class="av-place-copy">
-              <span class="av-place-number">04</span>
+              <div class="av-place-meta"><span class="av-place-map-pin" aria-hidden="true">3</span><span class="av-place-area-label">Old Town &amp; City Center</span></div>
               <h3 class="av-place-name">Cathedral &amp; El Miguelete</h3>
               <p class="av-place-description">
                 Climb El Miguelete for panoramic views over Valencia's historic rooftops.
@@ -891,7 +920,7 @@
           <article class="av-place-card">
             <img class="av-place-illustration" src="/images/valencia-guide/plaza-virgen.webp" alt="" loading="lazy" decoding="async" />
             <div class="av-place-copy">
-              <span class="av-place-number">05</span>
+              <div class="av-place-meta"><span class="av-place-map-pin" aria-hidden="true">3</span><span class="av-place-area-label">Old Town &amp; City Center</span></div>
               <h3 class="av-place-name">Plaza de la Virgen</h3>
               <p class="av-place-description">
                 A beautiful old-town square beside the cathedral, basilica and lively terraces.
@@ -901,7 +930,7 @@
           <article class="av-place-card">
             <img class="av-place-illustration" src="/images/valencia-guide/malvarrosa.webp" alt="" loading="lazy" decoding="async" />
             <div class="av-place-copy">
-              <span class="av-place-number">06</span>
+              <div class="av-place-meta"><span class="av-place-map-pin" aria-hidden="true">4</span><span class="av-place-area-label">Maritime Area</span></div>
               <h3 class="av-place-name">Malvarrosa Beach</h3>
               <p class="av-place-description">
                 Golden sand, Mediterranean views and a wide seafront promenade.
@@ -911,7 +940,7 @@
           <article class="av-place-card">
             <img class="av-place-illustration" src="/images/valencia-guide/marina-valencia.webp" alt="" loading="lazy" decoding="async" />
             <div class="av-place-copy">
-              <span class="av-place-number">07</span>
+              <div class="av-place-meta"><span class="av-place-map-pin" aria-hidden="true">4</span><span class="av-place-area-label">Maritime Area</span></div>
               <h3 class="av-place-name">Valencia Marina</h3>
               <p class="av-place-description">
                 Sailboats, waterfront terraces and contemporary architecture by the sea.
@@ -921,7 +950,7 @@
           <article class="av-place-card">
             <img class="av-place-illustration" src="/images/valencia-guide/ciudad-artes-ciencias.webp" alt="" loading="lazy" decoding="async" />
             <div class="av-place-copy">
-              <span class="av-place-number">08</span>
+              <div class="av-place-meta"><span class="av-place-map-pin" aria-hidden="true">4</span><span class="av-place-area-label">Maritime Area</span></div>
               <h3 class="av-place-name">City of Arts and Sciences</h3>
               <p class="av-place-description">
                 Valencia's iconic futuristic complex, home to the Oceanogràfic and striking reflecting pools.

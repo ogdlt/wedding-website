@@ -1047,34 +1047,96 @@ main section h2 {
 }
 
 .language-picker {
+  position: relative;
   display: inline-flex;
   align-items: center;
 }
 
-.language-select {
-  height: 42px;
-  min-width: 76px;
-  padding: 0 10px;
-  border: 1px solid rgba(47, 42, 38, 0.16);
-  border-radius: 12px;
-  background-color: #ffffff;
-  color: #2f2a26;
+.language-button {
+  min-width: 72px;
+  height: 32px;
+  padding: 0 11px 0 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 0;
+  border-radius: 999px;
+  background-color: rgba(238, 228, 217, 0.58);
+  color: #5a534d;
   font-family: inherit;
   font-size: 12px;
-  letter-spacing: 0.04em;
+  line-height: 1;
+  letter-spacing: 0.08em;
   direction: ltr;
   cursor: pointer;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.language-select:hover {
-  border-color: rgba(47, 42, 38, 0.34);
-  box-shadow: 0 5px 14px rgba(47, 42, 38, 0.08);
+.language-button:hover,
+.language-button[aria-expanded="true"] {
+  background-color: rgba(238, 228, 217, 0.9);
+  color: #1f1a17;
 }
 
-.language-select:focus-visible {
+.language-button:focus-visible,
+.language-option:focus-visible {
   outline: 2px solid #2f2a26;
   outline-offset: 2px;
+}
+
+.language-button-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.language-button-chevron {
+  width: 5px;
+  height: 5px;
+  margin-left: auto;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  flex: 0 0 auto;
+}
+
+.language-menu {
+  position: absolute;
+  top: calc(50% + 22px);
+  right: 0;
+  z-index: 3;
+  width: 88px;
+  padding: 6px;
+  border-radius: 14px;
+  background-color: #ffffff;
+  box-shadow: 0 12px 26px rgba(47, 42, 38, 0.14);
+}
+
+.language-menu[hidden] {
+  display: none;
+}
+
+.language-option {
+  width: 100%;
+  min-height: 34px;
+  padding: 7px 9px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: #5a534d;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+}
+
+.language-option:hover,
+.language-option[aria-checked="true"] {
+  background-color: rgba(238, 228, 217, 0.58);
+  color: #1f1a17;
 }
 
 .visually-hidden {
@@ -1229,10 +1291,11 @@ main section h2 {
     gap: 4px;
   }
 
-  .language-select {
+  .language-button {
     min-width: 68px;
-    height: 40px;
-    padding: 0 7px;
+    height: 30px;
+    padding: 0 10px 0 12px;
+    gap: 9px;
     font-size: 11px;
   }
 
@@ -1262,7 +1325,7 @@ html[dir="rtl"] .ev-info-row {
 
 html[dir="rtl"] input,
 html[dir="rtl"] textarea,
-html[dir="rtl"] select:not(.language-select) {
+html[dir="rtl"] select {
   text-align: right;
   direction: rtl;
 }

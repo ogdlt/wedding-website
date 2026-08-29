@@ -18,10 +18,12 @@
   var previousButton = carousel.querySelector("[data-home-carousel-previous]");
   var nextButton = carousel.querySelector("[data-home-carousel-next]");
   var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var mobileViewport = window.matchMedia("(max-width: 700px)");
   var currentSlide = 0;
   var timerId = null;
   var completedAutomaticCycle = false;
   var isReturningToFirstSlide = false;
+  var hasNudgedPage = false;
 
   function showSlide(index) {
     var wrapsForward = index >= slides.length;
@@ -63,10 +65,25 @@
     if (nextButton) nextButton.hidden = false;
   }
 
+  function nudgeMobilePage() {
+    if (!mobileViewport.matches || hasNudgedPage || window.scrollY > 24) return;
+
+    hasNudgedPage = true;
+    window.setTimeout(function () {
+      if (!mobileViewport.matches || window.scrollY > 24) return;
+
+      window.scrollBy({
+        top: Math.min(140, window.innerHeight * 0.18),
+        behavior: "smooth"
+      });
+    }, 800);
+  }
+
   function finishAutomaticCycle() {
     stopCarousel();
     completedAutomaticCycle = true;
     showControls();
+    nudgeMobilePage();
   }
 
   function advanceCarousel() {

@@ -717,8 +717,15 @@
 
     languageButton.addEventListener("click", function () {
       var willOpen = languageButton.getAttribute("aria-expanded") !== "true";
+      if (willOpen) {
+        document.dispatchEvent(new CustomEvent("wedding:languageopening"));
+      }
       languageButton.setAttribute("aria-expanded", String(willOpen));
       languageMenu.hidden = !willOpen;
+    });
+
+    document.addEventListener("wedding:navigationopening", function () {
+      closeLanguageMenu(false);
     });
 
     document.addEventListener("click", function (event) {

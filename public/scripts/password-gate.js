@@ -7,7 +7,6 @@
 
   var copy = {
     en: {
-      date: "9 & 10 July 2027 · Valencia",
       intro: "Enter the guest password to access our wedding website.",
       label: "Password",
       button: "Enter",
@@ -15,7 +14,6 @@
       error: "That password is not correct. Please try again."
     },
     es: {
-      date: "9 y 10 de julio de 2027 · Valencia",
       intro: "Introduce la contraseña de invitados para acceder a nuestra web de boda.",
       label: "Contraseña",
       button: "Entrar",
@@ -23,7 +21,6 @@
       error: "La contraseña no es correcta. Inténtalo de nuevo."
     },
     fr: {
-      date: "9 et 10 juillet 2027 · Valence",
       intro: "Saisissez le mot de passe des invités pour accéder au site de notre mariage.",
       label: "Mot de passe",
       button: "Entrer",
@@ -31,7 +28,6 @@
       error: "Ce mot de passe est incorrect. Veuillez réessayer."
     },
     fa: {
-      date: "۹ و ۱۰ ژوئیه ۲۰۲۷ · والنسیا",
       intro: "برای ورود به وب‌سایت عروسی ما، رمز مهمانان را وارد کنید.",
       label: "رمز عبور",
       button: "ورود",
@@ -78,6 +74,7 @@
     saveSessionAccess();
     gate.classList.add("is-unlocking");
     document.documentElement.classList.remove("password-gate-locked");
+    document.dispatchEvent(new CustomEvent("wedding:guest-access-granted"));
     window.setTimeout(function () {
       gate.remove();
     }, 360);
@@ -101,7 +98,6 @@
       '<div class="password-gate-card">' +
         '<div class="password-gate-monogram" aria-hidden="true">O&amp;S</div>' +
         '<h1 class="password-gate-title" id="password-gate-title">Olimpia &amp; Shayann</h1>' +
-        '<p class="password-gate-date">' + strings.date + '</p>' +
         '<p class="password-gate-copy">' + strings.intro + '</p>' +
         '<form class="password-gate-form">' +
           '<label class="password-gate-label" for="guest-password">' + strings.label + '</label>' +

@@ -73,7 +73,7 @@
     /* ───────── HERO TITLE ───────── */
     .ev-hero {
       text-align: center;
-      padding: 64px 24px 56px;
+      padding: 46px 24px 32px;
       background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
       position: relative;
       overflow: hidden;
@@ -132,7 +132,7 @@
 
     /* ───────── FORM WRAPPER ───────── */
     .rsvp-wrapper {
-      padding: 80px 24px 100px;
+      padding: 32px 24px 100px;
       max-width: 720px;
       margin: 0 auto;
     }
@@ -199,6 +199,16 @@
     .rsvp-field textarea {
       resize: vertical;
       min-height: 80px;
+    }
+
+    .rsvp-field-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 18px;
+    }
+
+    .rsvp-field--full {
+      grid-column: 1 / -1;
     }
 
     /* ───────── Pills (Yes / No) — subtle dark border ───────── */
@@ -318,7 +328,10 @@
     .d4 { transition-delay: 0.52s; }
 
     @media (max-width: 640px) {
-      .rsvp-wrapper { padding: 56px 20px 80px; }
+      .ev-hero { padding: 38px 20px 24px; }
+      .rsvp-wrapper { padding: 28px 20px 80px; }
+      .rsvp-field-grid { grid-template-columns: 1fr; }
+      .rsvp-field--full { grid-column: auto; }
       .rsvp-pills { display: flex; width: 100%; }
       .rsvp-pill { flex: 1; text-align: center; }
       .rsvp-pill-label {
@@ -383,36 +396,70 @@
         <!-- ABOUT YOU -->
         <div class="rsvp-group r">
           <span class="rsvp-group-label">About you</span>
-          <h2>Your details</h2>
           <p class="rsvp-group-desc">Please submit one RSVP per guest. If you're responding for a partner or +1, just fill it in a second time.</p>
 
-          <div class="rsvp-field">
+          <div class="rsvp-field rsvp-field--full">
             <label class="rsvp-field-label" for="fullName">Full name</label>
-            <input type="text" id="fullName" name="fullName" required />
+            <input type="text" id="fullName" name="fullName" autocomplete="name" required />
           </div>
 
-          <div class="rsvp-field">
-            <label class="rsvp-field-label" for="contact">Email or phone</label>
-            <input type="text" id="contact" name="contact" required />
+          <div class="rsvp-field-grid">
+            <div class="rsvp-field">
+              <label class="rsvp-field-label" for="preferredEmail">Preferred email</label>
+              <input type="email" id="preferredEmail" name="preferredEmail" autocomplete="email" required />
+            </div>
+
+            <div class="rsvp-field">
+              <label class="rsvp-field-label" for="phoneNumber">Phone number</label>
+              <input type="tel" id="phoneNumber" name="phoneNumber" autocomplete="tel" required />
+            </div>
           </div>
         </div>
 
         <div class="rsvp-divider"></div>
 
-        <!-- WEEKEND OVERALL -->
+        <!-- POSTAL ADDRESS -->
         <div class="rsvp-group r d1">
-          <span class="rsvp-group-label">The weekend</span>
-          <h2>Will you join us in Valencia?</h2>
-          <p class="rsvp-group-desc">We'd love to know if you can make the trip. You can tell us about each specific plan below.</p>
+          <h2>Postal address</h2>
 
-          <div class="rsvp-pills" role="group" aria-label="Attending weekend">
+          <div class="rsvp-field-grid">
+            <div class="rsvp-field rsvp-field--full">
+              <label class="rsvp-field-label" for="streetAddress">Address — street and number</label>
+              <input type="text" id="streetAddress" name="streetAddress" autocomplete="street-address" required />
+            </div>
+
+            <div class="rsvp-field">
+              <label class="rsvp-field-label" for="postalCode">Postal code</label>
+              <input type="text" id="postalCode" name="postalCode" autocomplete="postal-code" required />
+            </div>
+
+            <div class="rsvp-field">
+              <label class="rsvp-field-label" for="city">City</label>
+              <input type="text" id="city" name="city" autocomplete="address-level2" required />
+            </div>
+
+            <div class="rsvp-field rsvp-field--full">
+              <label class="rsvp-field-label" for="country">Country</label>
+              <input type="text" id="country" name="country" autocomplete="country-name" required />
+            </div>
+          </div>
+        </div>
+
+        <div class="rsvp-divider"></div>
+
+        <!-- SATURDAY CEREMONY -->
+        <div class="rsvp-group r d1">
+          <span class="rsvp-group-label">Saturday &middot; 10 July &middot; 19:30</span>
+          <h2>Will you attend the wedding ceremony on Saturday 10 July 2027?</h2>
+
+          <div class="rsvp-pills" role="group" aria-label="Saturday ceremony">
             <div class="rsvp-pill">
-              <input type="radio" id="weekYes" name="attendingWeekend" value="Yes" required />
-              <label class="rsvp-pill-label" for="weekYes">Yes, I'll be there</label>
+              <input type="radio" id="ceremonyYes" name="saturdayCeremony" value="Yes" required />
+              <label class="rsvp-pill-label" for="ceremonyYes">Yes</label>
             </div>
             <div class="rsvp-pill">
-              <input type="radio" id="weekNo" name="attendingWeekend" value="No" />
-              <label class="rsvp-pill-label" for="weekNo">Sadly can't make it</label>
+              <input type="radio" id="ceremonyNo" name="saturdayCeremony" value="Unfortunately not" />
+              <label class="rsvp-pill-label" for="ceremonyNo">Unfortunately not</label>
             </div>
           </div>
         </div>
@@ -422,17 +469,16 @@
         <!-- FRIDAY COCKTAIL -->
         <div class="rsvp-group r d1">
           <span class="rsvp-group-label">Friday &middot; 9 July &middot; 19:00</span>
-          <h2>Welcome cocktail</h2>
-          <p class="rsvp-group-desc">Relaxed evening gathering at Parador El Saler.</p>
+          <h2>Will you join the welcome cocktail on Friday 9 July 2027?</h2>
 
           <div class="rsvp-pills" role="group" aria-label="Friday cocktail">
             <div class="rsvp-pill">
-              <input type="radio" id="cocktailYes" name="fridayCocktail" value="Yes" />
+              <input type="radio" id="cocktailYes" name="fridayCocktail" value="Yes" required />
               <label class="rsvp-pill-label" for="cocktailYes">Yes</label>
             </div>
             <div class="rsvp-pill">
-              <input type="radio" id="cocktailNo" name="fridayCocktail" value="No" />
-              <label class="rsvp-pill-label" for="cocktailNo">No</label>
+              <input type="radio" id="cocktailNo" name="fridayCocktail" value="Unfortunately not" />
+              <label class="rsvp-pill-label" for="cocktailNo">Unfortunately not</label>
             </div>
           </div>
         </div>
@@ -442,17 +488,16 @@
         <!-- FRIDAY GOLF -->
         <div class="rsvp-group r d1">
           <span class="rsvp-group-label">Friday &middot; 9 July &middot; Morning</span>
-          <h2>Golf tournament</h2>
-          <p class="rsvp-group-desc">Optional tournament at Parador El Saler. A golf licence is required to participate.</p>
+          <h2>Will you participate in the golf tournament on Friday 9 July 2027?</h2>
 
           <div class="rsvp-pills" role="group" aria-label="Friday golf">
             <div class="rsvp-pill">
-              <input type="radio" id="golfYes" name="fridayGolf" value="Yes" />
+              <input type="radio" id="golfYes" name="fridayGolf" value="Yes" required />
               <label class="rsvp-pill-label" for="golfYes">Yes</label>
             </div>
             <div class="rsvp-pill">
-              <input type="radio" id="golfNo" name="fridayGolf" value="No" />
-              <label class="rsvp-pill-label" for="golfNo">No</label>
+              <input type="radio" id="golfNo" name="fridayGolf" value="Unfortunately not" />
+              <label class="rsvp-pill-label" for="golfNo">Unfortunately not</label>
             </div>
           </div>
 
@@ -466,26 +511,6 @@
 
         <div class="rsvp-divider"></div>
 
-        <!-- SATURDAY CEREMONY -->
-        <div class="rsvp-group r d1">
-          <span class="rsvp-group-label">Saturday &middot; 10 July &middot; 19:30</span>
-          <h2>Ceremony & celebration</h2>
-          <p class="rsvp-group-desc">The main event at Masía Xamandreu — ceremony, dinner, music and dancing.</p>
-
-          <div class="rsvp-pills" role="group" aria-label="Saturday ceremony">
-            <div class="rsvp-pill">
-              <input type="radio" id="ceremonyYes" name="saturdayCeremony" value="Yes" />
-              <label class="rsvp-pill-label" for="ceremonyYes">Yes</label>
-            </div>
-            <div class="rsvp-pill">
-              <input type="radio" id="ceremonyNo" name="saturdayCeremony" value="No" />
-              <label class="rsvp-pill-label" for="ceremonyNo">No</label>
-            </div>
-          </div>
-        </div>
-
-        <div class="rsvp-divider"></div>
-
         <!-- EXTRAS -->
         <div class="rsvp-group r d1">
           <span class="rsvp-group-label">A few extras</span>
@@ -493,7 +518,7 @@
 
           <div class="rsvp-field">
             <label class="rsvp-field-label" for="dietary">Dietary requirements or allergies</label>
-            <input type="text" id="dietary" name="dietary" placeholder="E.g. vegetarian, nut allergy" />
+            <input type="text" id="dietary" name="dietary" placeholder="e.g., vegetarian, nut allergy" />
           </div>
 
           <div class="rsvp-field">
@@ -511,6 +536,17 @@
       </form>
     </section>
 
+    <section class="contact-stripe">
+      <p class="contact-lead">Reach out to us if you have any questions</p>
+      <p class="contact-details">
+        <a href="mailto:shams.gasco@gmail.com">shams.gasco@gmail.com</a>
+        <span class="contact-divider">·</span>
+        <span class="contact-item">Olimpia <a href="tel:+34638715108">+34 638 71 51 08</a></span>
+        <span class="contact-divider">·</span>
+        <span class="contact-item">Shayann <a href="tel:+41788060489">+41 78 806 04 89</a></span>
+      </p>
+    </section>
+
   </main>
 
   <script>
@@ -520,9 +556,11 @@
       var wrap = document.getElementById('golfLicenceWrap');
       var golfYes = document.getElementById('golfYes');
       var golfNo = document.getElementById('golfNo');
+      var golfLicence = document.getElementById('golfLicence');
       function update() {
-        if (golfYes.checked) wrap.classList.add('on');
-        else wrap.classList.remove('on');
+        var isParticipating = golfYes.checked;
+        wrap.classList.toggle('on', isParticipating);
+        golfLicence.required = isParticipating;
       }
       golfYes.addEventListener('change', update);
       golfNo.addEventListener('change', update);
@@ -572,21 +610,31 @@
         ev.preventDefault();
 
         var fullName = form.fullName.value.trim();
-        var contact = form.contact.value.trim();
-        var attending = form.attendingWeekend.value;
-        if (!fullName || !contact || !attending) {
-          showStatus('error', 'Please fill in your name, contact and let us know whether you can make it.');
+        var preferredEmail = form.preferredEmail.value.trim();
+        var phoneNumber = form.phoneNumber.value.trim();
+        var saturdayCeremony = form.saturdayCeremony.value;
+        var fridayCocktail = form.fridayCocktail.value;
+        var fridayGolf = form.fridayGolf.value;
+        if (!form.checkValidity()) {
+          showStatus('error', 'Please complete your contact and address details and answer all three attendance questions.');
+          var firstInvalid = form.querySelector(':invalid');
+          if (firstInvalid) firstInvalid.focus();
           return;
         }
 
         var data = {
           fullName: fullName,
-          contact: contact,
-          attendingWeekend: attending,
-          fridayCocktail: (form.fridayCocktail.value || ''),
-          fridayGolf: (form.fridayGolf.value || ''),
+          contact: preferredEmail,
+          preferredEmail: preferredEmail,
+          phoneNumber: phoneNumber,
+          streetAddress: form.streetAddress.value.trim(),
+          postalCode: form.postalCode.value.trim(),
+          city: form.city.value.trim(),
+          country: form.country.value.trim(),
+          fridayCocktail: fridayCocktail,
+          fridayGolf: fridayGolf,
           golfLicence: form.golfLicence.value.trim(),
-          saturdayCeremony: (form.saturdayCeremony.value || ''),
+          saturdayCeremony: saturdayCeremony,
           dietary: form.dietary.value.trim(),
           notes: form.notes.value.trim()
         };
@@ -609,6 +657,7 @@
           btn.textContent = buttonLabel();
           form.reset();
           document.getElementById('golfLicenceWrap').classList.remove('on');
+          document.getElementById('golfLicence').required = false;
         })
         .catch(function(err) {
           showStatus('error', 'Sorry, something went wrong sending your RSVP. Please try again, or email us directly.');

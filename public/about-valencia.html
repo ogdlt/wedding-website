@@ -352,6 +352,28 @@
       line-height: 1.8;
     }
 
+    .av-guide-legend {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .av-guide-legend .av-map-link {
+      width: 27px;
+      height: 27px;
+      pointer-events: none;
+    }
+
+    .av-guide-legend .av-paella-icon {
+      width: 27px;
+      margin: 0;
+      font-size: 18px;
+    }
+
     .av-things-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -927,6 +949,10 @@
             <div class="av-callout" data-step="5" style="top: 78%; left: 52%;">
               <span class="av-callout-pin">5</span>
             </div>
+
+            <div class="av-callout" data-step="6" style="top: 78%; left: 72%;">
+              <span class="av-callout-pin">6</span>
+            </div>
           </div>
         </div>
 
@@ -945,10 +971,10 @@
 
           <article class="av-step" data-step="2">
             <span class="av-step-label">02 &middot; Where we will get married</span>
-            <h2 class="av-step-title">Masía Xamandreu</h2>
+            <h2 class="av-step-title">Wedding Ceremony</h2>
             <p class="av-step-desc">
-              Where we will get married. A countryside estate outside Valencia, surrounded by palm
-              trees, orange trees, cypresses, golden stone and the Mediterranean light we love so much.
+              Masía Xamandreu is a restored 19th-century Valencian orange estate that preserves its
+              original character and historic charm. It is where our wedding ceremony will take place.
             </p>
             <span class="av-step-rule"></span>
           </article>
@@ -983,6 +1009,16 @@
             <span class="av-step-rule"></span>
           </article>
 
+          <article class="av-step" data-step="6">
+            <span class="av-step-label">06 &middot; Friday at the resort</span>
+            <h2 class="av-step-title">Parador El Saler</h2>
+            <p class="av-step-desc">
+              Our Friday welcome cocktail will be held at Parador El Saler. The resort's optional
+              activities and facilities are available to all guests.
+            </p>
+            <span class="av-step-rule"></span>
+          </article>
+
         </div>
       </div>
     </section>
@@ -994,6 +1030,10 @@
           <span class="av-guide-eyebrow">Discover the city</span>
           <h2 id="things-to-do-title" class="av-guide-title">Things to do</h2>
           <p class="av-guide-intro">A few of our favourite ways to explore Valencia</p>
+          <div class="av-guide-legend">
+            <span class="av-map-link" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#map-pin-icon"></use></svg></span>
+            <span>Click the map icon to open locations and itineraries in Google Maps.</span>
+          </div>
         </div>
 
         <section class="av-area-group av-area-group--old-town" aria-labelledby="old-town-guide-title">
@@ -1082,6 +1122,10 @@
             Some of our favourite places for authentic Valencian paella and a memorable meal
             around the city.
           </p>
+          <div class="av-guide-legend">
+            <span class="av-paella-icon" aria-hidden="true"></span>
+            <span>Great for paella!</span>
+          </div>
         </div>
 
         <div class="av-restaurant-grid">
@@ -1160,6 +1204,22 @@
       steps.forEach(function (s) {
         observer.observe(s);
       });
+
+      var cityCentreStep = document.querySelector('.av-step[data-step="3"]');
+      if (cityCentreStep) {
+        var earlyCityObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting && entry.boundingClientRect.top > 0) {
+              setActive("3");
+            }
+          });
+        }, {
+          rootMargin: isMobile ? "0px 0px -22% 0px" : "0px 0px -28% 0px",
+          threshold: 0
+        });
+
+        earlyCityObserver.observe(cityCentreStep);
+      }
     })();
   </script>
 </body>

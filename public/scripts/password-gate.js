@@ -72,11 +72,16 @@
 
   function unlock(gate) {
     saveSessionAccess();
+    if (document.activeElement && gate.contains(document.activeElement)) {
+      document.activeElement.blur();
+    }
     gate.classList.add("is-unlocking");
     document.documentElement.classList.remove("password-gate-locked");
+    window.scrollTo(0, 0);
     document.dispatchEvent(new CustomEvent("wedding:guest-access-granted"));
     window.setTimeout(function () {
       gate.remove();
+      window.scrollTo(0, 0);
     }, 360);
   }
 

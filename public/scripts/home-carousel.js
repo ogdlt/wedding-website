@@ -137,5 +137,10 @@
   });
 
   showSlide(0);
-  startCarousel();
+
+  if (document.documentElement.classList.contains("password-gate-locked")) {
+    document.addEventListener("wedding:guest-access-granted", startCarousel, { once: true });
+  } else {
+    startCarousel();
+  }
 })();

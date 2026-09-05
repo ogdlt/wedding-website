@@ -211,14 +211,11 @@
       grid-column: 1 / -1;
     }
 
-    /* ───────── Pills (Yes / No) — subtle dark border ───────── */
+    /* ───────── Independent answer pills ───────── */
     .rsvp-pills {
       display: inline-flex;
-      background: #ffffff;
-      border: 1.5px solid rgba(47, 42, 38, 0.5);
-      border-radius: 999px;
-      padding: 5px;
-      gap: 2px;
+      align-items: center;
+      gap: 10px;
     }
     .rsvp-pill {
       position: relative;
@@ -234,16 +231,22 @@
       font-size: 14px;
       letter-spacing: 0.06em;
       color: var(--dark);
+      background: #ffffff;
       border-radius: 999px;
+      box-shadow: 0 3px 12px rgba(47, 42, 38, 0.16);
       cursor: pointer;
-      transition: background 0.2s, color 0.2s;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
     }
     .rsvp-pill-label:hover {
-      background: rgba(47, 42, 38, 0.06);
+      background: #ffffff;
+      box-shadow: 0 5px 16px rgba(47, 42, 38, 0.22);
+      transform: translateY(-1px);
     }
     .rsvp-pill input:checked + .rsvp-pill-label {
       background: var(--dark);
       color: #f7f3ee;
+      box-shadow: 0 4px 14px rgba(47, 42, 38, 0.28);
+      transform: none;
     }
     .rsvp-pill input:focus-visible + .rsvp-pill-label {
       box-shadow: 0 0 0 3px rgba(47, 42, 38, 0.18);

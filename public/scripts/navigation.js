@@ -26,7 +26,11 @@
   }
 
   toggle.addEventListener("click", function () {
-    setMenuOpen(toggle.getAttribute("aria-expanded") !== "true", false);
+    var willOpen = toggle.getAttribute("aria-expanded") !== "true";
+    if (willOpen) {
+      document.dispatchEvent(new CustomEvent("wedding:navigationopening"));
+    }
+    setMenuOpen(willOpen, false);
   });
 
   nav.addEventListener("click", function (event) {
@@ -53,6 +57,10 @@
       "aria-label",
       translate(isOpen ? "Close navigation menu" : "Open navigation menu")
     );
+  });
+
+  document.addEventListener("wedding:languageopening", function () {
+    setMenuOpen(false, false);
   });
 
 })();

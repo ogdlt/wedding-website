@@ -240,6 +240,49 @@
       line-height: 1.5;
     }
 
+    .gift-intro {
+      max-width: 780px !important;
+    }
+
+    .gift-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      margin: 32px 0 10px;
+    }
+
+    .gift-card {
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      border-radius: 18px;
+      background: #ffffff;
+      box-shadow: 0 14px 32px rgba(47, 42, 38, 0.07);
+    }
+
+    .gift-card img {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      display: block;
+      object-fit: cover;
+    }
+
+    .gift-card-copy {
+      padding: 22px 22px 24px;
+    }
+
+    .gift-card-copy h3 {
+      margin: 0 0 8px;
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--dark);
+    }
+
+    .gift-card-copy p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
     /* FINAL CTA */
     .ev-cta {
       padding: 90px 24px 110px;
@@ -299,6 +342,10 @@
       .ev-hero-image { height: 52vh; min-height: 360px; }
       .ev-info-row { flex-direction: column; gap: 6px; }
       .ev-info-k { min-width: 0; }
+    }
+
+    @media (max-width: 620px) {
+      .gift-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -411,9 +458,23 @@
         <div class="ts-step-content">
           <span class="ts-step-label r">Celebrating with us</span>
           <h2 class="r d1">Gifts</h2>
-          <p class="r d2">
-            The best gift is your presence. If you would still like to contribute, our account details are below.
-          </p>
+          <p class="r d2 gift-intro">Your presence is the greatest gift of all! If you would nevertheless like to contribute to our new life together, we would be delighted for you to help us make our new apartment in Geneva a home, or to be part of our honeymoon in California. Ten years later, we will return to the place where we first met while studying at Berkeley.</p>
+          <div class="gift-grid r d3">
+            <article class="gift-card">
+              <img src="/images/gifts-geneva.webp" alt="Watercolour view of Geneva and the Jet d'Eau" loading="lazy" decoding="async" />
+              <div class="gift-card-copy">
+                <h3>Our home in Geneva</h3>
+                <p>Help us redecorate our new apartment and make it truly ours.</p>
+              </div>
+            </article>
+            <article class="gift-card">
+              <img src="/images/gifts-california.webp" alt="Golden Gate Bridge in California" loading="lazy" decoding="async" />
+              <div class="gift-card-copy">
+                <h3>Our California honeymoon</h3>
+                <p>Be part of our return to the Bay Area, ten years after we first met at Berkeley.</p>
+              </div>
+            </article>
+          </div>
           <div class="ev-info r d3">
             <div class="ev-info-row">
               <span class="ev-info-k">IBAN</span>
@@ -426,9 +487,8 @@
 
     <!-- FINAL CTA -->
     <section class="ev-cta">
-      <h2 class="r">Ready to reply?</h2>
-      <p class="r d1">Once you’ve had a look through the details, please let us know if you’ll be joining us.</p>
-      <a href="rsvp.html" class="ev-cta-button r d2">Go to RSVP</a>
+      <h2 class="r">Confirm your attendance</h2>
+      <a href="rsvp.html" class="ev-cta-button r d1">Go to RSVP</a>
     </section>
 
   </main>

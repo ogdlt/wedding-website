@@ -356,6 +356,50 @@
       gap: 24px;
     }
 
+    .av-area-group {
+      position: relative;
+      margin-top: 34px;
+      padding: 34px;
+      border: 1px solid var(--border-soft);
+      border-radius: 24px;
+      background: #fbf8f4;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .av-area-group + .av-area-group {
+      margin-top: 42px;
+    }
+
+    .av-area-group::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-image: linear-gradient(rgba(251, 248, 244, .88), rgba(251, 248, 244, .88)), url('/images/pedida-map-clean-3x4.png');
+      background-repeat: no-repeat;
+      background-size: cover, 640px auto;
+      opacity: .72;
+      pointer-events: none;
+    }
+
+    .av-area-group--old-town::before {
+      background-position: center, 46% 42%;
+    }
+
+    .av-area-group--maritime::before {
+      background-position: center, 56% 62%;
+    }
+
+    .av-area-heading {
+      margin: 0 0 26px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(30px, 3.6vw, 43px);
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--dark);
+    }
+
     .av-place-card {
       display: grid;
       grid-template-columns: minmax(180px, 50%) minmax(0, 1fr);
@@ -381,45 +425,65 @@
       min-width: 0;
     }
 
-    .av-place-meta {
+    .av-place-title-row {
       display: flex;
-      align-items: center;
-      gap: 9px;
-      margin-bottom: 14px;
-    }
-
-    .av-place-area-label {
-      font-size: 11px;
-      line-height: 1.25;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .av-place-map-pin {
-      width: 27px;
-      height: 27px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex: 0 0 auto;
-      border: 1px solid var(--accent);
-      border-radius: 50%;
-      background: rgba(201, 112, 74, .09);
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 600;
-      line-height: 1;
-      box-shadow: 0 3px 9px rgba(201, 112, 74, .12);
+      align-items: flex-start;
+      gap: 10px;
     }
 
     .av-place-name {
+      flex: 1 1 auto;
       margin: 0 0 10px;
       font-family: "Cormorant Garamond", serif;
       font-size: 27px;
       line-height: 1.14;
       font-weight: 500;
       color: var(--dark);
+    }
+
+    .av-map-link {
+      width: 30px;
+      height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      border: 1px solid rgba(201, 112, 74, .34);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .84);
+      color: var(--accent);
+      text-decoration: none;
+      box-shadow: 0 3px 10px rgba(47, 42, 38, .06);
+      transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+    }
+
+    .av-map-link:hover,
+    .av-map-link:focus-visible {
+      background: #fff;
+      box-shadow: 0 5px 14px rgba(47, 42, 38, .12);
+      transform: translateY(-1px);
+    }
+
+    .av-map-link:focus-visible {
+      outline: 2px solid var(--dark);
+      outline-offset: 2px;
+    }
+
+    .av-map-link svg {
+      width: 14px;
+      height: 14px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .av-icon-defs {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
     }
 
     .av-place-description {
@@ -443,7 +507,7 @@
 
     .av-restaurant-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
     }
 
@@ -474,6 +538,10 @@
     }
 
     .av-restaurant-list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
       font-family: "Cormorant Garamond", serif;
       font-size: 23px;
       line-height: 1.35;
@@ -482,6 +550,24 @@
 
     .av-restaurant-list li + li {
       margin-top: 10px;
+    }
+
+    .av-restaurant-name {
+      min-width: 0;
+    }
+
+    .av-restaurant-note {
+      margin-inline-start: 4px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .av-restaurant-list .av-map-link {
+      width: 27px;
+      height: 27px;
     }
 
     /* ───────── FINAL CTA ───────── */
@@ -663,6 +749,10 @@
         padding: 23px 20px;
       }
 
+      .av-area-group {
+        padding: 24px;
+      }
+
       .av-place-card {
         grid-template-columns: minmax(170px, 46%) minmax(0, 1fr);
         min-height: 205px;
@@ -696,13 +786,9 @@
         height: 155px;
       }
 
-      .av-place-meta {
-        margin-bottom: 10px;
-      }
-
-      .av-place-map-pin {
-        width: 25px;
-        height: 25px;
+      .av-area-group {
+        padding: 18px;
+        border-radius: 19px;
       }
 
       .av-place-name {
@@ -750,6 +836,12 @@
   </header>
 
   <main>
+    <svg class="av-icon-defs" aria-hidden="true">
+      <symbol id="map-pin-icon" viewBox="0 0 24 24">
+        <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path>
+        <circle cx="12" cy="10" r="2.5"></circle>
+      </symbol>
+    </svg>
     <!-- HERO / INTRO -->
     <section class="av-hero">
       <h1>About Valencia</h1>
@@ -876,88 +968,73 @@
           <p class="av-guide-intro">A few of our favourite ways to explore Valencia</p>
         </div>
 
-        <div class="av-things-grid">
-          <article class="av-place-card">
-            <img class="av-place-illustration" src="/images/valencia-guide/plaza-ayuntamiento.webp" alt="" loading="lazy" decoding="async" />
-            <div class="av-place-copy">
-              <div class="av-place-meta"><span class="av-place-map-pin" aria-hidden="true">3</span><span class="av-place-area-label">Old Town &amp; City Center</span></div>
-              <h3 class="av-place-name">Plaza del Ayuntamiento</h3>
-              <p class="av-place-description">
-                Valencia's grand civic square, framed by the elegant City Hall and historic façades.
-              </p>
-            </div>
-          </article>
-          <article class="av-place-card">
-            <img class="av-place-illustration" src="/images/valencia-guide/mercado-central.webp" alt="" loading="lazy" decoding="async" />
-            <div class="av-place-copy">
-              <div class="av-place-meta"><span class="av-place-map-pin" aria-hidden="true">3</span><span class="av-place-area-label">Old Town &amp; City Center</span></div>
-              <h3 class="av-place-name">Mercado Central</h3>
-              <p class="av-place-description">
-                A modernist market filled with local produce, colourful stalls and Valencian flavours.
-              </p>
-            </div>
-          </article>
-          <article class="av-place-card">
-            <img class="av-place-illustration" src="/images/valencia-guide/lonja-seda.webp" alt="" loading="lazy" decoding="async" />
-            <div class="av-place-copy">
-              <div class="av-place-meta"><span class="av-place-map-pin" aria-hidden="true">3</span><span class="av-place-area-label">Old Town &amp; City Center</span></div>
-              <h3 class="av-place-name">La Lonja de la Seda</h3>
-              <p class="av-place-description">
-                A Gothic masterpiece and former silk exchange opposite the Mercado Central.
-              </p>
-            </div>
-          </article>
-          <article class="av-place-card">
-            <img class="av-place-illustration" src="/images/valencia-guide/catedral-miguelete.webp" alt="" loading="lazy" decoding="async" />
-            <div class="av-place-copy">
-              <div class="av-place-meta"><span class="av-place-map-pin" aria-hidden="true">3</span><span class="av-place-area-label">Old Town &amp; City Center</span></div>
-              <h3 class="av-place-name">Cathedral &amp; El Miguelete</h3>
-              <p class="av-place-description">
-                Climb El Miguelete for panoramic views over Valencia's historic rooftops.
-              </p>
-            </div>
-          </article>
-          <article class="av-place-card">
-            <img class="av-place-illustration" src="/images/valencia-guide/plaza-virgen.webp" alt="" loading="lazy" decoding="async" />
-            <div class="av-place-copy">
-              <div class="av-place-meta"><span class="av-place-map-pin" aria-hidden="true">3</span><span class="av-place-area-label">Old Town &amp; City Center</span></div>
-              <h3 class="av-place-name">Plaza de la Virgen</h3>
-              <p class="av-place-description">
-                A beautiful old-town square beside the cathedral, basilica and lively terraces.
-              </p>
-            </div>
-          </article>
-          <article class="av-place-card">
-            <img class="av-place-illustration" src="/images/valencia-guide/malvarrosa.webp" alt="" loading="lazy" decoding="async" />
-            <div class="av-place-copy">
-              <div class="av-place-meta"><span class="av-place-map-pin" aria-hidden="true">4</span><span class="av-place-area-label">Maritime Area</span></div>
-              <h3 class="av-place-name">Malvarrosa Beach</h3>
-              <p class="av-place-description">
-                Golden sand, Mediterranean views and a wide seafront promenade.
-              </p>
-            </div>
-          </article>
-          <article class="av-place-card">
-            <img class="av-place-illustration" src="/images/valencia-guide/marina-valencia.webp" alt="" loading="lazy" decoding="async" />
-            <div class="av-place-copy">
-              <div class="av-place-meta"><span class="av-place-map-pin" aria-hidden="true">4</span><span class="av-place-area-label">Maritime Area</span></div>
-              <h3 class="av-place-name">Valencia Marina</h3>
-              <p class="av-place-description">
-                Sailboats, waterfront terraces and contemporary architecture by the sea.
-              </p>
-            </div>
-          </article>
-          <article class="av-place-card">
-            <img class="av-place-illustration" src="/images/valencia-guide/ciudad-artes-ciencias.webp" alt="" loading="lazy" decoding="async" />
-            <div class="av-place-copy">
-              <div class="av-place-meta"><span class="av-place-map-pin" aria-hidden="true">4</span><span class="av-place-area-label">Maritime Area</span></div>
-              <h3 class="av-place-name">City of Arts and Sciences</h3>
-              <p class="av-place-description">
-                Valencia's iconic futuristic complex, home to the Oceanogràfic and striking reflecting pools.
-              </p>
-            </div>
-          </article>
-        </div>
+        <section class="av-area-group av-area-group--old-town" aria-labelledby="old-town-guide-title">
+          <h3 id="old-town-guide-title" class="av-area-heading">Old Town &amp; City Center</h3>
+          <div class="av-things-grid">
+            <article class="av-place-card">
+              <img class="av-place-illustration" src="/images/valencia-guide/plaza-ayuntamiento.webp" alt="" loading="lazy" decoding="async" />
+              <div class="av-place-copy">
+                <div class="av-place-title-row"><h4 class="av-place-name">Plaza del Ayuntamiento</h4><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Plaza+del+Ayuntamiento+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></div>
+                <p class="av-place-description">Valencia's grand civic square, framed by the elegant City Hall and historic façades.</p>
+              </div>
+            </article>
+            <article class="av-place-card">
+              <img class="av-place-illustration" src="/images/valencia-guide/mercado-central.webp" alt="" loading="lazy" decoding="async" />
+              <div class="av-place-copy">
+                <div class="av-place-title-row"><h4 class="av-place-name">Mercado Central</h4><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Mercado+Central+de+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></div>
+                <p class="av-place-description">A modernist market filled with local produce, colourful stalls and Valencian flavours.</p>
+              </div>
+            </article>
+            <article class="av-place-card">
+              <img class="av-place-illustration" src="/images/valencia-guide/lonja-seda.webp" alt="" loading="lazy" decoding="async" />
+              <div class="av-place-copy">
+                <div class="av-place-title-row"><h4 class="av-place-name">La Lonja de la Seda</h4><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Lonja+de+la+Seda+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></div>
+                <p class="av-place-description">A Gothic masterpiece and former silk exchange opposite the Mercado Central.</p>
+              </div>
+            </article>
+            <article class="av-place-card">
+              <img class="av-place-illustration" src="/images/valencia-guide/catedral-miguelete.webp" alt="" loading="lazy" decoding="async" />
+              <div class="av-place-copy">
+                <div class="av-place-title-row"><h4 class="av-place-name">Cathedral &amp; El Miguelete</h4><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Catedral+de+Valencia+El+Miguelete" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></div>
+                <p class="av-place-description">Climb El Miguelete for panoramic views over Valencia's historic rooftops.</p>
+              </div>
+            </article>
+            <article class="av-place-card">
+              <img class="av-place-illustration" src="/images/valencia-guide/plaza-virgen.webp" alt="" loading="lazy" decoding="async" />
+              <div class="av-place-copy">
+                <div class="av-place-title-row"><h4 class="av-place-name">Plaza de la Virgen</h4><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Plaza+de+la+Virgen+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></div>
+                <p class="av-place-description">A beautiful old-town square beside the cathedral, basilica and lively terraces.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="av-area-group av-area-group--maritime" aria-labelledby="maritime-guide-title">
+          <h3 id="maritime-guide-title" class="av-area-heading">Maritime Area</h3>
+          <div class="av-things-grid">
+            <article class="av-place-card">
+              <img class="av-place-illustration" src="/images/valencia-guide/malvarrosa.webp" alt="" loading="lazy" decoding="async" />
+              <div class="av-place-copy">
+                <div class="av-place-title-row"><h4 class="av-place-name">Malvarrosa Beach</h4><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Playa+de+la+Malvarrosa+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></div>
+                <p class="av-place-description">Golden sand, Mediterranean views and a wide seafront promenade.</p>
+              </div>
+            </article>
+            <article class="av-place-card">
+              <img class="av-place-illustration" src="/images/valencia-guide/marina-valencia.webp" alt="" loading="lazy" decoding="async" />
+              <div class="av-place-copy">
+                <div class="av-place-title-row"><h4 class="av-place-name">Valencia Marina</h4><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Marina+de+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></div>
+                <p class="av-place-description">Sailboats, waterfront terraces and contemporary architecture by the sea.</p>
+              </div>
+            </article>
+            <article class="av-place-card">
+              <img class="av-place-illustration" src="/images/valencia-guide/ciudad-artes-ciencias.webp" alt="" loading="lazy" decoding="async" />
+              <div class="av-place-copy">
+                <div class="av-place-title-row"><h4 class="av-place-name">City of Arts and Sciences</h4><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Ciudad+de+las+Artes+y+las+Ciencias+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></div>
+                <p class="av-place-description">Valencia's iconic futuristic complex, home to the Oceanogràfic and striking reflecting pools.</p>
+              </div>
+            </article>
+          </div>
+        </section>
       </div>
     </section>
 
@@ -973,60 +1050,37 @@
           </p>
         </div>
 
-        <div class="av-restaurant-category">
-          <h3 class="av-restaurant-heading">Paella restaurants</h3>
-          <div class="av-restaurant-grid">
-            <article class="av-restaurant-card">
-              <h4 class="av-restaurant-area">By the beach</h4>
-              <ul class="av-restaurant-list">
-                <li>Casa Carmela</li>
-                <li>Panorama</li>
-                <li>La Pepica</li>
-                <li>La Alegría de la Huerta</li>
-              </ul>
-            </article>
-            <article class="av-restaurant-card">
-              <h4 class="av-restaurant-area">In the Albufera</h4>
-              <ul class="av-restaurant-list">
-                <li>L’Establiment</li>
-              </ul>
-            </article>
-            <article class="av-restaurant-card">
-              <h4 class="av-restaurant-area">In the city centre</h4>
-              <ul class="av-restaurant-list">
-                <li>Casa Ana</li>
-                <li>Palace Fesol</li>
-                <li>Pilsener</li>
-                <li>Bar Cremaet</li>
-              </ul>
-            </article>
-          </div>
-        </div>
+        <div class="av-restaurant-grid">
+          <article class="av-restaurant-card">
+            <h3 class="av-restaurant-heading">Old Town &amp; City Center</h3>
+            <ul class="av-restaurant-list">
+              <li><span class="av-restaurant-name">Casa Ana <span class="av-restaurant-note">(Great for paella!)</span></span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Casa+Ana+Valencia+restaurant" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+              <li><span class="av-restaurant-name">Palace Fesol <span class="av-restaurant-note">(Great for paella!)</span></span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Palace+Fesol+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+              <li><span class="av-restaurant-name">Pilsener <span class="av-restaurant-note">(Great for paella!)</span></span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Pilsener+Valencia+restaurant" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+              <li><span class="av-restaurant-name">Bar Cremaet <span class="av-restaurant-note">(Great for paella!)</span></span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Bar+Cremaet+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+              <li><span>Llebeig Alameda</span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Llebeig+Alameda+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+              <li><span>Attic Alameda</span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Attic+Alameda+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+              <li><span>Ultramarinos Pope</span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Ultramarinos+Pope+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+              <li><span>Ultramarinos Huerta</span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Ultramarinos+Huerta+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+              <li><span>Sal Marina</span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Sal+Marina+Valencia+restaurant" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+              <li><span>Llisa Negra</span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Llisa+Negra+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+              <li><span>Ricard</span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Ricard+Camarena+Restaurant+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+            </ul>
+          </article>
 
-        <div class="av-restaurant-category">
-          <h3 class="av-restaurant-heading">Other restaurants</h3>
-          <div class="av-restaurant-grid av-restaurant-grid--other">
-            <article class="av-restaurant-card">
-              <h4 class="av-restaurant-area">Malvarrosa area</h4>
-              <ul class="av-restaurant-list">
-                <li>Mercabanyal</li>
-                <li>La Más Bonita</li>
-                <li>Veles e Vents</li>
-              </ul>
-            </article>
-            <article class="av-restaurant-card">
-              <h4 class="av-restaurant-area">City centre &amp; nearby</h4>
-              <ul class="av-restaurant-list">
-                <li>Llebeig Alameda</li>
-                <li>Attic Alameda</li>
-                <li>Ultramarinos Pope</li>
-                <li>Ultramarinos Huerta</li>
-                <li>Sal Marina</li>
-                <li>Llisa Negra</li>
-                <li>Ricard</li>
-              </ul>
-            </article>
-          </div>
+          <article class="av-restaurant-card">
+            <h3 class="av-restaurant-heading">Maritime Area</h3>
+            <ul class="av-restaurant-list">
+              <li><span class="av-restaurant-name">Casa Carmela <span class="av-restaurant-note">(Great for paella!)</span></span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Casa+Carmela+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+              <li><span class="av-restaurant-name">Panorama <span class="av-restaurant-note">(Great for paella!)</span></span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Panorama+Valencia+restaurant" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+              <li><span class="av-restaurant-name">La Pepica <span class="av-restaurant-note">(Great for paella!)</span></span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=La+Pepica+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+              <li><span class="av-restaurant-name">La Alegría de la Huerta <span class="av-restaurant-note">(Great for paella!)</span></span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=La+Alegria+de+la+Huerta+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+              <li><span class="av-restaurant-name">L’Establiment <span class="av-restaurant-note">(Great for paella!)</span></span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=L%27Establiment+El+Palmar+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+              <li><span>Mercabanyal</span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Mercabanyal+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+              <li><span>La Más Bonita</span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=La+Mas+Bonita+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+              <li><span>Veles e Vents</span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Veles+e+Vents+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
@@ -1034,8 +1088,8 @@
     <!-- FINAL CTA -->
     <section class="av-cta">
       <h2>Ready for the weekend?</h2>
-      <p>Find the full plan for Friday, Saturday and Sunday on the Event Details page.</p>
-      <a href="event-details.html" class="av-cta-button">See Event Details</a>
+      <p>Find the full plan for Friday and Saturday on the Event Details page.</p>
+      <a href="event-details.html" class="av-cta-button">Event Details</a>
     </section>
   </main>
 

@@ -169,75 +169,6 @@
     .ev-ornament-line { width: 60px; height: 1px; background: currentColor; }
     .ev-ornament svg { width: 14px; height: 14px; fill: currentColor; }
 
-    /* AT A GLANCE */
-    .ev-glance { padding: 80px 24px 90px; text-align: center; }
-    .ev-glance-label {
-      font-size: 12px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin: 0 0 48px;
-    }
-    .ev-timeline {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      max-width: 860px;
-      margin: 0 auto;
-      position: relative;
-    }
-    .ev-timeline::before {
-      content: '';
-      position: absolute;
-      top: 22px;
-      left: calc(25% + 22px);
-      right: calc(25% + 22px);
-      height: 1px;
-      background: var(--border);
-    }
-    .ev-tl-day { flex: 1; text-align: center; padding: 0 14px; }
-    .ev-tl-dot {
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      background: #fff;
-      border: 1px solid var(--border-strong);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 20px;
-      position: relative;
-      z-index: 1;
-    }
-    .ev-tl-dot svg {
-      width: 18px; height: 18px;
-      stroke: var(--dark);
-      fill: none;
-      stroke-width: 1.4;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    .ev-tl-day-label {
-      font-size: 12px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin: 0 0 10px;
-    }
-    .ev-tl-day-title {
-      font-size: 22px;
-      font-weight: 400;
-      line-height: 1.2;
-      color: var(--dark);
-      margin: 0 0 10px;
-    }
-    .ev-tl-day-desc {
-      font-size: 15px;
-      font-weight: 400;
-      color: var(--mid);
-      line-height: 1.6;
-      margin: 0;
-    }
-
     /* DAY / STEP SECTIONS */
     .ev-day { padding: 100px 24px; position: relative; overflow: hidden; }
     .ev-day--bg { background: var(--soft-bg); }
@@ -334,6 +265,12 @@
       margin: 0 0 14px;
     }
 
+    .ev-cta-button.ev-inline-cta {
+      margin-top: 10px;
+      padding: 12px 24px;
+      font-size: 12px;
+    }
+
     .ev-info {
       margin-top: 34px;
       padding: 4px 0 4px 22px;
@@ -416,15 +353,6 @@
       .ev-day { padding: 72px 24px; }
       .ev-day-visual--gallery img { width: 90%; }
       .ev-day-visual--gallery img:last-child { margin-top: -40px; }
-      .ev-timeline { flex-direction: column; align-items: center; gap: 0; }
-      .ev-timeline::before { display: none; }
-      .ev-tl-day {
-        width: 100%;
-        max-width: 340px;
-        padding: 24px 0;
-        border-bottom: 1px solid var(--border);
-      }
-      .ev-tl-day:last-child { border-bottom: none; }
       .ev-cu { padding: 0 16px; }
       .ev-day-num { display: none; }
       .ev-hero-image { height: 52vh; min-height: 360px; }
@@ -474,7 +402,7 @@
 
     <!-- TITLE + COUNTDOWN -->
     <section class="ev-hero">
-      <p class="ev-eyebrow">9, 10 and 11 July 2027 &middot; Valencia, Spain</p>
+      <p class="ev-eyebrow">9 &amp; 10 July 2027 &middot; Valencia, Spain</p>
       <h1>Agenda for the weekend</h1>
 
       <div class="ev-countdown" id="countdown">
@@ -491,38 +419,6 @@
       </div>
     </section>
 
-    <!-- AT A GLANCE -->
-    <section class="ev-glance">
-      <div class="ev-timeline">
-
-        <div class="ev-tl-day r d1">
-          <div class="ev-tl-dot">
-            <svg viewBox="0 0 24 24">
-              <line x1="7" y1="3" x2="7" y2="21"/>
-              <polyline points="7,3 19,8 7,13"/>
-              <ellipse cx="7" cy="20" rx="3" ry="1.5"/>
-            </svg>
-          </div>
-          <p class="ev-tl-day-label">Friday &middot; 9 July</p>
-          <p class="ev-tl-day-title">Golf, Activities & Cocktail</p>
-          <p class="ev-tl-day-desc">Optional golf and resort activities during the day, followed by a welcome cocktail at Parador El Saler</p>
-        </div>
-
-        <div class="ev-tl-day r d2">
-          <div class="ev-tl-dot">
-            <svg viewBox="0 0 24 24">
-              <circle cx="8.5" cy="13" r="5"/>
-              <circle cx="15.5" cy="13" r="5"/>
-            </svg>
-          </div>
-          <p class="ev-tl-day-label">Saturday &middot; 10 July</p>
-          <p class="ev-tl-day-title">Ceremony & Celebration</p>
-          <p class="ev-tl-day-desc">Ceremony at 19:30h at Masía Xamandreu.</p>
-        </div>
-
-      </div>
-    </section>
-
     <!-- STEP 01 · FRIDAY · GOLF & RESORT ACTIVITIES -->
     <section class="ev-day">
       <div class="ev-day-inner">
@@ -535,7 +431,9 @@
         <div class="ev-day-content">
           <span class="ev-day-label r">Friday &amp; Saturday &middot; 9&ndash;10 July &middot; Daytime &middot; Optional</span>
           <h2 class="r d1">Golf, Other Resort Activities &amp; Visiting Valencia</h2>
-          <p class="r d2">On Friday, we will host an optional golf tournament at Parador El Saler from 10:00–13:00h — sign up if you would like to! Everyone is welcome; you will just need to submit your golf licence number. Alternatively, whether you are staying at the hotel or not, you can enjoy the resort facilities, including the pool, private beach access and bike hire to explore L’Albufera Natural Park. Simply let the hotel reception know and they will arrange this for you. You can also explore the city — see <a href="about-valencia.html">About Valencia</a> for our tips!</p>
+          <p class="r d2">On Friday, we will host a golf tournament at Parador El Saler from 10:00–13:00h for keen golfers. Everyone is welcome, so please join us if you would like to participate! You will just need to submit your golf licence number.</p>
+          <p class="r d2">If you prefer other activities, you can explore Valencia or make use of the facilities available from Parador El Saler: bicycle hire, boat trips on L’Albufera and sailing trips on the Mediterranean.</p>
+          <a class="ev-cta-button ev-inline-cta r d3" href="about-valencia.html">About Valencia</a>
           <div class="ev-info r d3">
             <div class="ev-info-row">
               <span class="ev-info-k">Golf</span>
@@ -543,7 +441,7 @@
             </div>
             <div class="ev-info-row">
               <span class="ev-info-k">Resort</span>
-              <span class="ev-info-v">Friday &amp; Saturday — pool, beach access &amp; bike hire</span>
+              <span class="ev-info-v">Friday &amp; Saturday — bicycle hire, L’Albufera boat trips &amp; Mediterranean sailing</span>
             </div>
           </div>
         </div>
@@ -562,7 +460,7 @@
         <div class="ev-day-content">
           <span class="ev-day-label r">Friday &middot; 9 July &middot; 19:00</span>
           <h2 class="r d1">Welcome Cocktail</h2>
-          <p class="r d2">We will gather at Parador El Saler for a welcome cocktail to kick off the weekend.</p>
+          <p class="r d2">We will gather at Parador El Saler for a welcome cocktail on Friday night at 19:00h. Cocktail attire.</p>
           <div class="ev-info r d3">
             <div class="ev-info-row">
               <span class="ev-info-k">Time</span>

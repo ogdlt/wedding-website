@@ -391,8 +391,15 @@
       background-position: center, 56% 62%;
     }
 
-    .av-area-heading {
+    .av-area-heading-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       margin: 0 0 26px;
+    }
+
+    .av-area-heading {
+      margin: 0;
       font-family: "Cormorant Garamond", serif;
       font-size: clamp(30px, 3.6vw, 43px);
       font-weight: 500;
@@ -556,13 +563,25 @@
       min-width: 0;
     }
 
-    .av-restaurant-note {
-      margin-inline-start: 4px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 12px;
-      font-style: italic;
-      color: var(--accent);
-      white-space: nowrap;
+    .av-paella-icon {
+      width: auto;
+      height: auto;
+      margin-inline-start: 5px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      vertical-align: -1px;
+      font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+      font-size: 17px;
+      line-height: 1;
+    }
+
+    .av-paella-icon::before {
+      content: "🥘";
+    }
+
+    .av-paella-icon svg {
+      display: none;
     }
 
     .av-restaurant-list .av-map-link {
@@ -841,6 +860,13 @@
         <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path>
         <circle cx="12" cy="10" r="2.5"></circle>
       </symbol>
+      <symbol id="paella-icon" viewBox="0 0 24 24">
+        <path d="M4.5 10.5a7.5 7.5 0 0 0 15 0Z"></path>
+        <path d="M2 10.5h2.5M19.5 10.5H22"></path>
+        <circle cx="8" cy="13.2" r=".8"></circle>
+        <circle cx="12" cy="12.7" r=".8"></circle>
+        <circle cx="16" cy="13.2" r=".8"></circle>
+      </symbol>
     </svg>
     <!-- HERO / INTRO -->
     <section class="av-hero">
@@ -969,7 +995,10 @@
         </div>
 
         <section class="av-area-group av-area-group--old-town" aria-labelledby="old-town-guide-title">
-          <h3 id="old-town-guide-title" class="av-area-heading">Old Town &amp; City Center</h3>
+          <div class="av-area-heading-row">
+            <h3 id="old-town-guide-title" class="av-area-heading">Old Town &amp; City Center</h3>
+            <a class="av-map-link av-itinerary-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Plaza+del+Ayuntamiento%2C+Valencia&amp;destination=Plaza+de+la+Virgen%2C+Valencia&amp;waypoints=Mercado+Central+de+Valencia%7CLa+Lonja+de+la+Seda%2C+Valencia%7CCatedral+de+Valencia+y+El+Miguelete&amp;travelmode=walking" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open full itinerary in Google Maps</span></a>
+          </div>
           <div class="av-things-grid">
             <article class="av-place-card">
               <img class="av-place-illustration" src="/images/valencia-guide/plaza-ayuntamiento.webp" alt="" loading="lazy" decoding="async" />
@@ -1010,7 +1039,10 @@
         </section>
 
         <section class="av-area-group av-area-group--maritime" aria-labelledby="maritime-guide-title">
-          <h3 id="maritime-guide-title" class="av-area-heading">Maritime Area</h3>
+          <div class="av-area-heading-row">
+            <h3 id="maritime-guide-title" class="av-area-heading">Maritime Area</h3>
+            <a class="av-map-link av-itinerary-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Playa+de+la+Malvarrosa%2C+Valencia&amp;destination=Ciudad+de+las+Artes+y+las+Ciencias%2C+Valencia&amp;waypoints=Marina+de+Valencia&amp;travelmode=walking" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open full itinerary in Google Maps</span></a>
+          </div>
           <div class="av-things-grid">
             <article class="av-place-card">
               <img class="av-place-illustration" src="/images/valencia-guide/malvarrosa.webp" alt="" loading="lazy" decoding="async" />
@@ -1054,11 +1086,10 @@
           <article class="av-restaurant-card">
             <h3 class="av-restaurant-heading">Old Town &amp; City Center</h3>
             <ul class="av-restaurant-list">
-              <li><span class="av-restaurant-name">Casa Ana <span class="av-restaurant-note">(Great for paella!)</span></span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Casa+Ana+Valencia+restaurant" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
-              <li><span class="av-restaurant-name">Palace Fesol <span class="av-restaurant-note">(Great for paella!)</span></span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Palace+Fesol+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
-              <li><span class="av-restaurant-name">Pilsener <span class="av-restaurant-note">(Great for paella!)</span></span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Pilsener+Valencia+restaurant" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
-              <li><span class="av-restaurant-name">Bar Cremaet <span class="av-restaurant-note">(Great for paella!)</span></span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Bar+Cremaet+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
-              <li><span>Llebeig Alameda</span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Llebeig+Alameda+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+              <li><span class="av-restaurant-name">Casa Ana <span class="av-paella-icon" role="img"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#paella-icon"></use></svg><span class="visually-hidden">Great for paella!</span></span></span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Casa+Ana+Valencia+restaurant" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+              <li><span class="av-restaurant-name">Palace Fesol <span class="av-paella-icon" role="img"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#paella-icon"></use></svg><span class="visually-hidden">Great for paella!</span></span></span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Palace+Fesol+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+              <li><span class="av-restaurant-name">Pilsener <span class="av-paella-icon" role="img"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#paella-icon"></use></svg><span class="visually-hidden">Great for paella!</span></span></span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Pilsener+Valencia+restaurant" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+              <li><span class="av-restaurant-name">Bar Cremaet <span class="av-paella-icon" role="img"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#paella-icon"></use></svg><span class="visually-hidden">Great for paella!</span></span></span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Bar+Cremaet+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
               <li><span>Attic Alameda</span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Attic+Alameda+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
               <li><span>Ultramarinos Pope</span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Ultramarinos+Pope+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
               <li><span>Ultramarinos Huerta</span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Ultramarinos+Huerta+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
@@ -1071,13 +1102,12 @@
           <article class="av-restaurant-card">
             <h3 class="av-restaurant-heading">Maritime Area</h3>
             <ul class="av-restaurant-list">
-              <li><span class="av-restaurant-name">Casa Carmela <span class="av-restaurant-note">(Great for paella!)</span></span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Casa+Carmela+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
-              <li><span class="av-restaurant-name">Panorama <span class="av-restaurant-note">(Great for paella!)</span></span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Panorama+Valencia+restaurant" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
-              <li><span class="av-restaurant-name">La Pepica <span class="av-restaurant-note">(Great for paella!)</span></span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=La+Pepica+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
-              <li><span class="av-restaurant-name">La Alegría de la Huerta <span class="av-restaurant-note">(Great for paella!)</span></span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=La+Alegria+de+la+Huerta+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
-              <li><span class="av-restaurant-name">L’Establiment <span class="av-restaurant-note">(Great for paella!)</span></span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=L%27Establiment+El+Palmar+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
-              <li><span>Mercabanyal</span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Mercabanyal+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
-              <li><span>La Más Bonita</span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=La+Mas+Bonita+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+              <li><span class="av-restaurant-name">Casa Carmela <span class="av-paella-icon" role="img"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#paella-icon"></use></svg><span class="visually-hidden">Great for paella!</span></span></span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Casa+Carmela+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+              <li><span class="av-restaurant-name">Panorama <span class="av-paella-icon" role="img"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#paella-icon"></use></svg><span class="visually-hidden">Great for paella!</span></span></span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Panorama+Valencia+restaurant" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+              <li><span class="av-restaurant-name">La Pepica <span class="av-paella-icon" role="img"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#paella-icon"></use></svg><span class="visually-hidden">Great for paella!</span></span></span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=La+Pepica+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+              <li><span class="av-restaurant-name">La Alegría de la Huerta <span class="av-paella-icon" role="img"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#paella-icon"></use></svg><span class="visually-hidden">Great for paella!</span></span></span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=La+Alegria+de+la+Huerta+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+              <li><span class="av-restaurant-name">L’Establiment <span class="av-paella-icon" role="img"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#paella-icon"></use></svg><span class="visually-hidden">Great for paella!</span></span></span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=L%27Establiment+El+Palmar+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
+              <li><span>La Más Bonita</span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=La+Mas+Bonita+Patacona%2C+Passeig+Maritim+de+la+Patacona%2C+11%2C+46120+Alboraia%2C+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
               <li><span>Veles e Vents</span><a class="av-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Veles+e+Vents+Valencia" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#map-pin-icon"></use></svg><span class="visually-hidden">Open in Google Maps</span></a></li>
             </ul>
           </article>
